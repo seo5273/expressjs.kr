@@ -7,7 +7,6 @@ HTML = index.html \
 	applications.html \
 	community.html \
 	faq.html \
-	3x/api.html \
 	4x/api.html
 
 docs: $(HTML)
@@ -19,6 +18,6 @@ docs: $(HTML)
 	$(JADE) --path $< < $< > $@
 
 clean:
-	rm -f *.html 3x/*.html 4x/*.html
+	rm -f *.html 4x/*.html
 
 .PHONY: docs clean

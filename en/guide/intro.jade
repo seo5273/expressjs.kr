@@ -2,20 +2,18 @@ section
   h3(id='intro') 시작하기
 
   p.
-    With node installed (<a href="http://nodejs.org/download">download</a>),
-    get your first application started by creating a directory somewhere
-    on your machine:
+    노드를 설치하고 (<a href="http://nodejs.org/download">다운로드</a>),
+    컴퓨터에 디렉토리를 만든 후, 첫 애플리케이션을 생성합니다.
 
   +js.
     $ mkdir hello-world
 
   p.
-    In this same directory you'll be defining the application "package", which
-    are no different than any other node package. You'll need a package.json
-    file in the directory, with express defined as a dependency. You may use
-    <code>npm info express version</code> to fetch the latest version, it's
-    preferred that you do this instead of "3.x" below to prevent any future
-    surprises.
+    이는 같은 디렉토리 안에 애플리케이션 "package"를 정의를 할 것이며, 이 "package"들은 다른 노드 package들과 다르지 않습니다.
+    이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 가져오기 위해서는
+    <code>npm info express version</code>을 사용 할 수 있습니다.    
+    미래에 예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 아래를 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
+
 
   +js.
     {
@@ -29,19 +27,17 @@ section
     }
 
   p.
-    Now that you have a package.json file in this directory you can use
-    <code>npm(1)</code> to install the dependencies, in this case just
-    Express:
+    이제 이 디렉토리 안에 package.json파일이 있으므로, 의존성 파일들을 설치하기 위해서 
+    <code>npm(1)</code>을 사용 할 수 있습니다.
+    이 때, 단순히 Express 하세요.
 
   +js.
     $ npm install
 
   p.
-    Once npm finishes you'll have a localized Express 3.x dependency in
-    the ./node_modules directory. You may verify this with <code>npm ls</code>
-    as shown in the following snippet displaying a tree of Express and its
-    own dependencies.
-
+    npm이 끝나면, ./node_modules 디렉토리에 로컬라이징 된 Express 3.x 의존성이 생성이 됩니다.
+    아래 Express 트리와 의존성들을 보여주는 아래의 스니펫(snippet, 작은 정보들)에서 
+    보여지는 것 같이 나오는 지 확인해 보세요.
   +js.
     $ npm ls
     hello-world@0.0.1 /private/tmp
@@ -65,24 +61,22 @@ section
         └── mime@1.2.6
 
   p.
-    Now to create the application itself! Create a file named app.js or server.js,
-    whichever you prefer, require express and then create a new application with <code>express()</code>:
+    이제 애플케이션 자체를 생성 해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
+    그리고 <code>express()</code>를 사용하여 새 애플리케이션을 생성하세요.
+
 
   +js.
     var express = require('express');
     var app = express();
 
   p.
-    With the new application instance you can start defining routes via <code>app.VERB()</code>,
-    in this case "GET /" responding with the "Hello World" string. The <code>req</code> and
-    <code>res</code> are the exact same objects that node provides to you, thus you may invoke
-    <code>res.pipe()</code>, <code>req.on('data', callback)</code> and anything else you
-    would do without Express involved.
+    새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 루트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
+    <code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 오프젝트며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
+    기타 Express가 쓰이지 않은 것 등을 호출 할 수 있습니다.
 
   p.
-    Express augments these objects providing you with higher level
-    methods such as <code>res.send()</code>, which among other things
-    adds the Content-Length for you:
+    Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공하며 이러한 오브젝트들을 증가시킵니다. 
+    또한 Content-Length를 더해줍니다. 
 
   +js.
     app.get('/hello.txt', function(req, res){
@@ -90,8 +84,9 @@ section
     });
 
   p.
-    Now to bind and listen for connections invoke the <code>app.listen()</code> method,
-    accepting the same arguments as node's <a href="http://nodejs.org/api/net.html#net_server_listen_port_host_backlog_listeninglistener">net.Server#listen()</a>:
+    이제, 연결을 bind하고 listen 하기 위하여, node의 <a href="http://nodejs.org/api/net.html#net_server_listen_port_host_backlog_listeninglistener">net.Server#listen()</a>
+    와 같은 같은 arguments를 받아들이는 <code>app.listen()</code> 메소드를 호출합니다. 
+
 
   +js.
     var server = app.listen(3000, function() {

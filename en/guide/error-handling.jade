@@ -1,10 +1,9 @@
 section
-  h3(id='error-handling') Error handling
+  h3(id='error-handling') 오류 처리
 
   p.
-    Error-handling middleware are defined just like regular middleware,
-    however must be defined with an arity of 4, that is the signature
-    <code>(err, req, res, next)</code>:
+    오류 처리 미들웨어는 다른 보통 미들웨어와 마찬가지로 정의되지만, 
+    특히 오류 처리 미들웨어는 4개의 argument <code>(err, req, res, next)</code>로 정의되어야 합니다.
 
   +js.
     app.use(function(err, req, res, next){
@@ -13,8 +12,8 @@ section
     });
 
   p.
-    Though not mandatory error-handling middleware are typically defined
-    very last, below any other <code>app.use()</code> calls as shown here:
+    필수 오류 처리 미들웨어가 전형적으로 가장 마지막에 정의되는 것은 아니지만, 아래 다른 <code>app.use()</code>들은
+    여기서 보이는 것과 같이 호출합니다.
 
   +js.
     var bodyParser = require('body-parser');
@@ -28,15 +27,13 @@ section
     });
 
   p.
-    Responses from within these middleware are completely arbitrary. You may
-    wish to respond with an HTML error page, a simple message, a JSON string,
-    or anything else you prefer.
-
-  p.
-    For organizational, and higher-level framework purposes you may define
-    several of these error-handling middleware, much like you would with
-    regular middleware. For example suppose you wanted to define an error-handler
-    for requests made via XHR, and those without, you might do:
+    미들웨어 안에서의 응답(Response)은 완전히 임의적입니다.
+    HTML 에러 페이지, 간단한 메세지, JSON 문자열이나 기타 원하는 방법으로 응답하세요.
+     
+  p.  
+    조직체나 높은 레벨의 프레임워크 목적을 위해서는 보통 미들웨어를 정의하는 것과 같이
+    이러한 여러 미들웨어를 정의합니다. 
+    예를 들면, XHR을 통해 만들어진 요청(requests)을 위한 오류 핸들러를 정의 할 때 (그리고 요청을 제외 할 때에), 이래처럼 하세요. 
 
   +js.
     var bodyParser = require('body-parser');
@@ -50,8 +47,7 @@ section
     app.use(errorHandler);
 
   p.
-    Where the more generic <code>logErrors</code> may write request and
-    error information to stderr, loggly, or similar services:
+    더 포괄적(generic) <code>logErrors</code>가 에러 정보를 stderr, loggly, 혹은 비슷한 서비스들에게 요청을 보내는 부분입니다.
 
   +js.
     function logErrors(err, req, res, next) {
@@ -60,8 +56,7 @@ section
     }
 
   p.
-    Where <code>clientErrorHandler</code> is defined as the following, note
-    that the error is explicitly passed along to the next.
+    <code>clientErrorHandler</code>가 다음과 같이 정의되는 부분입니다. 에러가 명확히 다음으로 넘어 간다는 것을 알아두세요.
 
   +js.
     function clientErrorHandler(err, req, res, next) {
@@ -73,7 +68,7 @@ section
     }
 
   p.
-    The following <code>errorHandler</code> "catch-all" implementation may be defined as:
+    아래의 <code>errorHandler</code> "catch-all" 실행은(implementation) 다음과 같이 정의됩니다.
 
   +js.
     function errorHandler(err, req, res, next) {

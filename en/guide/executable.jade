@@ -1,17 +1,16 @@
 section
-  h3(id='executable') Using express(1) to generate an app
+  h3(id='executable') express(1)을 사용하여 애플리케이션 생성하기
 
   p.
-    The Express team maintains a handy quickstart project generator aptly named <code>express(1)</code>. If you install express-generator globally with npm you'll have it available from anywhere on your machine:
+    Express팀은 <code>express(1)</code>라는 손 쉬고 빠른 프로젝트 시작을 위한 생성기를 사용합니다.
+    express 생성기와 npm를 전역적으로 설치하면 컴퓨터 내부 어디서든 사용 할 수 있습니다.
 
   +js.
     $ npm install -g express-generator
 
   p.
-    This tool provides a simple way to get an application skeleton going,
-    but has limited scope, for example it supports only a few template engines,
-    whereas Express itself supports virtually any template engine built for node.
-    Be sure to check out the <code>--help</code>:
+    이 툴은 애플리케이션 골격 작업을 위한 간단한 방법을 제공하지만, 적은 수의 엔진 템플릿을 지원 하는 등의 제한 적인 범위를 제공한다는 특징도 있습니다.
+    그러나 반대로 Express는 이 자체로 노드를 위해 설계된 가상 템플릿 엔진도 지원합니다. <code>--help</code>도 확인해보세요.
 
   +js.
 
@@ -27,8 +26,7 @@ section
       -f, --force         force on non-empty directory
 
   p.
-    If you want to generate an application with Jade and Stylus
-    support you would simply execute:
+    만일 Jade와 Stylus를 제원하는 애플리케이션을 생성하고 싶다면, 아래대로 실행해보세요.
 
   +js.
     $ express --css stylus myapp
@@ -54,21 +52,21 @@ section
       $ DEBUG=myapp node app
 
   p.
-    Like any other node application, you must then install the dependencies:
+    그 후, 다른 노트 애플리케이션과 마찬가지로 의존성을 설치해야 합니다.
 
   +js.
     $ cd myapp
     $ npm install
 
   p.
-   Then fire it up!
+   이제, 작동 시켜 봅시다!
 
   +js.
     $ npm start
 
   p.
-    That's all you need to get a simple application up and running. Keep in mind
-    that Express is not bound to any specific directory structure, these are simply
-    a baseline for you to work from. For application structure alternatives be
-    sure to view the <a href="https://github.com/visionmedia/express/tree/master/examples">examples</a>
-    found in the github repo.
+    여기까지 정도로 간단한 애플리케이션을 만들고 실행 시킬 수 있습니다. 
+    Express는 특정한 디렉토리 구조에 한정하지 않지만, 간단한 기준은 있다는 것을 명심하세요.
+    다른 애플리케이션 구조들을 보려면, github repo의 <a href="https://github.com/visionmedia/express/tree/master/examples">examples</a>
+    를 참고하시기 바랍니다.
+
