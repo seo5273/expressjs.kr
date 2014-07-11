@@ -1,10 +1,10 @@
-# ExpressJS.com
+# ExpressJS.kr
 
-  The site for Express.
+  Express를 위한 사이트입니다.
 
-## Building
+## 빌드
 
-Setup:
+설치:
 
 ```
 $ npm install -g serve
@@ -14,7 +14,7 @@ $ serve . &
 $ open http://localhost:3000
 ```
 
-then rebuild changes with:
+다시 빌드하려면 다음 명령어를 입력하십시오.:
 
 ```
 $ make
