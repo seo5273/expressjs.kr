@@ -887,13 +887,11 @@ would match "GET /commits/71dbb9c" as well as "GET /commits/71dbb9c..4c084f9".
   var from = req.params[0];
   var to = req.params[1] || 'HEAD';
   res.send('commit range ' + from + '..' + to);
-});</code></pre></section><h2>Middleware</h2><a name="middleware"></a><p>As of 4.x, Express no longer depends on Connect. All of Express' previously included middleware are now in separate repos. Please view <a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>. The only included middleware is now <code>express.static()</code>.</p></div></section><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-25235225-1']);
-_gaq.push(['_trackPageview']);
+});</code></pre></section><h2>Middleware</h2><a name="middleware"></a><p>As of 4.x, Express no longer depends on Connect. All of Express' previously included middleware are now in separate repos. Please view <a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>. The only included middleware is now <code>express.static()</code>.</p></div></section><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script><a id="top" href="#"><img src="/images/arrow.png"></a><footer><div id="footer-content">© 2012 TJ Holowaychuk. All rights reserved.</div></footer></body></html>
+ga('create', 'UA-38025412-4', 'auto');
+ga('send', 'pageview');
+</script><a id="top" href="#"><img src="/images/arrow.png"></a></body></html>
