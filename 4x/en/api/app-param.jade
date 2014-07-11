@@ -2,17 +2,17 @@ section
   h3(id='app.param') app.param([name], callback)
   
   p.
-    Map logic to route parameters. For example when <code>:user</code>
-    is present in a route path you may map user loading logic to automatically
-    provide <code>req.user</code> to the route, or perform validations
-    on the parameter input.
+    로직(logic)을 라우트 파라미터로 맵핑합니다.
+    예를 들어, <code>:user</code>가 라우트 경로에 있을 때, 
+    자동적으로 <code>req.user</code>을 자동적으로 제공하기 위해서 유저 로딩 로직(user loading logic)을
+    루트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
 
   p.
-    The following snippet illustrates how the <code>callback</code>
-    is much like middleware, thus supporting async operations, however
-    providing the additional value of the parameter, here named as <code>id</code>.
-    An attempt to load the user is then performed, assigning <code>req.user</code>,
-    otherwise passing an error to <code>next(err)</code>.
+    아래는 <code>callback</code>가 얼마나 미들웨어랑 비슷한 지를 보여줍니다.
+    그러므로 아래는 비동기 오퍼레이션(async operations)을 지원하고 파라미터의 부가적인 값(여기서는 <code>id</code>)들을 
+    제공하는 것을 보여줍니다.  
+    User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를 할당합니다. 그렇지 않으면 에러를 <code>next(err)</code>로 넘깁니다. 
+    
 
   +js.
     app.param('user', function(req, res, next, id){
@@ -29,15 +29,13 @@ section
     });
 
   p.
-    Alternatively you may pass only a <code>callback</code>, in which
-    case you have the opportunity to alter the <code>app.param()</code> API.
-    For example the <a href="http://github.com/visionmedia/express-params">express-params</a>
-    defines the following callback which allows you to restrict parameters to a given
-    regular expression. 
+    다른 방법으론, <code>callback</code>만 넘기는 방법이 있는데, 이 경우에는 <code>app.param()</code> API를
+    변경 할 수 있습니다.
+    예를 들어, <a href="http://github.com/visionmedia/express-params">express-params</a>는
+    아래 주어진 정규식으로 파라미터를 제한 할 수 있는 콜백을 정의 해 줍니다.
 
   p.
-    This example is a bit more advanced, checking if the second argument is a regular
-    expression, returning the callback which acts much like the "user" param example.
+    아래 예제는 두 번째 argument가 정규식인지 확인하고, "user" param 예제 같은 역할의 콜백을 반환해주는 것을 보여주는 응용 예제 입니다.
 
   +js.
     app.param(function(name, fn){
@@ -55,8 +53,7 @@ section
     });
 
   p.
-    The method could now be used to effectively validate parameters, or also
-    parse them to provide capture groups:
+    이 메소드는 파라미터들의 유효성 검사나 캡쳐 그룹(capture groups)을 제공하기 위해 파싱 할 때 효과적으로 쓰입니다.
 
   +js.
     app.param('id', /^\d+$/);

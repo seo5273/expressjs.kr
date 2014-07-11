@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Express - api reference</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description">web application framework for<a href="http://nodejs.org"> node</a></span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html" class="active">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="/3x/api.html">3.x docs</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
+<!DOCTYPE html><html><head><title>Express - api reference</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html" class="active">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="/3x/api.html">3.x docs</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -88,46 +88,38 @@ app.use(logger());
 app.use(function(req, res){
   res.send('Hello');
 });
-</code></pre><p>Another concrete example would be serving files from multiple directories,
-giving precedence to "./public" over the others:
-다른 예제는 여러 디렉토리의 사용 파일(serving files)가 다른 것들보다 "./public"에 우선순위를 주는 것입니다.
+</code></pre><p>다른 예제는 여러 디렉토리의 사용 파일(serving files)가 다른 것들보다 "./public"에 우선순위를 주는 것입니다.
 </p><pre class="js"><code>app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/files'));
-app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="app.engine">app.engine(ext, callback)</h3><p>주어진 템플릿 엔진(template engine) code>callback</code>을 <code>ext</code>로 등록합니다.
-
-By default will <code>require()</code> the engine based on the
-file extension. 
-기본 값은 파일 확장자에 기반한 
-For example if you try to render
-a "foo.jade" file Express will invoke the following internally,
-and cache the <code>require()</code> on subsequent calls to increase
-performance.
+app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="app.engine">app.engine(ext, callback)</h3><p>주어진 템플릿 엔진(template engine) <code>callback</code>을 <code>ext</code>로 등록합니다.
+기본 값은 파일 확장자에 기반한 엔진을 필요로 합니다.
+예를 들어, "foo.jade"파일을 만들 때(render), Express는 내부적으로 아래를 호출하며,
+성능을 증가시키기 위해 이후의 콜들의 <code>require()</code>을 캐싱합니다.
 </p><pre class="js"><code>app.engine('jade', require('jade').__express);
-</code></pre><p>For engines that do not provide <code>.__express</code> out of the box -
-or if you wish to "map" a different extension to the template engine
-you may use this method. For example mapping the EJS template engine to
-".html" files:
+</code></pre><p>Box 외부의 <code>.__express</code>를 제공 하지 않는 엔진이나, 혹은
+다른 확장을 (different extension) 템플릿 엔진(template engine)으로 맵핑(map) 시키고 싶다면,
+이 방법을 이용하세요. 예를 들어 EJS 템플릿 엔진을 ".html" files:로 맵핑 시킬 때는,
 </p><pre class="js"><code>app.engine('html', require('ejs').renderFile);
-</code></pre><p>In this case EJS provides a <code>.renderFile()</code> method with
-the same signature that Express expects: <code>(path, options, callback)</code>,
-though note that it aliases this method as <code>ejs.__express</code> internally
-so if you're using ".ejs" extensions you dont need to do anything.
-</p><p>Some template engines do not follow this convention, the
+</code></pre><p>이런 경우에는 Express가 기대하는 <code>(path, options, callback)</code> 같은 서명을 가진 
+<code>.renderFile()</code> 메소드를 제공합니다.
+
+그러나 이 메소드는 내부적으로 <code>ejs.__express</code>라고 불려지고, ".ejs"확장자를 사용한다면
+아무 것도 하지 않아도 된다는 걸 알아두세요. 
+</p><p>어떤 템플릿 엔진(template engines)는 이러한 방식을 따르지 않습니다. 
 <a href="https://github.com/visionmedia/consolidate.js">consolidate.js</a>
-library was created to map all of node's popular template
-engines to follow this convention, thus allowing them to
-work seemlessly within Express.
+라이브러리는 모든 노드의 널리 쓰이는 템플릿 엔진이 이러한 방식을 따르도록 맵핑 시키기 위해 만들어졌고,
+이 때문에 Express 안에 비슷하게 사용됩니다.
 </p><pre class="js"><code>var engines = require('consolidate');
 app.engine('haml', engines.haml);
-app.engine('html', engines.hogan);</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>Map logic to route parameters. For example when <code>:user</code>
-is present in a route path you may map user loading logic to automatically
-provide <code>req.user</code> to the route, or perform validations
-on the parameter input.
-</p><p>The following snippet illustrates how the <code>callback</code>
-is much like middleware, thus supporting async operations, however
-providing the additional value of the parameter, here named as <code>id</code>.
-An attempt to load the user is then performed, assigning <code>req.user</code>,
-otherwise passing an error to <code>next(err)</code>.
+app.engine('html', engines.hogan);</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>로직(logic)을 라우트 파라미터로 맵핑합니다.
+예를 들어, <code>:user</code>가 라우트 경로에 있을 때, 
+자동적으로 <code>req.user</code>을 자동적으로 제공하기 위해서 유저 로딩 로직(user loading logic)을
+루트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
+</p><p>아래는 <code>callback</code>가 얼마나 미들웨어랑 비슷한 지를 보여줍니다.
+그러므로 아래는 비동기 오퍼레이션(async operations)을 지원하고 파라미터의 부가적인 값(여기서는 <code>id</code>)들을 
+제공하는 것을 보여줍니다.  
+User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를 할당합니다. 그렇지 않으면 에러를 <code>next(err)</code>로 넘깁니다. 
+
 </p><pre class="js"><code>app.param('user', function(req, res, next, id){
   User.find(id, function(err, user){
     if (err) {
@@ -140,13 +132,11 @@ otherwise passing an error to <code>next(err)</code>.
     }
   });
 });
-</code></pre><p>Alternatively you may pass only a <code>callback</code>, in which
-case you have the opportunity to alter the <code>app.param()</code> API.
-For example the <a href="http://github.com/visionmedia/express-params">express-params</a>
-defines the following callback which allows you to restrict parameters to a given
-regular expression. 
-</p><p>This example is a bit more advanced, checking if the second argument is a regular
-expression, returning the callback which acts much like the "user" param example.
+</code></pre><p>다른 방법으론, <code>callback</code>만 넘기는 방법이 있는데, 이 경우에는 <code>app.param()</code> API를
+변경 할 수 있습니다.
+예를 들어, <a href="http://github.com/visionmedia/express-params">express-params</a>는
+아래 주어진 정규식으로 파라미터를 제한 할 수 있는 콜백을 정의 해 줍니다.
+</p><p>아래 예제는 두 번째 argument가 정규식인지 확인하고, "user" param 예제 같은 역할의 콜백을 반환해주는 것을 보여주는 응용 예제 입니다.
 </p><pre class="js"><code>app.param(function(name, fn){
   if (fn instanceof RegExp) {
     return function(req, res, next, val){
@@ -160,8 +150,7 @@ expression, returning the callback which acts much like the "user" param example
     }
   }
 });
-</code></pre><p>The method could now be used to effectively validate parameters, or also
-parse them to provide capture groups:
+</code></pre><p>이 메소드는 파라미터들의 유효성 검사나 캡쳐 그룹(capture groups)을 제공하기 위해 파싱 할 때 효과적으로 쓰입니다.
 </p><pre class="js"><code>app.param('id', /^\d+$/);
 
 app.get('/user/:id', function(req, res){

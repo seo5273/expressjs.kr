@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Express - api reference</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description">web application framework for<a href="http://nodejs.org"> node</a></span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html" class="active">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="/3x/api.html">3.x docs</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
+<!DOCTYPE html><html><head><title>Express - api reference</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html" class="active">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="/3x/api.html">3.x docs</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -7,36 +7,36 @@ app.get('/', function(req, res){
 });
 
 app.listen(3000);</code></pre></section><h2>Application</h2><a name="application"></a><section><h3 id="app-settings">설정</h3><p>The following settings are provided to alter how Express will behave:
-아래 설정들은 어떻게 Express가 행동하는 지를 수정하기 위한 것입니다.
-</p><ul><li><code>env </code>환경 모드(environment mode). 기본 값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"</li><li><code>trust proxy </code>역 프록시(reverse proxy) 지원을 활성화 시키기. 기본 값은 비활성화</li><li><code>jsonp callback name </code><code>?callback=</code>의 기본 콜백 이름 바꾸기. </li><li><code>json replacer </code>JASON의 대체 콜백. 기본 값은 null</li><li><code>case sensitive routing </code>대소문자 구분 활성화 시키기. 기본 값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급한다.</li><li><code>strict routing </code>엄격한 라우팅(Strict routing)을 활성화 시키기. 기본적으로 라우터는 "/foo" and "/foo/"을 같은 것으로 취급힌다.</li><li><code>view cache </code>View template compilation caching을 활성화 시키기. 기본적으로 생산(production)에 활성화 되어있다.</li><li><code>view engine </code>기본 엔진 확장(engine extension).</li><li><code>views </code>View 디렉토리 경로. 기본 값은 "process.cwd() + '/views'"</li><li><code>x-powered-by </code><code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시키기. 기본 값은 활성화</li></ul></section><section><h3 id="app.set">app.set(name, value)</h3><p><code>name</code>을 <code>value</code>로 설정하여 할당한다.
+아래 설정들은 Express가 어떻게 행동하는 지를 수정하기 위한 것입니다.
+</p><ul><li><code>env </code>환경 모드(environment mode). 기본 값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"</li><li><code>trust proxy </code>역 프록시(reverse proxy) 지원을 활성화 시키기. 기본 값은 비활성화.</li><li><code>jsonp callback name </code><code>?callback=</code>의 기본 콜백 이름 바꾸기. </li><li><code>json replacer </code>JASON의 대체 콜백. 기본 값은 null.</li><li><code>case sensitive routing </code>대소문자 구분 활성화 시키기. 기본 값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급한다.</li><li><code>strict routing </code>엄격한 라우팅(Strict routing)을 활성화 시키기. 기본적으로 라우터는 "/foo" and "/foo/"을 같은 것으로 취급힌다.</li><li><code>view cache </code>View template compilation caching을 활성화 시키기. 기본적으로 생산(production)에 활성화 되어있다.</li><li><code>view engine </code>기본 엔진 확장(engine extension).</li><li><code>views </code>View 디렉토리 경로. 기본 값은 "process.cwd() + '/views'"</li><li><code>x-powered-by </code><code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시키기. 기본 값은 활성화.</li></ul></section><section><h3 id="app.set">app.set(name, value)</h3><p><code>name</code>을 <code>value</code>로 설정하여 할당합니다.
 </p><pre class="js"><code>app.set('title', 'My Site');
 app.get('title');
-// => "My Site"</code></pre></section><section><h3 id="app.get">app.get(name)</h3><p>설정된 <code>name</code> 값을 불러온다.
+// => "My Site"</code></pre></section><section><h3 id="app.get">app.get(name)</h3><p>설정된 <code>name</code> 값을 불러옵니다.
 </p><pre class="js"><code>app.get('title');
 // => undefined
 
 app.set('title', 'My Site');
 app.get('title');
-// => "My Site"</code></pre></section><section><h3 id="app.enable">app.enable(name)</h3><p>Set setting <code>name</code> to <code>true</code>.
+// => "My Site"</code></pre></section><section><h3 id="app.enable">app.enable(name)</h3><p><code>name</code>을 <code>true</code>로 설정합니다.
 </p><pre class="js"><code>app.enable('trust proxy');
 app.get('trust proxy');
-// => true</code></pre></section><section><h3 id="app.disable">app.disable(name)</h3><p>Set setting <code>name</code> to <code>false</code>.
+// => true</code></pre></section><section><h3 id="app.disable">app.disable(name)</h3><p><code>name</code>을 <code>false</code>로 설정합니다.
 </p><pre class="js"><code>app.disable('trust proxy');
 app.get('trust proxy');
-// => false</code></pre></section><section><h3 id="app.enabled">app.enabled(name)</h3><p>Check if setting <code>name</code> is enabled.
+// => false</code></pre></section><section><h3 id="app.enabled">app.enabled(name)</h3><p><code>name</code>설정이 활성화 되어 있는 지 검사합니다.
 </p><pre class="js"><code>app.enabled('trust proxy');
 // => false
 
 app.enable('trust proxy');
 app.enabled('trust proxy');
-// => true</code></pre></section><section><h3 id="app.disabled">app.disabled(name)</h3><p>Check if setting <code>name</code> is disabled.
+// => true</code></pre></section><section><h3 id="app.disabled">app.disabled(name)</h3><p><code>name</code>가 비활성화 되어 있는 지 확인합니다.
 </p><pre class="js"><code>app.disabled('trust proxy');
 // => true
 
 app.enable('trust proxy');
 app.disabled('trust proxy');
-// => false</code></pre></section><section><h3 id="app.use">app.use([path], function)</h3><p>Use the given middleware <code>function</code>, with optional mount <code>path</code>,
-defaulting to "/".
+// => false</code></pre></section><section><h3 id="app.use">app.use([path], function)</h3><p>주어진 middleware <code>function</code>와 선택적 마운트(optional mount) <code>path</code>를 사용합니다.
+기본 값은 "/"입니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -52,30 +52,28 @@ app.use(function(req, res, next){
 });
 
 app.listen(3000);
-</code></pre><p>The "mount" path is stripped and is <strong>not</strong> visible
-to the middleware <code>function</code>. The main effect of this feature is that
-mounted middleware may operate without code changes regardless of its "prefix"
-pathname.
-</p><p>Here's a concrete example, take the typical use-case of serving files in ./public
-using the <code>express.static()</code> middleware:
+</code></pre><p>"마운트" 경로는 stripped되어 있으며, 미들웨어 <code>function</code>에서 <strong>보이지 않습니다.</strong>
+이 것의 가장 큰 특징은 마운트 된 미들웨어는 "prefix"의 경로 이름에 관계 없이 코드의 수정 없이도
+작동 할 수 있다는 것입니다.  
+</p><p>아래의 예제는 <code>express.static()</code> 미들웨어를 사용하여
+./public 안의 사용 파일(serving file)의 전형적인 Use-case(typical use-case)를 받습니다.  
 </p><pre class="js"><code>// GET /javascripts/jquery.js
 // GET /style.css
 // GET /favicon.ico
 app.use(express.static(__dirname + '/public'));
-</code></pre><p>Say for example you wanted to prefix all static files with "/static", you could
-use the "mounting" feature to support this. Mounted middleware functions are <strong>not</strong>
-invoked unless the <code>req.url</code> contains this prefix, at which point
-it is stripped when the function is invoked. This affects this function only,
-subsequent middleware will see <code>req.url</code> with "/static" included
-unless they are mounted as well.
+</code></pre><p>예를 들어, 모든 정적 파일에 "/static"이라고 prefix를 하고 싶다면, "마운팅" 특징을 이용하여 지원 할 수 있습니다.
+마운트 된 미들웨어 함수는 함수가 호출 되어 있을 때 stripped 되어 있지 않은 상태의
+<code>req.url</code>가 이 prefix를 포함하고 있지 않으면 <strong>호출 되지 않습니다.</strong>
+
+이 것은 함수에만 영향을 끼치며, 그 이후 미들웨어는 마운트 되지 않은 이상 "/static"이 포함된 <code>req.url</code>를
+볼 수 있습니다. 
 </p><pre class="js"><code>// GET /static/javascripts/jquery.js
 // GET /static/style.css
 // GET /static/favicon.ico
 app.use('/static', express.static(__dirname + '/public'));
-</code></pre><p>The order of which middleware are "defined" using <code>app.use()</code> is
-very important, they are invoked sequentially, thus this defines middleware
-precedence. For example, usually any logging middleware is the very
-first middleware you would use:
+</code></pre><p><code>app.use()</code>을 사용하여 "정의 된" 미들웨어의 순서는 매우 중요하며, 미들웨어는 순서대로 호출됩니다.
+그러므로 이 것은 미들웨어의 우선순위를 정의합니다.
+예를 들어, 대체로 로깅 미들웨어는 다른 미들웨어 보다 가장 먼저 나옵니다.
 </p><pre class="js"><code>var logger = require('morgan');
 
 app.use(logger());
@@ -83,51 +81,45 @@ app.use(express.static(__dirname + '/public'));
 app.use(function(req, res){
   res.send('Hello');
 });
-</code></pre><p>Now suppose you wanted to ignore logging requests for static files, but to
-continue logging routes and middleware defined after <code>logger()</code>,
-you would simply move <code>static()</code> above:
+</code></pre><p>만약 정적 파일을 위한 로깅 요청을 무시하고, <code>logger()</code> 후에 로깅 라우트나 미들웨어 정의를 계속 하고 싶다면,
+위의 <code>static()</code>로 이동하세요.
 </p><pre class="js"><code>app.use(express.static(__dirname + '/public'));
 app.use(logger());
 app.use(function(req, res){
   res.send('Hello');
 });
-</code></pre><p>Another concrete example would be serving files from multiple directories,
-giving precedence to "./public" over the others:
+</code></pre><p>다른 예제는 여러 디렉토리의 사용 파일(serving files)가 다른 것들보다 "./public"에 우선순위를 주는 것입니다.
 </p><pre class="js"><code>app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/files'));
-app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="app.engine">app.engine(ext, callback)</h3><p>Register the given template engine <code>callback</code> as <code>ext</code>
-
-By default will <code>require()</code> the engine based on the
-file extension. For example if you try to render
-a "foo.jade" file Express will invoke the following internally,
-and cache the <code>require()</code> on subsequent calls to increase
-performance.
+app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="app.engine">app.engine(ext, callback)</h3><p>주어진 템플릿 엔진(template engine) <code>callback</code>을 <code>ext</code>로 등록합니다.
+기본 값은 파일 확장자에 기반한 엔진을 필요로 합니다.
+예를 들어, "foo.jade"파일을 만들 때(render), Express는 내부적으로 아래를 호출하며,
+성능을 증가시키기 위해 이후의 콜들의 <code>require()</code>을 캐싱합니다.
 </p><pre class="js"><code>app.engine('jade', require('jade').__express);
-</code></pre><p>For engines that do not provide <code>.__express</code> out of the box -
-or if you wish to "map" a different extension to the template engine
-you may use this method. For example mapping the EJS template engine to
-".html" files:
+</code></pre><p>Box 외부의 <code>.__express</code>를 제공 하지 않는 엔진이나, 혹은
+다른 확장을 (different extension) 템플릿 엔진(template engine)으로 맵핑(map) 시키고 싶다면,
+이 방법을 이용하세요. 예를 들어 EJS 템플릿 엔진을 ".html" files:로 맵핑 시킬 때는,
 </p><pre class="js"><code>app.engine('html', require('ejs').renderFile);
-</code></pre><p>In this case EJS provides a <code>.renderFile()</code> method with
-the same signature that Express expects: <code>(path, options, callback)</code>,
-though note that it aliases this method as <code>ejs.__express</code> internally
-so if you're using ".ejs" extensions you dont need to do anything.
-</p><p>Some template engines do not follow this convention, the
+</code></pre><p>이런 경우에는 Express가 기대하는 <code>(path, options, callback)</code> 같은 서명을 가진 
+<code>.renderFile()</code> 메소드를 제공합니다.
+
+그러나 이 메소드는 내부적으로 <code>ejs.__express</code>라고 불려지고, ".ejs"확장자를 사용한다면
+아무 것도 하지 않아도 된다는 걸 알아두세요. 
+</p><p>어떤 템플릿 엔진(template engines)는 이러한 방식을 따르지 않습니다. 
 <a href="https://github.com/visionmedia/consolidate.js">consolidate.js</a>
-library was created to map all of node's popular template
-engines to follow this convention, thus allowing them to
-work seemlessly within Express.
+라이브러리는 모든 노드의 널리 쓰이는 템플릿 엔진이 이러한 방식을 따르도록 맵핑 시키기 위해 만들어졌고,
+이 때문에 Express 안에 비슷하게 사용됩니다.
 </p><pre class="js"><code>var engines = require('consolidate');
 app.engine('haml', engines.haml);
-app.engine('html', engines.hogan);</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>Map logic to route parameters. For example when <code>:user</code>
-is present in a route path you may map user loading logic to automatically
-provide <code>req.user</code> to the route, or perform validations
-on the parameter input.
-</p><p>The following snippet illustrates how the <code>callback</code>
-is much like middleware, thus supporting async operations, however
-providing the additional value of the parameter, here named as <code>id</code>.
-An attempt to load the user is then performed, assigning <code>req.user</code>,
-otherwise passing an error to <code>next(err)</code>.
+app.engine('html', engines.hogan);</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>로직(logic)을 라우트 파라미터로 맵핑합니다.
+예를 들어, <code>:user</code>가 라우트 경로에 있을 때, 
+자동적으로 <code>req.user</code>을 자동적으로 제공하기 위해서 유저 로딩 로직(user loading logic)을
+루트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
+</p><p>아래는 <code>callback</code>가 얼마나 미들웨어랑 비슷한 지를 보여줍니다.
+그러므로 아래는 비동기 오퍼레이션(async operations)을 지원하고 파라미터의 부가적인 값(여기서는 <code>id</code>)들을 
+제공하는 것을 보여줍니다.  
+User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를 할당합니다. 그렇지 않으면 에러를 <code>next(err)</code>로 넘깁니다. 
+
 </p><pre class="js"><code>app.param('user', function(req, res, next, id){
   User.find(id, function(err, user){
     if (err) {
@@ -140,13 +132,11 @@ otherwise passing an error to <code>next(err)</code>.
     }
   });
 });
-</code></pre><p>Alternatively you may pass only a <code>callback</code>, in which
-case you have the opportunity to alter the <code>app.param()</code> API.
-For example the <a href="http://github.com/visionmedia/express-params">express-params</a>
-defines the following callback which allows you to restrict parameters to a given
-regular expression. 
-</p><p>This example is a bit more advanced, checking if the second argument is a regular
-expression, returning the callback which acts much like the "user" param example.
+</code></pre><p>다른 방법으론, <code>callback</code>만 넘기는 방법이 있는데, 이 경우에는 <code>app.param()</code> API를
+변경 할 수 있습니다.
+예를 들어, <a href="http://github.com/visionmedia/express-params">express-params</a>는
+아래 주어진 정규식으로 파라미터를 제한 할 수 있는 콜백을 정의 해 줍니다.
+</p><p>아래 예제는 두 번째 argument가 정규식인지 확인하고, "user" param 예제 같은 역할의 콜백을 반환해주는 것을 보여주는 응용 예제 입니다.
 </p><pre class="js"><code>app.param(function(name, fn){
   if (fn instanceof RegExp) {
     return function(req, res, next, val){
@@ -160,8 +150,7 @@ expression, returning the callback which acts much like the "user" param example
     }
   }
 });
-</code></pre><p>The method could now be used to effectively validate parameters, or also
-parse them to provide capture groups:
+</code></pre><p>이 메소드는 파라미터들의 유효성 검사나 캡쳐 그룹(capture groups)을 제공하기 위해 파싱 할 때 효과적으로 쓰입니다.
 </p><pre class="js"><code>app.param('id', /^\d+$/);
 
 app.get('/user/:id', function(req, res){
