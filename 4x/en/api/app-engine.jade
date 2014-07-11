@@ -2,10 +2,12 @@ section
   h3(id='app.engine') app.engine(ext, callback)
 
   p.
-    Register the given template engine <code>callback</code> as <code>ext</code>
+    주어진 템플릿 엔진(template engine) code>callback</code>을 <code>ext</code>로 등록합니다.
     
     By default will <code>require()</code> the engine based on the
-    file extension. For example if you try to render
+    file extension. 
+    기본 값은 파일 확장자에 기반한 
+    For example if you try to render
     a "foo.jade" file Express will invoke the following internally,
     and cache the <code>require()</code> on subsequent calls to increase
     performance.

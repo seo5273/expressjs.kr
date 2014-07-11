@@ -1,20 +1,17 @@
 section
-  h3(id='proxies') Express behind proxies
+  h3(id='proxies') 프록시 뒤의 Express
 
   p.
-    Using Express behind a reverse proxy such as Varnish or Nginx
-    is trivial, however it does require configuration. By enabling the "trust proxy" setting via 
-    <code>app.enable('trust proxy')</code>,  Express will have knowledge that
-    it's sitting behind a proxy and that the <code>X-Forwarded-*</code> header
-    fields may be trusted, which otherwise may be easily spoofed.
+    Varnish나 Nginx 같이 역 프록시(reverse proxy) 뒤에 Express를 사용 하는 것은 다소 사소한 방법이나, configuration을 필요로 합니다.
+    <code>app.enable('trust proxy')</code>를 통해 "trust proxy" 설정을 활성화 시키면, 
+    Express는 그냥 두면 스푸핑 되어 버릴 수도 있는 '프록시 뒤의 설정'이라는 사실과
+    <code>X-Forwarded-*</code> 헤더 필드가 신뢰 할 수 있다는 정보를 갖게됩니다.
 
   p.
-    Enabling this setting has several subtle effects. The first of which is
-    that <code>X-Forwarded-Proto</code> may be set by the reverse proxy to
-    tell the app that it is https or simply http. This value is reflected
-    by <a href="/api#req.protocol">req.protocol</a>.
+    이 설정을 활성화 시키면 여러 작은 영향들이 생깁니다. 첫 번째로는, 
+    <code>X-Forwarded-Proto</code>가 역 프록시에 의해 그 앱은 https이거나 단순 http라는 것을 말해주도록 설정이 됩니다.
+    이 값은 <a href="/api#req.protocol">req.protocol</a>에 의해 반영됩니다.
 
   p.
-    The second change this makes is the <a href="/api#req.ip">req.ip</a> 
-    and <a href="/api#req.ips">req.ips</a> values will be populated with
-    <code>X-Forwarded-For</code>'s list of addresses. 
+    두 번째는, <a href="/api#req.ip">req.ip</a>와 <a href="/api#req.ips">req.ips</a>의 값이 
+    <code>X-Forwarded-For</code>의 주소(addresses) 리스트로 채워집니다.

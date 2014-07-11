@@ -1,38 +1,39 @@
 section
-  h3(id='app-settings') settings
+  h3(id='app-settings') 설정
 
   p.
     The following settings are provided to alter how Express will behave:
+    아래 설정들은 Express가 어떻게 행동하는 지를 수정하기 위한 것입니다.
 
   ul
     li
       code env 
-      | Environment mode, defaults to <code>process.env.NODE_ENV</code> (NODE_ENV environment variable) or "development"
+      | 환경 모드(environment mode). 기본 값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"
     li
       code trust proxy 
-      | Enables reverse proxy support, disabled by default
+      | 역 프록시(reverse proxy) 지원을 활성화 시키기. 기본 값은 비활성화.
     li
       code jsonp callback name 
-      | Changes the default callback name of <code>?callback=</code>
+      | <code>?callback=</code>의 기본 콜백 이름 바꾸기. 
     li
       code json replacer 
-      | JSON replacer callback, null by default
+      | JASON의 대체 콜백. 기본 값은 null.
     li
       code case sensitive routing 
-      | Enable case sensitivity, disabled by default, treating "/Foo" and "/foo" as the same
+      | 대소문자 구분 활성화 시키기. 기본 값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급한다.
     li
       code strict routing 
-      | Enable strict routing, by default "/foo" and "/foo/" are treated the same by the router
+      | 엄격한 라우팅(Strict routing)을 활성화 시키기. 기본적으로 라우터는 "/foo" and "/foo/"을 같은 것으로 취급힌다.
     li
       code view cache 
-      | Enables view template compilation caching, enabled in production by default
+      | View template compilation caching을 활성화 시키기. 기본적으로 생산(production)에 활성화 되어있다.
     li
       code view engine 
-      | The default engine extension to use when omitted
+      | 기본 엔진 확장(engine extension).
     li
       code views 
-      | The view directory path, defaulting to "process.cwd() + '/views'"
+      | View 디렉토리 경로. 기본 값은 "process.cwd() + '/views'"
     li
       code x-powered-by 
-      | Enables the <code>X-Powered-By: Express</code> HTTP header, enabled by default
+      | <code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시키기. 기본 값은 활성화.
     
