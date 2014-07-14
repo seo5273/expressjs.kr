@@ -2,11 +2,10 @@ section
   h3(id='req.originalUrl') req.originalUrl
 
   p.
-    This property is much like <code>req.url</code>, however it retains
-    the original request url, allowing you to rewrite <code>req.url</code>
-    freely for internal routing purposes. For example the "mounting" feature
-    of <a href="#app.use">app.use()</a> will rewrite <code>req.url</code> to
-    strip the mount point.
+    이 속성은 <code>req.url</code>와 매우 흡사하지만, 원본 요청 url을 포함하고
+    내부적인 라우팅 목적을 위해 <code>req.url</code>을 자유롭게 rewrite 할 수 있도록 해줍니다. 
+    예를 들어, <a href="#app.use">app.use()</a>의 "mounting" 기능은 
+    마운트 포인트를 strip 할 수 있도록 <code>req.url</code>을 rewrite 합니다.
 
   +js.
     // GET /search?q=something

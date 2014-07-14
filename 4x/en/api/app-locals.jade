@@ -2,9 +2,8 @@ section
   h3(id='app.locals') app.locals
 
   p.
-    Application local variables are provided to all templates
-    rendered within the application. This is useful for providing
-    helper functions to templates, as well as app-level data.
+    애플리케이션 안에 만들어진 모든 템플릿에 애플리케이션의 지역 변수를 제공합니다. 
+    애플리케이션 레벨의 데이터나 템플릿의 helper 함수를 제공 할 때 특히 유용합니다.
 
   +js.
     app.locals.title = 'My App';
@@ -12,8 +11,8 @@ section
     app.locals.email = 'me@myapp.com';
 
   p.
-    The <code>app.locals</code> object is a JavaScript <code>Object</code>. The
-    properties added to it will be exposed as local variables within the application.
+    <code>app.locals</code> 오브젝트는 자바스크립트 <code>Object</code>입니다. 
+    여기에 부여 된 속성은 애플리케이션 안의 지역 변수로서 노출됩니다.
 
   +js.
     app.locals.title
@@ -23,7 +22,7 @@ section
     // => 'me@myapp.com'
 
   p.
-    By default Express exposes only a single app-level local variable, <code>settings</code>.
+    기본적으로 Express는 오직 싱글 애플리케이션 레벨의 지역 변수인 <code>settings</code>만 노출시킵니다.  
 
   +js.
     app.set('title', 'My App');

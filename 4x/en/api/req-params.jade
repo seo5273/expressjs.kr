@@ -2,20 +2,20 @@ section
   h3(id='req.params') req.params
 
   p.
-    This property is an object containing properties mapped to the named route "parameters".
-    For example if you have the route <code>/user/:name</code>, then the "name" property
-    is available to you as <code>req.params.name</code>. This object defaults to <code>{}</code>.
-
+    이 속성은 "parameters" 루트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
+    예를 들어, <code>/user/:name</code>를 가질 때, "name" 속성은 <code>req.params.name</code>로서 사용 가능합니다.
+    이 속성의 기본 값은 <code>{}</code>입니다.
+    
   +js.
     // GET /user/tj
     req.params.name
     // => "tj"
 
   p.
-    When a regular expression is used for the route definition, capture groups
-    are provided in the array using <code>req.params[N]</code>, where <code>N</code>
-    is the nth capture group. This rule is applied to unnamed wild-card matches
-    with string routes such as `/file/*`:
+    When a regular expression is used for the route definition, 
+    정규식이 루트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
+    <code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
+    이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 루트에 적용됩니다.
 
   +js.
     // GET /file/javascripts/jquery.js

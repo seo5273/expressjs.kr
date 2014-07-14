@@ -1,10 +1,10 @@
 section
   h3(id='app.render') app.render(view, [options], callback)
 
-  p.
-    Render a <code>view</code> with a callback responding with
-    the rendered string. This is the app-level variant of <code>res.render()</code>,
-    and otherwise behaves the same way.
+  p. 
+    <code>view</code>과 생성된 문자열에 결과를 나타내는 콜백을 생성합니다.
+    이 것은 <code>res.render()</code>을 애플리케이션 레벨에서 사용하는 방법이며, 
+    기본적으로 같은 역할을 합니다. 
 
   +js.
     app.render('email', function(err, html){

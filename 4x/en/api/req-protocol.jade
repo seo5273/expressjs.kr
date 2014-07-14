@@ -2,12 +2,9 @@ section
   h3(id='req.protocol') req.protocol
   
   p.
-    Return the protocol string "http" or "https"
-    when requested with TLS. When the "trust proxy" 
-    setting is enabled the "X-Forwarded-Proto" header
-    field will be trusted. If you're running behind
-    a reverse proxy that supplies https for you this
-    may be enabled.
+    TLS로 요청 될 때, "http"나 "https" 프로토콜 문자열을 반환합니다.
+    "trust proxy" 속성이 활성화 되어 있을 때, "X-Forwarded-Proto" 헤더 필드도 신뢰합니다.
+    http를 공급하는 역 프록시(reverse proxy) 뒤에서 수행하면, 이 속성은 활성화 됩니다.
   
   +js.
     req.protocol

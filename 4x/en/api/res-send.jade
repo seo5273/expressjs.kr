@@ -2,7 +2,7 @@ section
   h3(id='res.send') res.send([body|status], [body])
   
   p.
-    Send a response.
+    Response를 보냅니다.
 
   +js.
     res.send(new Buffer('whoop'));
@@ -13,41 +13,43 @@ section
     res.send(200);
 
   p.
-    This method performs a myriad of
-    useful tasks for simple non-streaming responses such
-    as automatically assigning the Content-Length unless
-    previously defined and providing automatic <em>HEAD</em> and
-    HTTP cache freshness support.
+    이 메소드는 
+    미리 정의 되고, 오토메틱 <em>HEAD</em>과 HTTP cache freshness 지원을 제공하고 있지 않는 한
+    자동적으로 Content-Length를 할당하는 것과 같은 단순 non-streaming response의
+    유용한 task를 수행하는 데에 사용됩니다.
 
   p.
     When a <code>Buffer</code> is given
-    the Content-Type is set to "application/octet-stream"
-    unless previously defined as shown below:
+    <code>Buffer</code>가 주어 질 때, Content-Type은
+    아래와 같이 미리 정의 되지 않는 한,
+    "application/octet-stream"로 설정됩니다. 
+
 
   +js.
     res.set('Content-Type', 'text/html');
     res.send(new Buffer('<p>some html</p>'));
 
   p.
-    When a <code>String</code> is given the
-    Content-Type is set defaulted to "text/html":
+    <code>String</code>가 주어 질 때, Content-Type은
+    기본적으로 "text/html"로 설정됩니다.
 
   +js.
     res.send('<p>some html</p>');
 
   p.
-    When an <code>Array</code> or <code>Object</code> is
-    given Express will respond with the JSON representation:
+    <code>Array</code>나 <code>Object</code>가 주어 질 때,
+    Express는 JSON representation에 응답합니다.
 
   +js.
     res.send({ user: 'tobi' })
     res.send([1,2,3])
 
   p.
-    Finally when a <code>Number</code> is given without
-    any of the previously mentioned bodies, then a response
-    body string is assigned for you. For example 200 will
-    respond will the text "OK", and 404 "Not Found" and so on.
+    마지막으로 <code>Number</code>가 미리 언급 된 body없이 주어 질 때,
+    response body 문자열이 할당 됩니다.
+    예를 들어, 200은 "OK"라고 응답(respond)하며,
+    404는 "Not Found" 등으로 나타납니다.
+
 
   +js.
     res.send(200)

@@ -2,7 +2,7 @@ section
   h3(id='req.param') req.param(name)
 
   p.
-    Return the value of param <code>name</code> when present.
+    param <code>name</code>의 값이 존재 하는 경우 반환합니다.
 
   +js.
     // ?name=tobi
@@ -17,7 +17,7 @@ section
     req.param('name')
     // => "tobi"
   
-  p Lookup is performed in the following order:
+  p Lookup이 다음과 같은 순서로 수행됩니다.
   
   ul
     li <code>req.params</code>
@@ -25,6 +25,5 @@ section
     li <code>req.query</code>
   
   p.
-    Direct access to <code>req.body</code>, <code>req.params</code>,
-    and <code>req.query</code> should be favoured for clarity - unless
-    you truly accept input from each object.
+    각각 오브젝트의 입력을 분명히게 받는 것이 아니라면, 
+    <code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. 

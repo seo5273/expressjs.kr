@@ -2,11 +2,10 @@ section
   h3(id='req.ips') req.ips
   
   p.
-    When "trust proxy" is `true`, parse
-    the "X-Forwarded-For" ip address list
-    and return an array, otherwise an empty
-    array is returned.
+    "trust proxy"가 `true`일 때, "X-Forwarded-For" ip 주소 리스트를 파싱하고,
+    배열을 반환합니다.
+    그렇지 않은 경우에는 빈 배열이 반환됩니다.
     
-    For example if the value were "client, proxy1, proxy2"
-    you would receive the array <code>["client", "proxy1", "proxy2"]</code>
-    where "proxy2" is the furthest down-stream.
+    예를 들어, 값이 "client, proxy1, proxy2"라면,
+    <code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 멀리 있는 down-stream입니다.
+

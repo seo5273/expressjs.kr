@@ -2,15 +2,13 @@ section
   h3(id='req.accepts') req.accepts(types)
 
   p.
-    Check if the given <code>types</code> are acceptable, returning
-    the best match when true, otherwise <code>undefined</code> - in which
-    case you should respond with 406 "Not Acceptable".
+    주어진 <code>types</code>가 받아 들일 수 있는지 검사하고, true일 경우 가장 좋은(best) 매치를 반환합니다.
+    그렇지 않을 경우 <code>undefined</code>를 반환하고, 이 경우에는 406 "Not Acceptable"라고 응답해야 합니다.
 
   p.
-    The <code>type</code> value may be a single mime type string
-    such as "application/json", the extension name
-    such as "json", a comma-delimited list or an array. When a list
-    or array is given the <em>best</em> match, if any is returned.
+    반환되는 값이 있을 경우 리스트나 배열이 <em>가장 좋은(best)</em> 매치를 받을 때, 
+    <code>type</code> 값은 "application/json"이나 같은 하나의 mime 타입 문자열,
+    such as "json" 같은 확장자 이름, 콤마(,)로 범위가 지정된 리스트나 배열 일 수 있습니다.
 
   +js.
     // Accept: text/html
@@ -38,4 +36,4 @@ section
     // => "json"
 
   p.
-    Please refer to <a href="https://github.com/expressjs/accepts">accepts</a> for additional documentation or any issues and concerns.
+    더 많은 정보나 기타 사항은  <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.

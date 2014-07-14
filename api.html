@@ -162,35 +162,33 @@ app.param('range', /^(\w+)\.\.(\w+)?$/);
 app.get('/range/:range', function(req, res){
   var range = req.params.range;
   res.send('from ' + range[1] + ' to ' + range[2]);
-});</code></pre></section><section><h3 id="app.VERB">app.VERB(path, [callback...], callback)</h3><p>The <code>app.VERB()</code> methods provide the routing functionality
-in Express, where <strong>VERB</strong> is one of the HTTP verbs, such
-as <code>app.post()</code>. Multiple callbacks may be given, all are treated
-equally, and behave just like middleware, with the one exception that
-these callbacks may invoke <code>next('route')</code> to bypass the
-remaining route callback(s). This mechanism can be used to perform pre-conditions
-on a route then pass control to subsequent routes when there is no reason to proceed
+});</code></pre></section><section><h3 id="app.VERB">app.VERB(path, [callback...], callback)</h3><p><code>app.VERB()</code> 메소드는 Express 안의 <code>app.post()</code>과 같은
+HTTP verb 중 하나인 <strong>VERB</strong>의 라우팅 기능을 제공합니다. 
+똑같이 취급되는 여러 콜백들이 주어지고, 미들웨어 같은 역할을 합니다.
+남은 루트 콜백들을 우회하기 위하여 
+한 예외를 제외하고는 이 콜백들은 <code>next('route')</code>를 호출합니다. 
 with the route matched.
-</p><p>The following snippet illustrates the most simple route definition possible. Express
-translates the path strings to regular expressions, used internally to match incoming requests.
-Query strings are <em>not</em> considered when peforming these matches, for example "GET /"
-would match the following route, as would "GET /?name=tobi".
+이 방법은 사전 조건을 수행하기 위해여 루트에 쓰일 수 있으며, 매치되는 루트에 계속 진행 할 이유가 없어 질 때에
+이후 루트들에 통제권을 넘깁니다. 
+</p><p>아래는 가능한 가장 단순한 루트 정의를 보여줍니다.
+Express는 path 문자열을 정규식으로 변환 시켜주며, 내부적으로 새로 들어오는 요청을 매치시키기 위하여 사용됩니다. 
+쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
+예를 들어 "GET /"는 "GET /?name=tobi"처럼 다음 루트를 매칭시킵니다.    
 </p><pre class="js"><code>app.get('/', function(req, res){
   res.send('hello world');
 });
-</code></pre><p>Regular expressions may also be used, and can be useful
-if you have very specific restraints, for example the following
-would match "GET /commits/71dbb9c" as well as "GET /commits/71dbb9c..4c084f9".
+</code></pre><p>예를 들어 아래 "GET /commits/71dbb9c..4c084f9" 뿐만 아니라 "GET /commits/71dbb9c"가 매칭하는 것 처럼
+특별한 통제가 필요할 경우 정규식 또한 유용하게 사용 될 수 있습니다.
 </p><pre class="js"><code>app.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
   var from = req.params[0];
   var to = req.params[1] || 'HEAD';
   res.send('commit range ' + from + '..' + to);
 });
-</code></pre><p>Several callbacks may also be passed, useful for re-using middleware
-that load resources, perform validations, etc.
+</code></pre><p>여러 콜백을 넘기고, 리소스를 불러오는 미들웨어를 다시 사용 하는 데에 유용하며, 유효성 검사 등을 수행합니다.
 </p><pre class="js"><code>app.get('/user/:id', user.load, function(){
   // ... 
 })
-</code></pre><p>If you have multiple common middleware for a route, you can use the route api with <code>all</code>.
+</code></pre><p>루트 하나에 여러 공동 미들웨어가 있다면, <code>all</code>를 이용하여 루트 API를 사용 할 수 있습니다.
 </p><pre class="js"><code>var middleware = [loadForum, loadThread];
 
 app.route('/forum/:fid/thread/:tid')
@@ -198,24 +196,22 @@ app.route('/forum/:fid/thread/:tid')
 .all(loadThread)
 .get(function() { //... });
 .post(function() { //... });
-</code></pre><p>Both middleware will be run for GET and POST requests.</p></section><section><h3 id="app.all">app.all(path, [callback...], callback)</h3><p>This method functions just like the <code>app.VERB()</code> methods,
-however it matches all HTTP verbs. 
-</p><p>This method is extremely useful for
-mapping "global" logic for specific path prefixes or arbitrary matches.
-For example if you placed the following route at the top of all other
-route definitions, it would require that all routes from that point on
-would require authentication, and automatically load a user. Keep in mind
-that these callbacks do not have to act as end points, <code>loadUser</code>
-can perform a task, then <code>next()</code> to continue matching subsequent
-routes.
+</code></pre><p>GET and POST 요청을 위해 두 미들웨어가 수행됩니다. </p></section><section><h3 id="app.all">app.all(path, [callback...], callback)</h3><p>이 메소드는 <code>app.VERB()</code> 메소드와 같은 기능을 하지만, 모든 HTTP verb를 매칭 시킨다는 점이 다릅니다. 
+</p><p>이 메소드는 경로 prefix나 임의 매칭을 위한 "전역" 논리를 맵핑 할 때 특히 매우 유용합니다. 
+
+예를 들어, 다음 루트를 다른 모든 루트 정의 위에 둔다면, 어떤 지점 부터의 모든 루트 들은
+인증을 필요로 하며 자동적으로 유저를 불러옵니다. 
+
+이러한 콜백들은 end point 같은 역할을 하지 않으며, 
+<code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 루트들을 계속하여 매칭시킨다는 것을 알아두세요.
 </p><pre class="js"><code>app.all('*', requireAuthentication, loadUser);
-</code></pre><p>Or the equivalent:
+</code></pre><p>혹은, 
 </p><pre class="js"><code>app.all('*', requireAuthentication)
 app.all('*', loadUser);
-</code></pre><p>Another great example of this is white-listed "global" functionality. Here
-the example is much like before, however only restricting paths prefixed with
-"/api":
-</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>Returns an instance of a single route which can then be used to handle HTTP verbs with optional middleware. Using <code>app.route()</code> is a recommended approach to avoiding duplicate route naming and thus typo errors.
+</code></pre><p>또 다른 좋은 예제는 white-listed "전역" 기능입니다. 
+여기의 예제는 앞의 것과 비슷하지만 오직 "/api"의 prefix된 경로만을 통제 합니다. 
+</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>선택적 미들웨어와 HTTP verb를 다루기 위한 싱글 루트 인스턴스를 반환합니다.
+중복되는 루트 이름과 오타에서 나오는 에러들을 막기 위해 <code>app.route()</code>를 사용한 접근 방법이 추천됩니다.
 </p><pre class="js"><code>var app = express();
 
 app.route('/events')
@@ -229,40 +225,39 @@ app.route('/events')
 .post(function(req, res, next) {
   // maybe add a new event...
 })
-</code></pre></section><section><h3 id="app.locals">app.locals</h3><p>Application local variables are provided to all templates
-rendered within the application. This is useful for providing
-helper functions to templates, as well as app-level data.
+</code></pre></section><section><h3 id="app.locals">app.locals</h3><p>애플리케이션 안에 만들어진 모든 템플릿에 애플리케이션의 지역 변수를 제공합니다. 
+애플리케이션 레벨의 데이터나 템플릿의 helper 함수를 제공 할 때 특히 유용합니다.
 </p><pre class="js"><code>app.locals.title = 'My App';
 app.locals.strftime = require('strftime');
 app.locals.email = 'me@myapp.com';
-</code></pre><p>The <code>app.locals</code> object is a JavaScript <code>Object</code>. The
-properties added to it will be exposed as local variables within the application.
+</code></pre><p><code>app.locals</code> 오브젝트는 자바스크립트 <code>Object</code>입니다. 
+여기에 부여 된 속성은 애플리케이션 안의 지역 변수로서 노출됩니다.
 </p><pre class="js"><code>app.locals.title
 // => 'My App'
 
 app.locals.email
 // => 'me@myapp.com'
-</code></pre><p>By default Express exposes only a single app-level local variable, <code>settings</code>.
+</code></pre><p>기본적으로 Express는 오직 싱글 애플리케이션 레벨의 지역 변수인 <code>settings</code>만 노출시킵니다.  
 </p><pre class="js"><code>app.set('title', 'My App');
-// use settings.title in a view</code></pre></section><section><h3 id="app.render">app.render(view, [options], callback)</h3><p>Render a <code>view</code> with a callback responding with
-the rendered string. This is the app-level variant of <code>res.render()</code>,
-and otherwise behaves the same way.
-</p><pre class="js"><code>app.render('email', function(err, html){
+// use settings.title in a view</code></pre></section><section><h3 id="app.render">app.render(view, [options], callback)</h3><p>. 
+<code>view</code>과 생성된 문자열에 결과를 나타내는 콜백을 생성합니다.
+이 것은 <code>res.render()</code>을 애플리케이션 레벨에서 사용하는 방법이며, 
+기본적으로 같은 역할을 합니다. </p><pre class="js"><code>app.render('email', function(err, html){
   // ...
 });
 
 app.render('email', { name: 'Tobi' }, function(err, html){
   // ...
-});</code></pre></section><section><h3 id="app.listen">app.listen()</h3><p>Bind and listen for connections on the given host and port,
-this method is identical to node's <a href="http://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback">http.Server#listen()</a>.
+});</code></pre></section><section><h3 id="app.listen">app.listen()</h3><p>주어진 호스트와 포트 연결을 bind하고 listen합니다.
+이 메소드는 노드의 <a href="http://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback">http.Server#listen()</a>와
+동일합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 app.listen(3000);
-</code></pre><p>The <code>app</code> returned by <code>express()</code> is in fact a JavaScript
-<code>Function</code>, designed to be passed to node's http servers as a callback
-to handle requests. This allows you to provide both HTTP and HTTPS versions of
-your app with the same codebase easily, as the app does not inherit from these,
-it is simply a callback:
+</code></pre><p><code>express()</code>에 의해 반환되는 <code>app</code>은 
+요청을 처리하기 위한 콜백으로서, 노드의 http 서버로 넘기기 위해 디자인 된 자바스크립트의 <code>Function</code>이며,
+이는 당신의 HTTP와 HTTPS 버전의 앱 둘다 같은 코드베이스를 쉽게 제공하게 도와주며, 이 앱은 그 들로 부터 상속하지 않는
+단순한 콜백입니다.
 </p><pre class="js"><code>var express = require('express');
 var https = require('https');
 var http = require('http');
@@ -270,25 +265,24 @@ var app = express();
 
 http.createServer(app).listen(80);
 https.createServer(options, app).listen(443);
-</code></pre><p>The <code>app.listen()</code> method is simply a convenience method defined as,
-if you wish to use HTTPS or provide both, use the technique above.
+</code></pre><p><code>app.listen()</code> 메소드는 단순히 편리하게 정의된 메소드이며,
+HTTPS를 사용하거나 둘 다 제공하기 위해서는 위의 방법들을 사용하세요.
 </p><pre class="js"><code>app.listen = function(){
   var server = http.createServer(this);
   return server.listen.apply(server, arguments);
-};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>This property is an object containing properties mapped to the named route "parameters".
-For example if you have the route <code>/user/:name</code>, then the "name" property
-is available to you as <code>req.params.name</code>. This object defaults to <code>{}</code>.
+};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>이 속성은 "parameters" 루트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
+예를 들어, <code>/user/:name</code>를 가질 때, "name" 속성은 <code>req.params.name</code>로서 사용 가능합니다.
+이 속성의 기본 값은 <code>{}</code>입니다.
 </p><pre class="js"><code>// GET /user/tj
 req.params.name
 // => "tj"
-</code></pre><p>When a regular expression is used for the route definition, capture groups
-are provided in the array using <code>req.params[N]</code>, where <code>N</code>
-is the nth capture group. This rule is applied to unnamed wild-card matches
-with string routes such as `/file/*`:
+</code></pre><p>When a regular expression is used for the route definition, 
+정규식이 루트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
+<code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
+이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 루트에 적용됩니다.
 </p><pre class="js"><code>// GET /file/javascripts/jquery.js
 req.params[0]
-// => "javascripts/jquery.js"</code></pre></section><section><h3 id="req.query">req.query</h3><p>This property is an object containing the parsed query-string,
-defaulting to <code>{}</code>.
+// => "javascripts/jquery.js"</code></pre></section><section><h3 id="req.query">req.query</h3><p>이 속성은 파싱 된 쿼리 문자열을 포함하고 있는 오브젝트이며, 기본 값은 <code>{}</code>입니다.
 </p><pre class="js"><code>// GET /search?q=tobi+ferret
 req.query.q
 // => "tobi ferret"
@@ -301,7 +295,7 @@ req.query.shoe.color
 // => "blue"
 
 req.query.shoe.type
-// => "converse"</code></pre></section><section><h3 id="req.param">req.param(name)</h3><p>Return the value of param <code>name</code> when present.
+// => "converse"</code></pre></section><section><h3 id="req.param">req.param(name)</h3><p>param <code>name</code>의 값이 존재 하는 경우 반환합니다.
 </p><pre class="js"><code>// ?name=tobi
 req.param('name')
 // => "tobi"
@@ -313,37 +307,34 @@ req.param('name')
 // /user/tobi for /user/:name 
 req.param('name')
 // => "tobi"
-</code></pre><p>Lookup is performed in the following order:</p><ul><li><code>req.params</code></li><li><code>req.body</code></li><li><code>req.query</code></li></ul><p>Direct access to <code>req.body</code>, <code>req.params</code>,
-and <code>req.query</code> should be favoured for clarity - unless
-you truly accept input from each object.</p></section><section><h3 id="req.route">req.route</h3><p>The currently matched <code>Route</code> containing
-several properties such as the route's original path
-string, the regexp generated, and so on.
+</code></pre><p>Lookup이 다음과 같은 순서로 수행됩니다.</p><ul><li><code>req.params</code></li><li><code>req.body</code></li><li><code>req.query</code></li></ul><p>각각 오브젝트의 입력을 분명히게 받는 것이 아니라면, 
+<code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. </p></section><section><h3 id="req.route">req.route</h3><p>루트 원본 경로 문자열, 생성된 regexp 등의 여러 속성을 포함하는 현재 매칭 된 <code>Route</code>입니다.
 </p><pre class="js"><code>app.get('/user/:id?', function(req, res){
   console.log(req.route);
 });
-</code></pre><p>Example output from the previous snippet:
+</code></pre><p>이전 예제는 다음과 같이 출력합니다.
 </p><pre class="js"><code>{ path: '/user/:id?',
   keys: [ { name: 'id', optional: true } ],
   regexp: /^\/user(?:\/([^\/]+?))?\/?$/i,
-  params: [ id: '12' ] }</code></pre></section><section><h3 id="req.cookies">req.cookies</h3><p>When the <code>cookieParser()</code> middleware is used this object
-defaults to <code>{}</code>, otherwise contains the cookies sent by
-the user-agent.
+  params: [ id: '12' ] }</code></pre></section><section><h3 id="req.cookies">req.cookies</h3><p><code>cookieParser()</code> 미들웨어가 사용 될 때,
+이 오브젝트의 기본 값은 <code>{}</code>입니다. 그렇지 않을 경우는 user-agent에서 보낸 쿠키를 포함합니다.
 </p><pre class="js"><code>// Cookie: name=tj
 req.cookies.name
 // => "tj"
-</code></pre><p>Please refer to <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.signedCookies">req.signedCookies</h3><p>When the <code>cookieParser(secret)</code> middleware is used this object
-defaults to <code>{}</code>, otherwise contains the signed cookies sent by
-the user-agent, unsigned and ready for use. Signed cookies reside in a different
-object to show developer intent, otherwise a malicious attack could be
-placed on `req.cookie` values which are easy to spoof. Note that signing
-a cookie does not mean it is "hidden" nor encrypted, this simply prevents
-tampering as the secret used to sign is private.
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a>을 참고하세요.</p></section><section><h3 id="req.signedCookies">req.signedCookies</h3><p><code>cookieParser()</code> 미들웨어가 사용 될 때,
+이 오브젝트의 기본 값은 <code>{}</code>입니다. 그렇지 않을 경우는 user-agent에서 보낸 signed 쿠키를 포함하고,
+unsigned 쿠키는 사용 가능한 상태로 만들어줍니다.
+
+Signed 쿠키는 개발자의 목적을 보여주기 위해 다른 오브젝트에 포함되며, 
+그렇지 않을 경우, 악의적인 공격은 스푸핑 하기 쉬운 `req.cookie` 값에 위치됩니다.
+쿠키에 sign 하는 것은 "숨기거나" 암호화 시키는 것을 의미하는 것이 아닌, 
+단지 함부로 변경 하는 것을 방지하기 위함이라는 것을 알아두세요. 
 </p><pre class="js"><code>// Cookie: user=tobi.CP7AWaXDfAKIRfH49dQzKJx7sKzzSoPq7/AcBBRVwlI3
 req.signedCookies.user
 // => "tobi"
-</code></pre><p>Please refer to <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.get">req.get(field)</h3><p> 
-Get the case-insensitive request header <code>field</code>. 
-The <em>Referrer</em> and <em>Referer</em> fields are interchangeable.</p><pre class="js"><code>req.get('Content-Type');
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a>을 참고하세요.</p></section><section><h3 id="req.get">req.get(field)</h3><p> 
+대소문자를 구분하지 않는 response 헤더 <code>field</code>를 불러옵니다.
+<em>Referrer</em>과 <em>Referer</em> 필드는 교체 사용이 가능합니다.</p><pre class="js"><code>req.get('Content-Type');
 // => "text/plain"
 
 req.get('content-type');
@@ -351,13 +342,11 @@ req.get('content-type');
 
 req.get('Something');
 // => undefined
-</code></pre><p>Aliased as <code>req.header(field)</code>.</p></section><section><h3 id="req.accepts">req.accepts(types)</h3><p>Check if the given <code>types</code> are acceptable, returning
-the best match when true, otherwise <code>undefined</code> - in which
-case you should respond with 406 "Not Acceptable".
-</p><p>The <code>type</code> value may be a single mime type string
-such as "application/json", the extension name
-such as "json", a comma-delimited list or an array. When a list
-or array is given the <em>best</em> match, if any is returned.
+</code></pre><p><code>req.header(field)</code>라고도 쓰입니다.</p></section><section><h3 id="req.accepts">req.accepts(types)</h3><p>주어진 <code>types</code>가 받아 들일 수 있는지 검사하고, true일 경우 가장 좋은(best) 매치를 반환합니다.
+그렇지 않을 경우 <code>undefined</code>를 반환하고, 이 경우에는 406 "Not Acceptable"라고 응답해야 합니다.
+</p><p>반환되는 값이 있을 경우 리스트나 배열이 <em>가장 좋은(best)</em> 매치를 받을 때, 
+<code>type</code> 값은 "application/json"이나 같은 하나의 mime 타입 문자열,
+such as "json" 같은 확장자 이름, 콤마(,)로 범위가 지정된 리스트나 배열 일 수 있습니다.
 </p><pre class="js"><code>// Accept: text/html
 req.accepts('html');
 // => "html"
@@ -381,10 +370,9 @@ req.accepts('png');
 req.accepts(['html', 'json']);
 req.accepts('html, json');
 // => "json"
-</code></pre><p>Please refer to <a href="https://github.com/expressjs/accepts">accepts</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.acceptsCharset">req.acceptsCharset(charset)</h3><p>Check if the given <code>charset</code> are acceptable.
-</p><p>Please refer to <a href="https://github.com/expressjs/accepts">accepts</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.acceptsLanguage">req.acceptsLanguage(lang)</h3><p>Check if the given <code>lang</code> are acceptable.
-</p><p>Please refer to <a href="https://github.com/expressjs/accepts">accepts</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.is">req.is(type)</h3><p>Check if the incoming request contains the "Content-Type"
-header field, and it matches the give mime <code>type</code>.
+</code></pre><p>더 많은 정보나 기타 사항은  <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsCharset">req.acceptsCharset(charset)</h3><p><code>charset</code>을 받아 들일 수 있는지 검사합니다.
+</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsLanguage">req.acceptsLanguage(lang)</h3><p><code>lang</code>를 받아 들일 수 있는지 검사합니다.
+</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.is">req.is(type)</h3><p>들어오는 요청이 "Content-Type" 헤더 필드를 포함하고 있는지 검사하고, 주어진 mime <code>type</code>을 매칭시킵니다.
 </p><pre class="js"><code>// With Content-Type: text/html; charset=utf-8
 req.is('html');
 req.is('text/html');
@@ -399,149 +387,148 @@ req.is('application/*');
 
 req.is('html');
 // => false
-</code></pre><p>Please refer to <a href="https://github.com/expressjs/type-is">type-is</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.ip">req.ip</h3><p>Return the remote address, or when "trust proxy"
-is enabled - the upstream address.
-</p><pre class="js"><code>req.ip
-// => "127.0.0.1"</code></pre></section><section><h3 id="req.ips">req.ips</h3><p>When "trust proxy" is `true`, parse
-the "X-Forwarded-For" ip address list
-and return an array, otherwise an empty
-array is returned.
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/type-is">type-is</a>를 참고하세요.</p></section><section><h3 id="req.ip">req.ip</h3><p>remote 주소를 반환하거나, "trust pxoty"가 활성화 되어 있을 떄 upstream 주소를 반환합니다.
 
-For example if the value were "client, proxy1, proxy2"
-you would receive the array <code>["client", "proxy1", "proxy2"]</code>
-where "proxy2" is the furthest down-stream.</p></section><section><h3 id="req.path">req.path</h3><p>Returns the request URL pathname.
+</p><pre class="js"><code>req.ip
+// => "127.0.0.1"</code></pre></section><section><h3 id="req.ips">req.ips</h3><p>"trust proxy"가 `true`일 때, "X-Forwarded-For" ip 주소 리스트를 파싱하고,
+배열을 반환합니다.
+그렇지 않은 경우에는 빈 배열이 반환됩니다.
+
+예를 들어, 값이 "client, proxy1, proxy2"라면,
+<code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 멀리 있는 down-stream입니다.
+</p></section><section><h3 id="req.path">req.path</h3><p>URL 경로 이름 요청을 반환합니다.
 </p><pre class="js"><code>// example.com/users?sort=desc
 req.path
-// => "/users"</code></pre></section><section><h3 id="req.host">req.host</h3><p>Returns the hostname from the "Host" header field (void of portno).
+// => "/users"</code></pre></section><section><h3 id="req.host">req.host</h3><p>"Host"의 헤더 필드(void of portno)로 부터 호스트 이름을 반환합니다.
 </p><pre class="js"><code>// Host: "example.com:3000"
 req.host
-// => "example.com"</code></pre></section><section><h3 id="req.fresh">req.fresh</h3><p>Check if the request is fresh - aka Last-Modified and/or the ETag still match,
-indicating that the resource is "fresh".
+// => "example.com"</code></pre></section><section><h3 id="req.fresh">req.fresh</h3><p>요청이 최신(fresh)인지 검사합니다. 최근 변경 된 것이나, ETag가 아직도 매칭되는지 등을 통틀어 리소스가 '최신(fresh)이다'라고 표현합니다.
 </p><pre class="js"><code>req.fresh
 // => true
-</code></pre><p>Please refer to <a href="https://github.com/visionmedia/node-fresh">fresh</a> for additional documentation or any issues and concerns.</p></section><section><h3 id="req.stale">req.stale</h3><p>Check if the request is stale - aka Last-Modified and/or the ETag do not match,
-indicating that the resource is "stale".
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/visionmedia/node-fresh">fresh</a>를 참고하세요.</p></section><section><h3 id="req.stale">req.stale</h3><p>요청이 오래 되었는지(stale) 검사합니다. 최근 변경 된 것이나, ETag가 매칭 되지 않는 것 등을 통틀어 리소스가 '오래 되었다(stale)'라고 표현합니다.
+
 </p><pre class="js"><code>req.stale
-// => true</code></pre></section><section><h3 id="req.xhr">req.xhr</h3><p>Check if the request was issued with the "X-Requested-With"
-header field set to "XMLHttpRequest" (jQuery etc).
+// => true</code></pre></section><section><h3 id="req.xhr">req.xhr</h3><p>요청이 "X-Requested-With" 헤더 필드가 "XMLHttpRequest" (jQuery 등)로 설정되어 나왔는지 검사합니다. 
 </p><pre class="js"><code>req.xhr
-// => true</code></pre></section><section><h3 id="req.protocol">req.protocol</h3><p>Return the protocol string "http" or "https"
-when requested with TLS. When the "trust proxy" 
-setting is enabled the "X-Forwarded-Proto" header
-field will be trusted. If you're running behind
-a reverse proxy that supplies https for you this
-may be enabled.
+// => true</code></pre></section><section><h3 id="req.protocol">req.protocol</h3><p>TLS로 요청 될 때, "http"나 "https" 프로토콜 문자열을 반환합니다.
+"trust proxy" 속성이 활성화 되어 있을 때, "X-Forwarded-Proto" 헤더 필드도 신뢰합니다.
+http를 공급하는 역 프록시(reverse proxy) 뒤에서 수행하면, 이 속성은 활성화 됩니다.
 </p><pre class="js"><code>req.protocol
-// => "http"</code></pre></section><section><h3 id="req.secure">req.secure</h3><p>Check if a TLS connection is established. This is a short-hand for:
-</p><pre class="js"><code>'https' == req.protocol;</code></pre></section><section><h3 id="req.subdomains">req.subdomains</h3><p>Return subdomains as an array.
+// => "http"</code></pre></section><section><h3 id="req.secure">req.secure</h3><p>TLS 연결이 설정 되어 있는 지 확인합니다. 이는 아래를 위한 간략한 방법입니다.
+</p><pre class="js"><code>'https' == req.protocol;</code></pre></section><section><h3 id="req.subdomains">req.subdomains</h3><p>서브 도메인을 배열 형태로 반환합니다..
 </p><pre class="js"><code>// Host: "tobi.ferrets.example.com"
 req.subdomains
-// => ["ferrets", "tobi"]</code></pre></section><section><h3 id="req.originalUrl">req.originalUrl</h3><p>This property is much like <code>req.url</code>, however it retains
-the original request url, allowing you to rewrite <code>req.url</code>
-freely for internal routing purposes. For example the "mounting" feature
-of <a href="#app.use">app.use()</a> will rewrite <code>req.url</code> to
-strip the mount point.
+// => ["ferrets", "tobi"]</code></pre></section><section><h3 id="req.originalUrl">req.originalUrl</h3><p>이 속성은 <code>req.url</code>와 매우 흡사하지만, 원본 요청 url을 포함하고
+내부적인 라우팅 목적을 위해 <code>req.url</code>을 자유롭게 rewrite 할 수 있도록 해줍니다. 
+예를 들어, <a href="#app.use">app.use()</a>의 "mounting" 기능은 
+마운트 포인트를 strip 할 수 있도록 <code>req.url</code>을 rewrite 합니다.
 </p><pre class="js"><code>// GET /search?q=something
 req.originalUrl
-// => "/search?q=something"</code></pre></section><h2>Response</h2><a name="response"></a><section><h3 id="res.status">res.status(code)</h3><p>Chainable alias of node's <code>res.statusCode=</code>.
+// => "/search?q=something"</code></pre></section><h2>Response</h2><a name="response"></a><section><h3 id="res.status">res.status(code)</h3><p>체인화 할 수 있는 (Chainable) 노드의 <code>res.statusCode=</code>의 alias입니다. 
 </p><pre class="js"><code>res.status(404).sendfile('path/to/404.png');</code></pre></section><section><h3 id="res.set">res.set(field, [value])</h3><p> 
-Set header <code>field</code> to <code>value</code>,
-or pass an object to set multiple fields at once.</p><pre class="js"><code>res.set('Content-Type', 'text/plain');
+Set 헤더 <code>field</code>를 <code>value</code>로 설정합니다.
+오브젝트를 여러 필드를 한꺼번에 설정하기 위해 오브젝트를 넘깁니다. </p><pre class="js"><code>res.set('Content-Type', 'text/plain');
 
 res.set({
   'Content-Type': 'text/plain',
   'Content-Length': '123',
   'ETag': '12345'
 })
-</code></pre><p>Aliased as <code>res.header(field, [value])</code>.</p></section><section><h3 id="res.get">res.get(field)</h3><p> 
-Get the case-insensitive response header <code>field</code>. </p><pre class="js"><code>res.get('Content-Type');
-// => "text/plain"</code></pre></section><section><h3 id="res.cookie">res.cookie(name, value, [options])</h3><p>Set cookie <code>name</code> to <code>value</code>, which may be a string or object converted to JSON. The <code>path</code>
-option defaults to "/".
+</code></pre><p><code>res.header(field, [value])</code>라고도 알려져 있습니다.</p></section><section><h3 id="res.get">res.get(field)</h3><p> 
+대소문자를 구분하지 않는 response 헤더 <code>field</code>를 불러옵니다.</p><pre class="js"><code>res.get('Content-Type');
+// => "text/plain"</code></pre></section><section><h3 id="res.cookie">res.cookie(name, value, [options])</h3><p>쿠키의 <code>name</code>을 <code>value</code> 설정하며,
+이는 문자열이나 JSON으로 변환 된 오브젝트 입니다.
+The <code>path</code> 옵션의 기본 값은 "/"입니다.
 </p><pre class="js"><code>res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
 res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
-</code></pre><p>The <code>maxAge</code> option is a convenience option for setting "expires"
-relative to the current time in milliseconds. The following is equivalent to
-the previous example.
+</code></pre><p><code>maxAge</code> 옵션은 "expires" 설정을 위한 것이며, 현재 시간을 밀리초로 설정 해 줍니다., 
+아래 예제는 이전 예제와 같습니다.
+
 </p><pre class="js"><code>res.cookie('rememberme', '1', { maxAge: 900000, httpOnly: true })
-</code></pre><p>An object may be passed which is then serialized as JSON, which is
-automatically parsed by the <code>bodyParser()</code> middleware.
+</code></pre><p>오브젝트는 JSON처럼 시리즈화(serialized) 되어 넘겨지며, 이것은 <code>bodyParser()</code> 미들웨어에 의해
+자동적으로 파싱됩니다. 
+
 </p><pre class="js"><code>res.cookie('cart', { items: [1,2,3] });
 res.cookie('cart', { items: [1,2,3] }, { maxAge: 900000 });
-</code></pre><p>Signed cookies are also supported through this method. Simply
-pass the <code>signed</code> option. When given <code>res.cookie()</code>
-will use the secret passed to <code>cookieParser(secret)</code>
-to sign the value.
+</code></pre><p>Signed cookies are also supported through this method. 
+Signed 쿠키는 또한 이 메소드를 통해 지원됩니다.
+단순히 <code>signed</code> 옵션을 넘기세요.
+주어진 <code>res.cookie()</code>가 값을 sign 하기 위해
+<code>cookieParser(secret)</code>로 넘겨진 비밀(secret)을 사용 할 것입니다.
+
 </p><pre class="js"><code>res.cookie('name', 'tobi', { signed: true });
-</code></pre><p>Later you may access this value through the <a href="#req.signedCookies">req.signedCookie</a>
-object.</p></section><section><h3 id="res.clearCookie">res.clearCookie(name, [options])</h3><p>Clear cookie <code>name</code>. The <code>path</code>
-option defaults to "/".
+</code></pre><p>이후, <a href="#req.signedCookies">req.signedCookie</a> 오브젝트를 통해 이 값에 접근 할 수 있습니다.</p></section><section><h3 id="res.clearCookie">res.clearCookie(name, [options])</h3><p>쿠키 <code>name</code>를 클리어 해 줍니다. 
+경로 옵션의 기본 값은 "/"입니다.
 </p><pre class="js"><code>res.cookie('name', 'tobi', { path: '/admin' });
-res.clearCookie('name', { path: '/admin' });</code></pre></section><section><h3 id="res.redirect">res.redirect([status], url)</h3><p>Redirect to the given <code>url</code> with optional <code>status</code> code
-defaulting to 302 "Found".
+res.clearCookie('name', { path: '/admin' });</code></pre></section><section><h3 id="res.redirect">res.redirect([status], url)</h3><p>선택적 <code>status</code>코드와 주어진 <code>url</code>로 우회합니다.
+기본 값은 302 "Found" 입니다.
 </p><pre class="js"><code>res.redirect('/foo/bar');
 res.redirect('http://example.com');
 res.redirect(301, 'http://example.com');
 res.redirect('../login');
-</code></pre><p>Express supports a few forms of redirection, first being
-a fully qualified URI for redirecting to a different site:
+</code></pre><p>Express는 여러 우회 방법을 지원합니다. 
+완전히 qualified 된 URI가 다른 사이트로 우회 하려면,
 </p><pre class="js"><code>res.redirect('http://google.com');
-</code></pre><p>The second form is the pathname-relative redirect, for example
-if you were on <code>http://example.com/admin/post/new</code>, the 
-following redirect to <code>/admin</code> would land you at <code>http://example.com/admin</code>:
+</code></pre><p>두 번째 방법은 경로이름과 관계된 우회 방법입니다.
+예를 들면 <code>http://example.com/admin/post/new</code>에 있고
+그 우회로가 <code>/admin</code>라면, <code>http://example.com/admin</code>로 접근 시켜 줍니다.
 </p><pre class="js"><code>res.redirect('/admin');
-</code></pre><p>This next redirect is relative to the <code>mount</code> point of the application. For example
-if you have a blog application mounted at <code>/blog</code>, ideally it has no knowledge of
-where it was mounted, so where a redirect of <code>/admin/post/new</code> would simply give you
-<code>http://example.com/admin/post/new</code>, the following mount-relative redirect would give
-you <code>http://example.com/blog/admin/post/new</code>:
-</p><pre class="js"><code>res.redirect('admin/post/new');
-</code></pre><p>Pathname relative redirects are also possible. If you were
-on <code>http://example.com/admin/post/new</code>, the following redirect
-would land you at <code>http//example.com/admin/post</code>:
-</p><pre class="js"><code>res.redirect('..');
-</code></pre><p>The final special-case is a <code>back</code> redirect, redirecting back to
-the Referer (or Referrer), defaulting to <code>/</code> when missing.
-</p><pre class="js"><code>res.redirect('back');
+</code></pre><p>그 다음 방법은 애플리케이션의 <code>mount</code> 포인트를 사용한 방법입니다.
+예를 들어, 만약 <code>/blog</code>에 마운트 된 블로그 애플리케이션이 있다면, 이상적으로
+이것은 어디에서 마운트 되었는지의 정보를 가지고 있지 않으며,
+이는 <code>/admin/post/new</code>의 우회로가 단순히 <code>http://example.com/admin/post/new</code>라는 우회를
+넘겨주게 되며, 이는 <code>http://example.com/blog/admin/post/new</code>로 접근 시켜 줍니다.
 
-</code></pre></section><section><h3 id="res.location">res.location</h3><p>Set the location header.
+</p><pre class="js"><code>res.redirect('admin/post/new');
+</code></pre><p>Pathname relative redirects are also possible. 
+경로 이름으로 우회하는 방법 또한 가능합니다.
+만약 <code>http://example.com/admin/post/new</code>에 있다면 그 우회로는 
+<code>http//example.com/admin/post</code>로 접근 시켜 줍니다.
+</p><pre class="js"><code>res.redirect('..');
+</code></pre><p>. 
+마지막 특별한 방법은 <code>back</code> 우회법인데, Referer (혹은 Referrer)로 다시 우회 시켜주는 방법이며,
+값이 지정 되어 있지 않을 때, 기본 값은 <code>/</code>입니다.</p><pre class="js"><code>res.redirect('back');
+
+</code></pre></section><section><h3 id="res.location">res.location</h3><p>위치(location) 헤더를 설정합니다.
 </p><pre class="js"><code>res.location('/foo/bar');
 res.location('foo/bar');
 res.location('http://example.com');
 res.location('../login');
 res.location('back');
-</code></pre><p>You can use the same kind of <code>urls</code> as in
-<code>res.redirect()</code>.
-</p><p>For example, if your application is mounted at <code>/blog</code>,
-the following would set the <code>location</code> header to
-<code>/blog/admin</code>:
-</p><pre class="js"><code>res.location('admin')</code></pre></section><section><h3 id="res.send">res.send([body|status], [body])</h3><p>Send a response.
+</code></pre><p><code>res.redirect()</code>와 같이, 같은 종류의 <code>urls</code>를 사용 할 수 있습니다.
+</p><p>For example, 
+예를 들어, 애플리케이션이 <code>/blog</code>에 마운트 되어 있으면
+아래는 <code>location</code> 헤더를 <code>/blog/admin</code>로 설정 해 줍니다.
+</p><pre class="js"><code>res.location('admin')</code></pre></section><section><h3 id="res.send">res.send([body|status], [body])</h3><p>Response를 보냅니다.
 </p><pre class="js"><code>res.send(new Buffer('whoop'));
 res.send({ some: 'json' });
 res.send('<p>some html</p>');
 res.send(404, 'Sorry, we cannot find that!');
 res.send(500, { error: 'something blew up' });
 res.send(200);
-</code></pre><p>This method performs a myriad of
-useful tasks for simple non-streaming responses such
-as automatically assigning the Content-Length unless
-previously defined and providing automatic <em>HEAD</em> and
-HTTP cache freshness support.
+</code></pre><p>이 메소드는 
+미리 정의 되고, 오토메틱 <em>HEAD</em>과 HTTP cache freshness 지원을 제공하고 있지 않는 한
+자동적으로 Content-Length를 할당하는 것과 같은 단순 non-streaming response의
+유용한 task를 수행하는 데에 사용됩니다.
 </p><p>When a <code>Buffer</code> is given
-the Content-Type is set to "application/octet-stream"
-unless previously defined as shown below:
+<code>Buffer</code>가 주어 질 때, Content-Type은
+아래와 같이 미리 정의 되지 않는 한,
+"application/octet-stream"로 설정됩니다. 
+
 </p><pre class="js"><code>res.set('Content-Type', 'text/html');
 res.send(new Buffer('<p>some html</p>'));
-</code></pre><p>When a <code>String</code> is given the
-Content-Type is set defaulted to "text/html":
+</code></pre><p><code>String</code>가 주어 질 때, Content-Type은
+기본적으로 "text/html"로 설정됩니다.
 </p><pre class="js"><code>res.send('<p>some html</p>');
-</code></pre><p>When an <code>Array</code> or <code>Object</code> is
-given Express will respond with the JSON representation:
+</code></pre><p><code>Array</code>나 <code>Object</code>가 주어 질 때,
+Express는 JSON representation에 응답합니다.
 </p><pre class="js"><code>res.send({ user: 'tobi' })
 res.send([1,2,3])
-</code></pre><p>Finally when a <code>Number</code> is given without
-any of the previously mentioned bodies, then a response
-body string is assigned for you. For example 200 will
-respond will the text "OK", and 404 "Not Found" and so on.
+</code></pre><p>마지막으로 <code>Number</code>가 미리 언급 된 body없이 주어 질 때,
+response body 문자열이 할당 됩니다.
+예를 들어, 200은 "OK"라고 응답(respond)하며,
+404는 "Not Found" 등으로 나타납니다.
+
 </p><pre class="js"><code>res.send(200)
 res.send(404)
 res.send(500)</code></pre></section><section><h3 id="res.json">res.json([status|body], [body])</h3><p>Send a JSON response. This method is identical
@@ -887,7 +874,11 @@ would match "GET /commits/71dbb9c" as well as "GET /commits/71dbb9c..4c084f9".
   var from = req.params[0];
   var to = req.params[1] || 'HEAD';
   res.send('commit range ' + from + '..' + to);
-});</code></pre></section><h2>Middleware</h2><a name="middleware"></a><p>As of 4.x, Express no longer depends on Connect. All of Express' previously included middleware are now in separate repos. Please view <a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>. The only included middleware is now <code>express.static()</code>.</p></div></section><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+});</code></pre></section><h2>Middleware</h2><a name="middleware"></a><p> 
+4.x부터, Express는 Connect에 종속적이지 않습니다.
+이전에 포함 된 모든 미들웨어는 이제는 분리된 repo입니다.
+<a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>를 찹고해 주세요.
+이제 포함된 미들웨어는 <code>express.static()</code>뿐 입니다.</p></div></section><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');

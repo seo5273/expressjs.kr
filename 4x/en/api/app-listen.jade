@@ -2,20 +2,20 @@ section
   h3(id='app.listen') app.listen()
 
   p.
-    Bind and listen for connections on the given host and port,
-    this method is identical to node's <a href="http://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback">http.Server#listen()</a>.
-
+    주어진 호스트와 포트 연결을 bind하고 listen합니다.
+    이 메소드는 노드의 <a href="http://nodejs.org/api/http.html#http_server_listen_port_hostname_backlog_callback">http.Server#listen()</a>와
+    동일합니다.
+    
   +js.
     var express = require('express');
     var app = express();
     app.listen(3000);
 
   p.
-    The <code>app</code> returned by <code>express()</code> is in fact a JavaScript
-    <code>Function</code>, designed to be passed to node's http servers as a callback
-    to handle requests. This allows you to provide both HTTP and HTTPS versions of
-    your app with the same codebase easily, as the app does not inherit from these,
-    it is simply a callback:
+    <code>express()</code>에 의해 반환되는 <code>app</code>은 
+    요청을 처리하기 위한 콜백으로서, 노드의 http 서버로 넘기기 위해 디자인 된 자바스크립트의 <code>Function</code>이며,
+    이는 당신의 HTTP와 HTTPS 버전의 앱 둘다 같은 코드베이스를 쉽게 제공하게 도와주며, 이 앱은 그 들로 부터 상속하지 않는
+    단순한 콜백입니다.
 
   +js.
     var express = require('express');
@@ -27,8 +27,8 @@ section
     https.createServer(options, app).listen(443);
 
   p.
-    The <code>app.listen()</code> method is simply a convenience method defined as,
-    if you wish to use HTTPS or provide both, use the technique above.
+    <code>app.listen()</code> 메소드는 단순히 편리하게 정의된 메소드이며,
+    HTTPS를 사용하거나 둘 다 제공하기 위해서는 위의 방법들을 사용하세요.
 
   +js.
     app.listen = function(){

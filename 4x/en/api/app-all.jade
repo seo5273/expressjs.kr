@@ -2,33 +2,30 @@ section
   h3(id='app.all') app.all(path, [callback...], callback)
 
   p.
-    This method functions just like the <code>app.VERB()</code> methods,
-    however it matches all HTTP verbs. 
+    이 메소드는 <code>app.VERB()</code> 메소드와 같은 기능을 하지만, 모든 HTTP verb를 매칭 시킨다는 점이 다릅니다. 
 
   p.
-    This method is extremely useful for
-    mapping "global" logic for specific path prefixes or arbitrary matches.
-    For example if you placed the following route at the top of all other
-    route definitions, it would require that all routes from that point on
-    would require authentication, and automatically load a user. Keep in mind
-    that these callbacks do not have to act as end points, <code>loadUser</code>
-    can perform a task, then <code>next()</code> to continue matching subsequent
-    routes.
+    이 메소드는 경로 prefix나 임의 매칭을 위한 "전역" 논리를 맵핑 할 때 특히 매우 유용합니다. 
+    
+    예를 들어, 다음 루트를 다른 모든 루트 정의 위에 둔다면, 어떤 지점 부터의 모든 루트 들은
+    인증을 필요로 하며 자동적으로 유저를 불러옵니다. 
+    
+    이러한 콜백들은 end point 같은 역할을 하지 않으며, 
+    <code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 루트들을 계속하여 매칭시킨다는 것을 알아두세요.
 
   +js.
     app.all('*', requireAuthentication, loadUser);
 
   p.
-    Or the equivalent:
+    혹은, 
 
   +js.
     app.all('*', requireAuthentication)
     app.all('*', loadUser);
 
   p.
-    Another great example of this is white-listed "global" functionality. Here
-    the example is much like before, however only restricting paths prefixed with
-    "/api":
+    또 다른 좋은 예제는 white-listed "전역" 기능입니다. 
+    여기의 예제는 앞의 것과 비슷하지만 오직 "/api"의 prefix된 경로만을 통제 합니다. 
 
   +js.
     app.all('/api/*', requireAuthentication);

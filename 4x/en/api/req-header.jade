@@ -1,8 +1,8 @@
 section
   h3(id='req.get') req.get(field)
   p 
-    | Get the case-insensitive request header <code>field</code>. 
-    | The <em>Referrer</em> and <em>Referer</em> fields are interchangeable.
+    | 대소문자를 구분하지 않는 response 헤더 <code>field</code>를 불러옵니다.
+    | <em>Referrer</em>과 <em>Referer</em> 필드는 교체 사용이 가능합니다.
 
   +js.
     req.get('Content-Type');
@@ -14,4 +14,4 @@ section
     req.get('Something');
     // => undefined
 
-  p Aliased as <code>req.header(field)</code>.
+  p <code>req.header(field)</code>라고도 쓰입니다.
