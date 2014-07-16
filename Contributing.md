@@ -1,2 +1,2 @@
-  - __don't__ edit the HTML directly, edit the _jade_.
-  - don't commit any HTML changes, __only jade changes__.
+  - __절대__ HTML 파일을 바로 수정하지 마시고, _jade_파일을 수정하세요.
+  - HTML 파일의 수정은 커밋하지 마시고, __오직 jade 파일의 수정만 커밋하세요__.
