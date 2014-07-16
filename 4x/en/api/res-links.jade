@@ -2,8 +2,7 @@ section
   h3(id='res.links') res.links(links)
   
   p.
-    Join the given <code>links</code> to populate the "Link"
-    response header field.
+    "Link" response 헤더 필드를 채우기 위해, 주어진 <code>links</code>에 join합니다.
 
   +js.
     res.links({
@@ -11,7 +10,7 @@ section
       last: 'http://api.example.com/users?page=5'
     });
 
-  p yields:
+  p 는 아래의 결과를 만듭니다:
 
   pre
     code.

@@ -2,11 +2,11 @@ section
   h3(id='router.use') router.use([path], function)
   
   p.
-    Use the given middleware <code>function</code>, with optional mount <code>path</code>,
-    defaulting to "/".
+    주어진 <code>function</code> 미들웨어와 optional 마운트인 <code>path</code>를 사용합니다. 기본 값은 "/"입니다.
 
   p.
-    Middleware is like a plumbing pipe, requests start at the first middleware you define and work their way "down" the middleware stack processing for each path they match.
+    미들웨어는 파이프의 배관 작업과 같습니다.
+    request들은 당신이 정의한 첫번째 미들웨어에서 시작하며, 그들이 매칭하는 각 경로를 처리하며 미들웨어 스택 아래로 아동합니다. 
 
   +js.
     var express = require('express');
@@ -36,16 +36,13 @@ section
     app.listen(3000);
 
   p.
-    The "mount" path is stripped and is <strong>not</strong> visible
-    to the middleware <code>function</code>. The main effect of this feature is that
-    mounted middleware may operate without code changes regardless of its "prefix"
-    pathname.
+    "mount"경로는 stripped되며, middleware <code>function</code>에 보이지 <strong>않습니다.</strong>
+    이 특징의 가장 큰 효과는 마운트 된 미들웨어는 "prefix" 경로 이름에 상관 없이 코드의 변환 없이도 실행 할 수 있다는 것입니다. 
 
   p.
-    The order of which middleware are "defined" using <code>router.use()</code> is
-    very important, they are invoked sequentially, thus this defines middleware
-    precedence. For example usually a logger is the very
-    first middleware you would use, logging every request:
+    <code>router.use()</code>를 사용하는 "정의 된" 미들웨어의 순서는 매우 중요하며, 그 미들웨어들은 순서대로 호출됩니다.
+    그러므로 이는 미들웨어의 우선순위를 정의합니다.
+    예를 들어, 대배 logger는 사용 하는 미들웨어의 가장 첫번째이며, 매 요청을 로깅합니다.
 
   +js.
     var logger = require('morgan');
@@ -57,9 +54,8 @@ section
     });
 
   p.
-    Now suppose you wanted to ignore logging requests for static files, but to
-    continue logging routes and middleware defined after <code>logger()</code>,
-    you would simply move <code>static()</code> above:
+    만일 static 파일을 위한 로깅 요청을 무시하고, 계속해서 루트를 로깅하고 싶다면,
+    미들웨어는 <code>logger()</code> 이후에 정의되며, 단순히 위의 <code>static()</code>로 이동합니다.
 
   +js.
     router.use(express.static(__dirname + '/public'));
@@ -69,8 +65,7 @@ section
     });
 
   p.
-    Another concrete example would be serving files from multiple directories,
-    giving precedence to "./public" over the others:
+    다른 예제는, 여러 디렉토리로 부터 파일을 serving하는 것입니다. 이는 다른 것으로 보다도 "./public"에게 우선순위를 줍니다.
 
   +js.
     app.use(express.static(__dirname + '/public'));

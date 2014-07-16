@@ -2,16 +2,16 @@ section
   h3(id='res.download') res.download(path, [filename], [fn])
   
   p.
-    Transfer the file at <code>path</code> as an "attachment",
-    typically browsers will prompt the user for download. The
-    Content-Disposition "filename=" parameter, aka the one
-    that will appear in the brower dialog is set to <code>path</code>
-    by default, however you may provide an override <code>filename</code>.
+    <code>path</code>에 있는 파일을 "attachment"로 전송합니다. 
+    대부분 브라우저는 유저에게 다운로드를 유도합니다.
+    브라우저 다이얼로그에 나타나기도 하게 알려 진 Content-Disposition "filename=" 파라미터는
+    기본적으로 <code>path</code>로 설정되며, 
+    이에 직접 <code>filename</code> override를 제공 할 수 있습니다.
 
   p.
-    When an error has ocurred or transfer is complete the optional 
-    callback <code>fn</code> is invoked. This method uses <a href="#res.sendfile">res.sendfile()</a>
-    to transfer the file.
+    에러가 발생하거나 전송이 완료 되면,
+    optional 콜백인 <code>fn</code>이 호출됩니다.
+    이 메소드는 파일을 전송하기 위해 <a href="#res.sendfile">res.sendfile()</a>을 사용합니다.
 
   +js.
     res.download('/report-12345.pdf');

@@ -2,9 +2,9 @@ section
   h3(id='res.jsonp') res.jsonp([status|body], [body])
   
   p.
-    Send a JSON response with JSONP support. This method is identical
-    to <code>res.json()</code> however opts-in to JSONP callback
-    support.
+    Send a JSON response with JSONP support. 
+    JSON response와 JSONP support를 보냅니다.
+    이 메소드는 <code>res.json()</code>과 동의하나, JSNOP 콜백 support의 opts-in입니다.
 
   +js.
     res.jsonp(null)
@@ -17,10 +17,9 @@ section
     // => { "error": "message" }
 
   p.
-    By default the JSONP callback name is simply <code>callback</code>,
-    however you may alter this with the <a href="#app-settings">jsonp callback name</a>
-    setting. The following are some examples of JSONP responses using the same
-    code:
+    기본 값으로, JSONP 콜백 이름은 단순히 <code>callback</code>이지만,
+    이는 <a href="#app-settings">jsonp callback name</a> 설정으로 변경 할 수 있습니다.
+    아래는 같은 코드를 이용한 JSNOP response 예제입니다.
 
   +js.
     // ?callback=foo
