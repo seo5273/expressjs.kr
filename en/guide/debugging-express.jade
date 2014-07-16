@@ -1,11 +1,10 @@
 section
-  h3(id='debugging-express') 디버깅 Express
+  h3(id='debugging-express') Express의 디버깅
 
   p.
     Express는 내부적으로 라우팅 매치(route matches)나 애플리캐이션 모드에 관한 정보를 로그 시키기 위해서
     <a href="https://github.com/visionmedia/debug">debug</a> 모듈을 사용합니다.
-    To see this information, simply set the <code>DEBUG</code> environment variable to
-    이 정보를 보기 위해서는, 앱을 시작 할 때, 간단히 <code>DEBUG</code>의 환경 변수(environment variable)을 
+    이 정보를 보기 위해서는, 앱을 시작 할 때 간단히 <code>DEBUG</code>의 환경 변수(environment variable)을 
     <code>express:*</code>로 설정하면 됩니다. 그러면 콘솔에 디버깅 정보가 나타납니다.
 
   +shell.
@@ -21,7 +20,7 @@ section
     express:router defined get /hello.txt +1ms
 
   p.
-    또한 express 실행 파일(생성기)에 의해 생성 된 이 앱은 <code>debug</code> 모듈을 사용합니다.
+    또한 express 실행 파일(생성기)에 의해 생성된 앱은 <code>debug</code> 모듈을 사용합니다.
     그리고 기본적으로 이는 <code>my-application</code> 디버깅 namespace의 범위로 나타납니다.
 
   p.

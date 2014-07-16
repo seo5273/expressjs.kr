@@ -2,7 +2,7 @@ section
   h3(id='router') Router()
 
   p.
-    라우터는 미들웨어와 루트들의 독립 된 인스턴스 입니다.
+    라우터는 미들웨어와 라우트들의 독립 된 인스턴스 입니다.
     라우터는 미들웨어와 라우팅을 수행 할 수 있는 "mini" 애플리케이션이라고 생각 될 수 있습니다.
     모든 express 애플리케이션은 빌트인 앱 라우터를 가지고 있습니다. 
 
@@ -16,7 +16,7 @@ section
     var router = express.Router([options]);
 
   p.
-    아래 옵션은 라우터의 루트를 매칭하는 역할을 수정하기 위한 optional 오브젝트입니다.
+    아래 옵션은 라우터의 라우트를 매칭하는 역할을 수정하기 위한 optional 오브젝트입니다.
 
   ul
     li
@@ -27,7 +27,7 @@ section
       | Strict 라우팅을 활성화 시킵니다. 기본 적으 라우터는 "/foo"를 "/foo/" 같게 처리합니다.
 
   p.
-    라우터는 미들웨어와, 애플리케이션 처럼 http VERB 루트를 가질 수 있습니다. 
+    라우터는 미들웨어와, 애플리케이션 처럼 http VERB 라우트를 가질 수 있습니다. 
 
   +js.
     // invoked for any requests passed to this router
@@ -43,7 +43,7 @@ section
     });
 
   p.
-    이는 파일이나 mini앱의 루트를 분리시키는 방법으로 특정 루트 url을 위한 라우터를 사용 할 수 있습니다. 
+    이는 파일이나 mini앱의 라우트를 분리시키는 방법으로 특정 라우트 url을 위한 라우터를 사용 할 수 있습니다. 
 
   +js.
     // only requests to /calendar/* will be sent to our "router"

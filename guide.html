@@ -1,10 +1,10 @@
-<!DOCTYPE html><html><head><title>Express - guide</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html">API Reference</a><a href="/guide.html" class="active">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li><ul class="active"><li><a href="#intro">시작하기</a></li><li><a href="#executable">express(1)을 사용하여 애플리케이션 생성하기</a></li><li><a href="#error-handling">오류 처리</a></li><li><a href="#users-online">유저 온라인 카운팅</a></li><li><a href="#proxies">프록시 뒤의 Express</a></li><li><a href="#debugging-express">디버깅 Express</a></li></ul></li></ul><section><h3 id="intro">시작하기</h3><p>노드를 설치하고 (<a href="http://nodejs.org/download">다운로드</a>),
+<!DOCTYPE html><html><head><title>Express - 가이드</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html">API 레퍼런스</a><a href="/guide.html" class="active">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li><ul class="active"><li><a href="#intro">시작하기</a></li><li><a href="#executable">express(1)을 사용하여 애플리케이션 생성하기</a></li><li><a href="#error-handling">오류 처리</a></li><li><a href="#users-online">유저 접속 카운팅</a></li><li><a href="#proxies">프록시 뒤의 Express</a></li><li><a href="#debugging-express">Express의 디버깅</a></li></ul></li></ul><section><h3 id="intro">시작하기</h3><p>노드를 설치하고 (<a href="http://nodejs.org/download">다운로드</a>),
 컴퓨터에 디렉토리를 만든 후, 첫 애플리케이션을 생성합니다.
 </p><pre class="js"><code>$ mkdir hello-world
 </code></pre><p>이는 같은 디렉토리 안에 애플리케이션 "package"를 정의를 할 것이며, 이 "package"들은 다른 노드 package들과 다르지 않습니다.
-이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 가져오기 위해서는
-<code>npm info express version</code>을 사용 할 수 있습니다.    
-미래에 예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 아래를 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
+이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 알기 위해서는
+<code>npm info express version</code>을 사용할 수 있습니다.    
+예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 이하 버젼을 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
 
 </p><pre class="js"><code>{
   "name": "hello-world",
@@ -17,7 +17,6 @@
 }
 </code></pre><p>이제 이 디렉토리 안에 package.json파일이 있으므로, 의존성 파일들을 설치하기 위해서 
 <code>npm(1)</code>을 사용 할 수 있습니다.
-이 때, 단순히 Express 하세요.
 </p><pre class="js"><code>$ npm install
 </code></pre><p>npm이 끝나면, ./node_modules 디렉토리에 로컬라이징 된 Express 3.x 의존성이 생성이 됩니다.
 아래 Express 트리와 의존성들을 보여주는 아래의 스니펫(snippet, 작은 정보들)에서 
@@ -41,15 +40,15 @@ hello-world@0.0.1 /private/tmp
   │ └── crc@0.2.0
   └─┬ send@0.0.3
     └── mime@1.2.6
-    </code></pre><p>이제 애플케이션 자체를 생성 해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
+    </code></pre><p>이제 애플케이션 자체를 생성해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
 그리고 <code>express()</code>를 사용하여 새 애플리케이션을 생성하세요.
 
 </p><pre class="js"><code>var express = require('express');
 var app = express();
-</code></pre><p>새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 루트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
-<code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 오프젝트며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
-기타 Express가 쓰이지 않은 것 등을 호출 할 수 있습니다.
-</p><p>Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공하며 이러한 오브젝트들을 증가시킵니다. 
+</code></pre><p>새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 라우트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
+<code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 Object이며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
+기타 여러가지 것들을 호출 할 수 있습니다.
+</p><p>Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공합니다. 
 또한 Content-Length를 더해줍니다. 
 </p><pre class="js"><code>app.get('/hello.txt', function(req, res){
   res.send('Hello World');
@@ -59,11 +58,11 @@ var app = express();
 
 </p><pre class="js"><code>var server = app.listen(3000, function() {
     console.log('Listening on port %d', server.address().port);
-});</code></pre></section><section><h3 id="executable">express(1)을 사용하여 애플리케이션 생성하기</h3><p>Express팀은 <code>express(1)</code>라는 손 쉬고 빠른 프로젝트 시작을 위한 생성기를 사용합니다.
-express 생성기와 npm를 전역적으로 설치하면 컴퓨터 내부 어디서든 사용 할 수 있습니다.
+});</code></pre></section><section><h3 id="executable">express(1)을 사용하여 애플리케이션 생성하기</h3><p>Express팀은 프로젝트 시작을 위해서 <code>express(1)</code>이라는 손쉽고 빠른 생성기를 사용합니다.
+express 생성기와 npm를 global로 설치하면 어디서든 사용 할 수 있습니다.
 </p><pre class="js"><code>$ npm install -g express-generator
-</code></pre><p>이 툴은 애플리케이션 골격 작업을 위한 간단한 방법을 제공하지만, 적은 수의 엔진 템플릿을 지원 하는 등의 제한 적인 범위를 제공한다는 특징도 있습니다.
-그러나 반대로 Express는 이 자체로 노드를 위해 설계된 가상 템플릿 엔진도 지원합니다. <code>--help</code>도 확인해보세요.
+</code></pre><p>이 툴은 애플리케이션 골격을 만들기 위한 간단한 방법을 제공하지만, 적은 수의 엔진 템플릿을 지원 하는 등 제한적인 범위를 제공하기도 합니다.
+그러나 반대로 Express는 이 자체로 노드를 위해 설계된 가상 템플릿 엔진도 지원합니다. <code>--help</code>를 확인해보세요.
 </p><pre class="js"><code>Usage: express [options]
 
 Options:
@@ -74,7 +73,7 @@ Options:
   -H, --hogan         add hogan.js engine support
   -c, --css <engine>  add stylesheet <engine> support (less|stylus|compass) (defaults to plain css)
   -f, --force         force on non-empty directory
-  </code></pre><p>만일 Jade와 Stylus를 제원하는 애플리케이션을 생성하고 싶다면, 아래대로 실행해보세요.
+  </code></pre><p>만일 Jade와 Stylus를 지원하는 애플리케이션을 생성하고 싶다면, 아래대로 실행해보세요.
 </p><pre class="js"><code>$ express --css stylus myapp
 
 create : myapp
@@ -96,13 +95,13 @@ install dependencies:
   
 run the app:
   $ DEBUG=myapp node app
-  </code></pre><p>그 후, 다른 노트 애플리케이션과 마찬가지로 의존성을 설치해야 합니다.
+  </code></pre><p>그 후, 다른 노드 애플리케이션들과 마찬가지로 의존성 모듈들을 설치해야 합니다.
 </p><pre class="js"><code>$ cd myapp
 $ npm install
-</code></pre><p>이제, 작동 시켜 봅시다!
+</code></pre><p>이제, 작동시켜 봅시다!
 </p><pre class="js"><code>$ npm start
-</code></pre><p>여기까지 정도로 간단한 애플리케이션을 만들고 실행 시킬 수 있습니다. 
-Express는 특정한 디렉토리 구조에 한정하지 않지만, 간단한 기준은 있다는 것을 명심하세요.
+</code></pre><p>이정도로 간단한 애플리케이션을 만들고 실행 시킬 수 있습니다. 
+Express는 특정 디렉토리 구조에 제한되지 않지만, 간단한 기준은 있다는 것을 명심하세요.
 다른 애플리케이션 구조들을 보려면, github repo의 <a href="https://github.com/visionmedia/express/tree/master/examples">examples</a>
 를 참고하시기 바랍니다.
 </p></section><section><h3 id="error-handling">오류 처리</h3><p>오류 처리 미들웨어는 다른 보통 미들웨어와 마찬가지로 정의되지만, 
@@ -141,7 +140,7 @@ app.use(errorHandler);
   console.error(err.stack);
   next(err);
 }
-</code></pre><p><code>clientErrorHandler</code>가 다음과 같이 정의되는 부분입니다. 에러가 명확히 다음으로 넘어 간다는 것을 알아두세요.
+</code></pre><p><code>clientErrorHandler</code>가 다음과 같이 정의되는 부분입니다. 에러가 명확히 다음으로 넘어간다는 것을 알아두세요.
 </p><pre class="js"><code>function clientErrorHandler(err, req, res, next) {
   if (req.xhr) {
     res.send(500, { error: 'Something blew up!' });
@@ -153,8 +152,8 @@ app.use(errorHandler);
 </p><pre class="js"><code>function errorHandler(err, req, res, next) {
   res.status(500);
   res.render('error', { error: err });
-}</code></pre></section><section><h3 id="users-online">유저 온라인 카운팅</h3><p>이 섹션에서는 <a href="http://redis.io">Redis</a>을 사용하여 유저 온라인 수를 카운팅하는 full 애플리케이션(소규모)의 세부 내용을 다룹니다.
-첫번째로, redis client의 의존성과 Express 자체를 위해 의존성, 총 두개의 의존성을 지닌 package.json파일을 생성합니다.
+}</code></pre></section><section><h3 id="users-online">유저 접속 카운팅</h3><p>이 섹션에서는 <a href="http://redis.io">Redis</a>을 사용하여 유저 접속 수를 카운팅하는 애플리케이션의 세부 내용을 다룹니다.
+첫번째로, redis client의 의존성과 Express 자체의 의존성, 총 두개의 의존성을 지닌 package.json파일을 생성합니다.
 redis가 설치되어 있고, <code>$ redis-server</code>을 통해 실행되고 있는지 확인하시기 바랍니다.
 
 </p><pre class="js"><code>{
@@ -170,15 +169,14 @@ redis가 설치되어 있고, <code>$ redis-server</code>을 통해 실행되고
 var redis = require('redis');
 var db = redis.createClient();
 var app = express();
-</code></pre><p>Next up is the middleware for tracking online users. 
-그 다음은 온라인 유저를 트랙킹 하기 위한 미들웨어입니다. 여기서 마지막 N 밀리초 안의 온라인 유저들에 대한 쿼리를 redis로 보내기 위해 
+</code></pre><p>그 다음은 접속 유저를 트랙킹 하기 위한 미들웨어입니다. 여기서 마지막 N 밀리초 안의 온라인 유저들에 대한 쿼리를 redis로 보내기 위해 
 정렬된 세트(sorted sets)를 사용합니다. 타임 스탬프를 멤버의 "score"로서 패싱(passing)하여 사용할 수 있습니다.
 여기서 보통으로는 유저 id를 사용하는 하는 부분 대신 User-Agent 문자열을 사용한다는 것을 알아두세요.
 </p><pre class="js"><code>app.use(function(req, res, next){
   var ua = req.headers['user-agent'];
   db.zadd('online', Date.now(), ua, next);
 });
-</code></pre><p>다음 미들웨어는 마지막 1분의 온라인 유저를 가지고 오기 위해 사용합니다.
+</code></pre><p>다음 미들웨어는 최근 1분 안에 접속한 유저를 가지고 오기 위해 사용합니다.
 항상 최근 타임 스탬프 - 60,000 밀리초의 최소의 스코어(score)를 가진 가장 최근의 유저 정보를 얻기 위해서 
 <strong>zrevrangebyscore</strong>을 사용하여 양수 무제한 최대 값을 가져옵니다.
 
@@ -197,18 +195,17 @@ var app = express();
   res.send(req.online.length + ' users online');
 });
 
-app.listen(3000);</code></pre></section><section><h3 id="proxies">프록시 뒤의 Express</h3><p>Varnish나 Nginx 같이 역 프록시(reverse proxy) 뒤에 Express를 사용 하는 것은 다소 사소한 방법이나, configuration을 필요로 합니다.
+app.listen(3000);</code></pre></section><section><h3 id="proxies">프록시 뒤의 Express</h3><p>Varnish나 Nginx 같이 역 프록시(reverse proxy) 뒤에 Express를 사용 하는 것은 쉽긴 하지만 configuration을 필요로 합니다.
 <code>app.enable('trust proxy')</code>를 통해 "trust proxy" 설정을 활성화 시키면, 
 Express는 그냥 두면 스푸핑 되어 버릴 수도 있는 '프록시 뒤의 설정'이라는 사실과
 <code>X-Forwarded-*</code> 헤더 필드가 신뢰 할 수 있다는 정보를 갖게됩니다.
-</p><p>이 설정을 활성화 시키면 여러 작은 영향들이 생깁니다. 첫 번째로는, 
-<code>X-Forwarded-Proto</code>가 역 프록시에 의해 그 앱은 https이거나 단순 http라는 것을 말해주도록 설정이 됩니다.
+</p><p>이 설정을 활성화 시키면 여러 효과들이 생깁니다. 첫 번째로는, 
+<code>X-Forwarded-Proto</code>가 역 프록시에 의해 그 앱은 https이거나 단순 http라는 것을 말해주도록 설정됩니다.
 이 값은 <a href="/api#req.protocol">req.protocol</a>에 의해 반영됩니다.
 </p><p>두 번째는, <a href="/api#req.ip">req.ip</a>와 <a href="/api#req.ips">req.ips</a>의 값이 
-<code>X-Forwarded-For</code>의 주소(addresses) 리스트로 채워집니다.</p></section><section><h3 id="debugging-express">디버깅 Express</h3><p>Express는 내부적으로 라우팅 매치(route matches)나 애플리캐이션 모드에 관한 정보를 로그 시키기 위해서
+<code>X-Forwarded-For</code>의 주소(addresses) 리스트로 채워집니다.</p></section><section><h3 id="debugging-express">Express의 디버깅</h3><p>Express는 내부적으로 라우팅 매치(route matches)나 애플리캐이션 모드에 관한 정보를 로그 시키기 위해서
 <a href="https://github.com/visionmedia/debug">debug</a> 모듈을 사용합니다.
-To see this information, simply set the <code>DEBUG</code> environment variable to
-이 정보를 보기 위해서는, 앱을 시작 할 때, 간단히 <code>DEBUG</code>의 환경 변수(environment variable)을 
+이 정보를 보기 위해서는, 앱을 시작 할 때 간단히 <code>DEBUG</code>의 환경 변수(environment variable)을 
 <code>express:*</code>로 설정하면 됩니다. 그러면 콘솔에 디버깅 정보가 나타납니다.
 </p><pre class="sh"><code>$ DEBUG=express:* node ./bin/www
 </code></pre><p><code>hello world</code> 예제에 이 것을 실행 시키면, 다음과 같이 나옵니다.
@@ -216,7 +213,7 @@ To see this information, simply set the <code>DEBUG</code> environment variable 
 </p><pre class="sh"><code>express:application booting in development mode +0ms
 express:router defined get /hello.txt +0ms
 express:router defined get /hello.txt +1ms
-</code></pre><p>또한 express 실행 파일(생성기)에 의해 생성 된 이 앱은 <code>debug</code> 모듈을 사용합니다.
+</code></pre><p>또한 express 실행 파일(생성기)에 의해 생성된 앱은 <code>debug</code> 모듈을 사용합니다.
 그리고 기본적으로 이는 <code>my-application</code> 디버깅 namespace의 범위로 나타납니다.
 </p><p>이러한 디버깅 명령어를 활성화 시키기 위해서는, 아래 커맨드를 사용하세요.
 </p><pre class="sh"><code>$ DEBUG=my-application node ./bin/www

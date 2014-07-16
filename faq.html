@@ -1,22 +1,22 @@
-<!DOCTYPE html><html><head><title>Express - faq</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html" class="active">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><div id="faq"><section><h3 id="models">모델을 정의하는 방법은 무엇인가요?</h3><p>Express는 데이터베이스의 전혀 탑재하고 있지 않으며, third-party 노드 모듈에 의존합니다.
-이는 거의 모든 데이터베이스의 인터페이스 사용을 가능하게 합니다.
-</p></section><section><h3 id="auth">유저를 인증하는 방법은 무엇인가요?</h3><p>이 또한 Express가 스스로 지원하는 분야는 아니므로 사용 하고 싶은 인증 스킴을 사용하시면 됩니다.
+<!DOCTYPE html><html><head><title>Express - FAQ</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html" class="active">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><div id="faq"><section><h3 id="models">모델을 어떻게 정의하나요?</h3><p>Express는 데이터베이스와 관련된 기능들을 전혀 갖고 있지 않으며, 이는 third-party 모듈에 의존합니다.
+따라서 거의 모든 데이터베이스의 인터페이스 사용을 가능하게 합니다.
+</p></section><section><h3 id="auth">어떻게 인증을 처리하나요?</h3><p>이 또한 Express가 스스로 지원하는 부분은 아니므로 사용 하고 싶은 인증 솔루션을 사용하시면 됩니다.
 간단한  username / password 스킴을 보기 위해서는 
 <a href="https://github.com/visionmedia/express/tree/master/examples/auth">example</a>를 참고하시기 바랍니다.
 </p></section><section><h3 id="templates">Express가 지원하는 템플릿 엔진(template engines)은 무엇인가요?</h3><p><code>(path, locals, callback)</code> signature 형태를 가진 것이라면 어떤 것이든 지원 가능합니다.
 템플릿 엔진(template engines)과 캐싱을 normalize 하기 위해서,
 <a href="https://github.com/visionmedia/consolidate.js">consolidate.js</a> 프로젝트를 확인 해 볼 것을 권합니다.
-리스트에 포함 되지 않은 템플릿 엔진도 Express signature을 지원 할 가능성이 높습니다.
+리스트에 포함 되지 않은 템플릿 엔진도 Express signature를 지원 할 가능성이 높습니다.
 
 </p></section><section><h3 id="structure">제 애플리케이션을 어떻게 구조화(structure) 시켜야 하나요?</h3><p>이 질문에 대한 명확한 답은 없습니다. 이는 당신의 애플리케이션의 규모와 관련된 팀에 달려 있기 때문입니다.
 최대한의 유연함을 위해 Express는 구조(structure)에 관해서는 예외사항을 두지 않습니다.
-</p><p>루트들과 구체적 애플리케이션 논리는 원하는 디렉토리 구조 안에 원하는 만큼 많이 포함 시킬 수 있습니다.
+</p><p>라우트들과 구체적 애플리케이션 논리는 원하는 디렉토리 구조 안에 원하는 만큼 많이 포함 시킬 수 있습니다.
 아래 예제를 참고 해 보세요.
 </p><ul><li><a href="https://github.com/visionmedia/express/blob/master/examples/route-separation/index.js#L19">Route listings</a></li><li><a href="https://github.com/visionmedia/express/blob/master/examples/route-map/index.js#L47">Route map</a></li><li><a href="https://github.com/visionmedia/express/tree/master/examples/route-loading">Route bootstrapping</a></li><li><a href="https://github.com/visionmedia/express/tree/master/examples/mvc">MVC style controllers</a></li></ul><p>이러한 패턴들을 단순화 시키는 Express의 third-party 익스텐션 또한 사용 가능합니다.
 </p><ul><li><a href="https://github.com/visionmedia/express-resource">Resourceful routing</a></li><li><a href="https://github.com/visionmedia/express-namespace">Namespaced routing</a></li></ul></section><section><h3 id="multiple-statics">여러 디렉토리에서 statics를 어떻게 사용(serve)하나요?</h3><p>일반적으로 애플리케이션 안에서 미들웨어를 여러 번 사용합니다. 
 다음 미들웨어 setup과 "GET /javascripts/jquery.js"으로의 요청은 
-처음으로는 "./public/javascripts/jquery.js",을 검사하고,
-만약 이것이 존재하지 않는다면, 그 이후의 미들웨어는 "./files/javascripts/jquery.js"을 검사합니다.
+처음으로는 "./public/javascripts/jquery.js"을 검사하고,
+만약 이것이 존재하지 않는다면 그 이후의 미들웨어는 "./files/javascripts/jquery.js"을 검사합니다.
 
 </p><pre class="js"><code>app.use(express.static('public'));
 app.use(express.static('files'));
@@ -38,9 +38,9 @@ refactoring과 API를 바꾸면서 까지 업데이트를 할 필요는 없습�
 
 </p></setup><setup><h3 id="404-handling">404를 어떻게 처리 해야 하나요?</h3><p>Express에서 404는 에러의 결과가 아닙니다.
 그러므로 오류 핸들러(error handler) 미들웨어는 404를 캡쳐하지 않으며,
-이는 404가 단순히 더 필요한 작업이 부족하기 때문에 나타나는 것이며,
-다시 말하면 Express는 모든 미들웨어와 루트를 이미 수행 한 상태이며, 아무런 응답을 받지 못한 상태 때문입니다.
-그래서 404를 처리 하고자 한다면, 다른 미들웨어들의 가장 아래에 또 다른 미들웨어 하나를 추가하시면 됩니다.
+이는 404가 단순히 더 필요한 작업이 부족하기 때문에 나타나는 것이기 때문입니다.
+다시 말하면 Express는 이 때에 모든 미들웨어와 라우트를 이미 수행 한 상태이며, 아무런 응답을 받지 못한 상태입니다.
+그래서 404를 처리 하고자 한다면, 다른 미들웨어들의 가장 아래에 또 다른 미들웨어 하나를 더 추가하시면 됩니다.
 
 </p><pre class="js"><code>app.use(function(req, res, next){
   res.send(404, 'Sorry cant find that!');
@@ -52,7 +52,7 @@ refactoring과 API를 바꾸면서 까지 업데이트를 할 필요는 없습�
   res.send(500, 'Something broke!');
 });
 </code></pre><p>더 많은 정보는 <a href="/guide.html#error-handling">error-handling</a>를 참고하세요.
-</p></setup><setup><h3 id="render-html">단순(plain) HTML을 어떻게 만들 수(render) 있나요?</h3><p>할 수 없습니다! <code>res.render()</code>을 HTML와 "render" 할 필요가 없습니다.
+</p></setup><setup><h3 id="render-html">단순(plain) HTML을 어떻게 만들 수(render) 있나요?</h3><p>할 필요가 없습니다! <code>res.render()</code>을 HTML와 "render" 할 필요가 없습니다.
 특정한 파일을 사용 해야 한다면, <code>res.sendfile()</code>를 사용하고,
 디렉토리의 많은 assets를 이용(serving)한다면, <code>express.static()</code> 미들웨어를 사용하세요.
 </p></setup><setup><h3 id="size">Express 코드 베이스(codebase)는 얼마나 큰 가요?</h3><p>Express는 3.0.0 릴리즈가 932 SLOC인 매우 작은 프레임 워크입니다.

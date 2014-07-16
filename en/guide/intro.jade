@@ -10,9 +10,9 @@ section
 
   p.
     이는 같은 디렉토리 안에 애플리케이션 "package"를 정의를 할 것이며, 이 "package"들은 다른 노드 package들과 다르지 않습니다.
-    이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 가져오기 위해서는
-    <code>npm info express version</code>을 사용 할 수 있습니다.    
-    미래에 예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 아래를 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
+    이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 알기 위해서는
+    <code>npm info express version</code>을 사용할 수 있습니다.    
+    예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 이하 버젼을 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
 
 
   +js.
@@ -29,7 +29,6 @@ section
   p.
     이제 이 디렉토리 안에 package.json파일이 있으므로, 의존성 파일들을 설치하기 위해서 
     <code>npm(1)</code>을 사용 할 수 있습니다.
-    이 때, 단순히 Express 하세요.
 
   +js.
     $ npm install
@@ -61,7 +60,7 @@ section
         └── mime@1.2.6
 
   p.
-    이제 애플케이션 자체를 생성 해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
+    이제 애플케이션 자체를 생성해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
     그리고 <code>express()</code>를 사용하여 새 애플리케이션을 생성하세요.
 
 
@@ -70,12 +69,12 @@ section
     var app = express();
 
   p.
-    새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 루트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
-    <code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 오프젝트며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
-    기타 Express가 쓰이지 않은 것 등을 호출 할 수 있습니다.
+    새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 라우트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
+    <code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 Object이며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
+    기타 여러가지 것들을 호출 할 수 있습니다.
 
   p.
-    Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공하며 이러한 오브젝트들을 증가시킵니다. 
+    Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공합니다. 
     또한 Content-Length를 더해줍니다. 
 
   +js.

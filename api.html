@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Express - api reference</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">Home</a><a href="/4x/api.html" class="active">API Reference</a><a href="/guide.html">Guide</a><a href="/applications.html">Applications</a><a href="/community.html">Community</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
+<!DOCTYPE html><html><head><title>Express - API 레퍼런스</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한 웹 애플리케이션 프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html" class="active">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -114,7 +114,7 @@ app.engine('haml', engines.haml);
 app.engine('html', engines.hogan);</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>로직(logic)을 라우트 파라미터로 맵핑합니다.
 예를 들어, <code>:user</code>가 라우트 경로에 있을 때, 
 자동적으로 <code>req.user</code>을 자동적으로 제공하기 위해서 유저 로딩 로직(user loading logic)을
-루트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
+라우트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
 </p><p>아래는 <code>callback</code>가 얼마나 미들웨어랑 비슷한 지를 보여줍니다.
 그러므로 아래는 비동기 오퍼레이션(async operations)을 지원하고 파라미터의 부가적인 값(여기서는 <code>id</code>)들을 
 제공하는 것을 보여줍니다.  
@@ -165,15 +165,15 @@ app.get('/range/:range', function(req, res){
 });</code></pre></section><section><h3 id="app.VERB">app.VERB(path, [callback...], callback)</h3><p><code>app.VERB()</code> 메소드는 Express 안의 <code>app.post()</code>과 같은
 HTTP verb 중 하나인 <strong>VERB</strong>의 라우팅 기능을 제공합니다. 
 똑같이 취급되는 여러 콜백들이 주어지고, 미들웨어 같은 역할을 합니다.
-남은 루트 콜백들을 우회하기 위하여 
+남은 라우트 콜백들을 우회하기 위하여 
 한 예외를 제외하고는 이 콜백들은 <code>next('route')</code>를 호출합니다. 
 with the route matched.
-이 방법은 사전 조건을 수행하기 위해여 루트에 쓰일 수 있으며, 매치되는 루트에 계속 진행 할 이유가 없어 질 때에
-이후 루트들에 통제권을 넘깁니다. 
-</p><p>아래는 가능한 가장 단순한 루트 정의를 보여줍니다.
+이 방법은 사전 조건을 수행하기 위해여 라우트에 쓰일 수 있으며, 매치되는 라우트에 계속 진행 할 이유가 없어 질 때에
+이후 라우트들에 통제권을 넘깁니다. 
+</p><p>아래는 가능한 가장 단순한 라우트 정의를 보여줍니다.
 Express는 path 문자열을 정규식으로 변환 시켜주며, 내부적으로 새로 들어오는 요청을 매치시키기 위하여 사용됩니다. 
 쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
-예를 들어 "GET /"는 "GET /?name=tobi"처럼 다음 루트를 매칭시킵니다.    
+예를 들어 "GET /"는 "GET /?name=tobi"처럼 다음 라우트를 매칭시킵니다.    
 </p><pre class="js"><code>app.get('/', function(req, res){
   res.send('hello world');
 });
@@ -188,7 +188,7 @@ Express는 path 문자열을 정규식으로 변환 시켜주며, 내부적으�
 </p><pre class="js"><code>app.get('/user/:id', user.load, function(){
   // ... 
 })
-</code></pre><p>루트 하나에 여러 공동 미들웨어가 있다면, <code>all</code>를 이용하여 루트 API를 사용 할 수 있습니다.
+</code></pre><p>라우트 하나에 여러 공동 미들웨어가 있다면, <code>all</code>를 이용하여 라우트 API를 사용 할 수 있습니다.
 </p><pre class="js"><code>var middleware = [loadForum, loadThread];
 
 app.route('/forum/:fid/thread/:tid')
@@ -199,19 +199,19 @@ app.route('/forum/:fid/thread/:tid')
 </code></pre><p>GET and POST 요청을 위해 두 미들웨어가 수행됩니다. </p></section><section><h3 id="app.all">app.all(path, [callback...], callback)</h3><p>이 메소드는 <code>app.VERB()</code> 메소드와 같은 기능을 하지만, 모든 HTTP verb를 매칭 시킨다는 점이 다릅니다. 
 </p><p>이 메소드는 경로 prefix나 임의 매칭을 위한 "전역" 논리를 맵핑 할 때 특히 매우 유용합니다. 
 
-예를 들어, 다음 루트를 다른 모든 루트 정의 위에 둔다면, 어떤 지점 부터의 모든 루트 들은
+예를 들어, 다음 라우트를 다른 모든 라우트 정의 위에 둔다면, 어떤 지점 부터의 모든 라우트 들은
 인증을 필요로 하며 자동적으로 유저를 불러옵니다. 
 
 이러한 콜백들은 end point 같은 역할을 하지 않으며, 
-<code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 루트들을 계속하여 매칭시킨다는 것을 알아두세요.
+<code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 라우트들을 계속하여 매칭시킨다는 것을 알아두세요.
 </p><pre class="js"><code>app.all('*', requireAuthentication, loadUser);
 </code></pre><p>혹은, 
 </p><pre class="js"><code>app.all('*', requireAuthentication)
 app.all('*', loadUser);
 </code></pre><p>또 다른 좋은 예제는 white-listed "전역" 기능입니다. 
 여기의 예제는 앞의 것과 비슷하지만 오직 "/api"의 prefix된 경로만을 통제 합니다. 
-</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>선택적 미들웨어와 HTTP verb를 다루기 위한 싱글 루트 인스턴스를 반환합니다.
-중복되는 루트 이름과 오타에서 나오는 에러들을 막기 위해 <code>app.route()</code>를 사용한 접근 방법이 추천됩니다.
+</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>선택적 미들웨어와 HTTP verb를 다루기 위한 싱글 라우트 인스턴스를 반환합니다.
+중복되는 라우트 이름과 오타에서 나오는 에러들을 막기 위해 <code>app.route()</code>를 사용한 접근 방법이 추천됩니다.
 </p><pre class="js"><code>var app = express();
 
 app.route('/events')
@@ -270,16 +270,16 @@ HTTPS를 사용하거나 둘 다 제공하기 위해서는 위의 방법들을 �
 </p><pre class="js"><code>app.listen = function(){
   var server = http.createServer(this);
   return server.listen.apply(server, arguments);
-};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>이 속성은 "parameters" 루트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
+};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>이 속성은 "parameters" 라우트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
 예를 들어, <code>/user/:name</code>를 가질 때, "name" 속성은 <code>req.params.name</code>로서 사용 가능합니다.
 이 속성의 기본 값은 <code>{}</code>입니다.
 </p><pre class="js"><code>// GET /user/tj
 req.params.name
 // => "tj"
 </code></pre><p>When a regular expression is used for the route definition, 
-정규식이 루트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
+정규식이 라우트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
 <code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
-이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 루트에 적용됩니다.
+이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 라우트에 적용됩니다.
 </p><pre class="js"><code>// GET /file/javascripts/jquery.js
 req.params[0]
 // => "javascripts/jquery.js"</code></pre></section><section><h3 id="req.query">req.query</h3><p>이 속성은 파싱 된 쿼리 문자열을 포함하고 있는 오브젝트이며, 기본 값은 <code>{}</code>입니다.
@@ -308,7 +308,7 @@ req.param('name')
 req.param('name')
 // => "tobi"
 </code></pre><p>Lookup이 다음과 같은 순서로 수행됩니다.</p><ul><li><code>req.params</code></li><li><code>req.body</code></li><li><code>req.query</code></li></ul><p>각각 오브젝트의 입력을 분명히게 받는 것이 아니라면, 
-<code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. </p></section><section><h3 id="req.route">req.route</h3><p>루트 원본 경로 문자열, 생성된 regexp 등의 여러 속성을 포함하는 현재 매칭 된 <code>Route</code>입니다.
+<code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. </p></section><section><h3 id="req.route">req.route</h3><p>라우트 원본 경로 문자열, 생성된 regexp 등의 여러 속성을 포함하는 현재 매칭 된 <code>Route</code>입니다.
 </p><pre class="js"><code>app.get('/user/:id?', function(req, res){
   console.log(req.route);
 });
@@ -611,7 +611,7 @@ res.attachment('path/to/logo.png');
 // Content-Disposition: attachment; filename="logo.png"
 // Content-Type: image/png</code></pre></section><section><h3 id="res.sendfile">res.sendfile(path, [options], [fn])</h3><p>주어진 <code>path</code>의 파일을 전송합니다.</p><p>파일 이름의 확장자에 근거 하여 자동적으로 Content-Type response 헤더 필드를 기본 값으로 합니다.
 파일 전송이 완료 되거나 에러 발생 시,  <code>fn(err)</code> 콜백이 호출됩니다.
-</p><p>옵션:</p><ul><li><code>maxAge</code> 밀리초 형태, 기본 값은 0</li><li><code>root</code> 관계 된 파일 이름을 위한 루트 디렉토리</li></ul><p>이 메소드는 아래 예제에 보여 지는 것처럼, 파일을 서빙(serving)하기 위한 fine-grained 지원을 제공합니다.
+</p><p>옵션:</p><ul><li><code>maxAge</code> 밀리초 형태, 기본 값은 0</li><li><code>root</code> 관계 된 파일 이름을 위한 라우트 디렉토리</li></ul><p>이 메소드는 아래 예제에 보여 지는 것처럼, 파일을 서빙(serving)하기 위한 fine-grained 지원을 제공합니다.
 </p><pre class="js"><code>app.get('/user/:uid/photos/:file', function(req, res){
   var uid = req.params.uid
     , file = req.params.file;
@@ -666,14 +666,14 @@ res.download('/report-12345.pdf', 'report.pdf', function(err){
 
 res.render('user', { name: 'Tobi' }, function(err, html){
   // ...
-});</code></pre></section><h2>Router</h2><a name="router"></a><section><h3 id="router">Router()</h3><p>라우터는 미들웨어와 루트들의 독립 된 인스턴스 입니다.
+});</code></pre></section><h2>Router</h2><a name="router"></a><section><h3 id="router">Router()</h3><p>라우터는 미들웨어와 라우트들의 독립 된 인스턴스 입니다.
 라우터는 미들웨어와 라우팅을 수행 할 수 있는 "mini" 애플리케이션이라고 생각 될 수 있습니다.
 모든 express 애플리케이션은 빌트인 앱 라우터를 가지고 있습니다. 
 </p><p>라우터는 미들웨어처럼 행동하며, 앱이나 다른 라우터에 의해 ".use()'d" 될 수 있습니다.
 </p><p>"express.Router()"을 사용하여 새 라우터를 생성합니다.
 </p><pre class="js"><code>var router = express.Router([options]);
-</code></pre><p>아래 옵션은 라우터의 루트를 매칭하는 역할을 수정하기 위한 optional 오브젝트입니다.
-</p><ul><li><code>caseSensitive </code>예를 들어 "/Foo" 와 "/foo"를 같게 처리하던 기본 적으로 비활성화 되어 있는 대소문자 구분을 활성화 시킵니다. </li><li><code>strict </code>Strict 라우팅을 활성화 시킵니다. 기본 적으 라우터는 "/foo"를 "/foo/" 같게 처리합니다.</li></ul><p>라우터는 미들웨어와, 애플리케이션 처럼 http VERB 루트를 가질 수 있습니다. 
+</code></pre><p>아래 옵션은 라우터의 라우트를 매칭하는 역할을 수정하기 위한 optional 오브젝트입니다.
+</p><ul><li><code>caseSensitive </code>예를 들어 "/Foo" 와 "/foo"를 같게 처리하던 기본 적으로 비활성화 되어 있는 대소문자 구분을 활성화 시킵니다. </li><li><code>strict </code>Strict 라우팅을 활성화 시킵니다. 기본 적으 라우터는 "/foo"를 "/foo/" 같게 처리합니다.</li></ul><p>라우터는 미들웨어와, 애플리케이션 처럼 http VERB 라우트를 가질 수 있습니다. 
 </p><pre class="js"><code>// invoked for any requests passed to this router
 router.use(function(req, res, next) {
   // .. some logic here .. like any other middleware
@@ -685,12 +685,11 @@ router.use(function(req, res, next) {
 router.get('/events', function(req, res, next) {
   // ..
 });
-</code></pre><p>이는 파일이나 mini앱의 루트를 분리시키는 방법으로 특정 루트 url을 위한 라우터를 사용 할 수 있습니다. 
+</code></pre><p>이는 파일이나 mini앱의 라우트를 분리시키는 방법으로 특정 라우트 url을 위한 라우터를 사용 할 수 있습니다. 
 </p><pre class="js"><code>// only requests to /calendar/* will be sent to our "router"
 app.use('/calendar', router);
 </code></pre></section><section><h3 id="router.use">router.use([path], function)</h3><p>주어진 <code>function</code> 미들웨어와 optional 마운트인 <code>path</code>를 사용합니다. 기본 값은 "/"입니다.
-</p><p>미들웨어는 파이프의 배관 작업과 같습니다.
-request들은 당신이 정의한 첫번째 미들웨어에서 시작하며, 그들이 매칭하는 각 경로를 처리하며 미들웨어 스택 아래로 아동합니다. 
+</p><p>request들은 당신이 정의한 첫번째 미들웨어에서 시작하며, 그들이 매칭하는 각 경로를 처리하며 미들웨어 스택 아래로 아동합니다. 
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 var router = express.Router();
@@ -720,7 +719,7 @@ app.listen(3000);
 이 특징의 가장 큰 효과는 마운트 된 미들웨어는 "prefix" 경로 이름에 상관 없이 코드의 변환 없이도 실행 할 수 있다는 것입니다. 
 </p><p><code>router.use()</code>를 사용하는 "정의 된" 미들웨어의 순서는 매우 중요하며, 그 미들웨어들은 순서대로 호출됩니다.
 그러므로 이는 미들웨어의 우선순위를 정의합니다.
-예를 들어, 대배 logger는 사용 하는 미들웨어의 가장 첫번째이며, 매 요청을 로깅합니다.
+예를 들어, logger는 사용 하는 미들웨어의 가장 첫번째이며, 매 요청을 로깅합니다.
 </p><pre class="js"><code>var logger = require('morgan');
 
 router.use(logger());
@@ -728,7 +727,7 @@ router.use(express.static(__dirname + '/public'));
 router.use(function(req, res){
   res.send('Hello');
 });
-</code></pre><p>만일 static 파일을 위한 로깅 요청을 무시하고, 계속해서 루트를 로깅하고 싶다면,
+</code></pre><p>만일 static 파일을 위한 로깅 요청을 무시하고, 계속해서 라우트를 로깅하고 싶다면,
 미들웨어는 <code>logger()</code> 이후에 정의되며, 단순히 위의 <code>static()</code>로 이동합니다.
 </p><pre class="js"><code>router.use(express.static(__dirname + '/public'));
 router.use(logger());
@@ -738,8 +737,8 @@ router.use(function(req, res){
 </code></pre><p>다른 예제는, 여러 디렉토리로 부터 파일을 serving하는 것입니다. 이는 다른 것으로 보다도 "./public"에게 우선순위를 줍니다.
 </p><pre class="js"><code>app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/files'));
-app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="router.param">router.param([name], callback)</h3><p>논리(logic)을 루트 파라미터로 맵핑합니다.
-예를 들어 루트 경로 안에 <code>:user</code>가 존재하가면, 류저 로딩 논리를 자동적으로 <code>req.user</code>을 루트에 제공하기 위하거나
+app.use(express.static(__dirname + '/uploads'));</code></pre></section><section><h3 id="router.param">router.param([name], callback)</h3><p>논리(logic)을 라우트 파라미터로 맵핑합니다.
+예를 들어 라우트 경로 안에 <code>:user</code>가 존재하가면, 류저 로딩 논리를 자동적으로 <code>req.user</code>을 라우트에 제공하기 위하거나
 입력 파라미터 값의 유효성 검사를 수행하기 위해 맵핑 할 수 있습니다. 
 </p><p>아래는 어떻게 <code>callback</code>가 미들웨어 같이 행동하여 asnc operation을 지원하는 지를 보여줍니다.
 그러나 이는 파라미터의 부가적인 값을 제공합니다. (여기에서는 <code>id</code>).
@@ -747,7 +746,7 @@ app.use(express.static(__dirname + '/uploads'));</code></pre></section><section>
 그렇지 않은 경우에는 <code>next(err)</code>로 에러를 넘깁니다.
 
 </p><p><code>next</code>가 이름있는 파라미터 핸들러(named parameter handler) 안에 에러가 호출 되지 않는다면,
-실행하기 위한 이름이 있는 파라미터 함수(named paramter funcion)를 유발하는 루트가 실행 됩니다.
+실행하기 위한 이름이 있는 파라미터 함수(named paramter funcion)를 유발하는 라우트가 실행 됩니다.
 </p><pre class="js"><code>router.param('user', function(req, res, next, id){
   User.find(id, function(err, user){
     if (err) {
@@ -803,8 +802,8 @@ router.get('/range/:range', function(req, res){
 });
 </code></pre><p><code>router.use()</code> 메소드는 또한 이름이 있는 파라미터(named parameter)을 지원하여, 다른 라우터를 위한
 마운트 포인트가 이름 있는 파라미터를 사용하여 프리로딩 하는 에게 이득이 되도록 해줍니다.
-</p></section><section><h3 id="router.route">router.route(path)</h3><p>HTTP verg와 optional 미들웨어를 다루는 데 사용 될 수 있는 싱글 루트의 인스턴스를 반환합니다.
-<code>router.route()</code>를 사용 하는 것은 중복되는 루트 이름과 오타에서 나오는 에러를 방지하지 위한
+</p></section><section><h3 id="router.route">router.route(path)</h3><p>HTTP verg와 optional 미들웨어를 다루는 데 사용 될 수 있는 싱글 라우트의 인스턴스를 반환합니다.
+<code>router.route()</code>를 사용 하는 것은 중복되는 라우트 이름과 오타에서 나오는 에러를 방지하지 위한
 접근 법으로 권장됩니다.
 
 </p><p>이전의 <code>router.param()</code>를 만드는 예제로부터,
@@ -843,13 +842,13 @@ router.route('/users/:user_id')
 </code></pre><p>이 방법은 싱글 '/users/:user_id' 경로를 재사용하며, 여러 HTTP verb를 위한 핸들러를 더해줍니다.</p></section><section><h3 id="router.VERB">router.VERB(path, [callback...], callback)</h3><p><code>router.VERB()</code>메소드는 Express의 라우팅 기능을 제공하며, <strong>VERB</strong>는
 <code>router.post()</code>와 같은 HTTP verb 중 하나입니다.
 여러 콜백이 주어지고, 동등하게 처리되며, 한 가지 예외 사항을 제외하고는 미들웨어처럼 행동합니다.
-이 예외 사항은 이러한 콜백이 남은 루트 콜백을 우회하기 위하여 <code>next('route')</code>를 호출한다는 것입니다.
-이러한 방법은 루트 위의 pre-conditions를 수행하고 매칭 된 루트와 진행 할 필요가 없을 경우
-다음 루트들에 컨트롤을 넘기기 위하여 사용 될 수 있습니다.
-</p><p>아래 예제는 가장 단순한 루트 정의를 보여줍니다.
+이 예외 사항은 이러한 콜백이 남은 라우트 콜백을 우회하기 위하여 <code>next('route')</code>를 호출한다는 것입니다.
+이러한 방법은 라우트 위의 pre-conditions를 수행하고 매칭 된 라우트와 진행 할 필요가 없을 경우
+다음 라우트들에 컨트롤을 넘기기 위하여 사용 될 수 있습니다.
+</p><p>아래 예제는 가장 단순한 라우트 정의를 보여줍니다.
 Express는 경로 문자열을 정규식으로 변환해주며, 내부적으로 들어오는 요청을 매칭합니다.
 쿼리 문자열은 이러한 매칭을 수행 할 때 고려되지 <em>않으며</em>, 예를 들어 
-"GET /"는 "GET /?name=tobi"와 마찬 가지로 다음 루트를 매칭합니다.
+"GET /"는 "GET /?name=tobi"와 마찬 가지로 다음 라우트를 매칭합니다.
 
 </p><pre class="js"><code>router.get('/', function(req, res){
   res.send('hello world');
