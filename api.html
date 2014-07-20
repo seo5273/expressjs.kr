@@ -6,8 +6,7 @@ app.get('/', function(req, res){
   res.send('hello world');
 });
 
-app.listen(3000);</code></pre></section><h2>Application</h2><a name="application"></a><section><h3 id="app-settings">설정</h3><p>The following settings are provided to alter how Express will behave:
-아래 설정들은 Express가 어떻게 행동하는 지를 수정하기 위한 것입니다.
+app.listen(3000);</code></pre></section><h2>Application</h2><a name="application"></a><section><h3 id="app-settings">설정</h3><p>아래 설정들은 Express가 어떻게 행동하는 지를 수정하기 위한 것입니다.
 </p><ul><li><code>env </code>환경 모드(environment mode). 기본 값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"</li><li><code>trust proxy </code>역 프록시(reverse proxy) 지원을 활성화 시키기. 기본 값은 비활성화.</li><li><code>jsonp callback name </code><code>?callback=</code>의 기본 콜백 이름 바꾸기. </li><li><code>json replacer </code>JASON의 대체 콜백. 기본 값은 null.</li><li><code>case sensitive routing </code>대소문자 구분 활성화 시키기. 기본 값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급한다.</li><li><code>strict routing </code>엄격한 라우팅(Strict routing)을 활성화 시키기. 기본적으로 라우터는 "/foo" and "/foo/"을 같은 것으로 취급힌다.</li><li><code>view cache </code>View template compilation caching을 활성화 시키기. 기본적으로 생산(production)에 활성화 되어있다.</li><li><code>view engine </code>기본 엔진 확장(engine extension).</li><li><code>views </code>View 디렉토리 경로. 기본 값은 "process.cwd() + '/views'"</li><li><code>x-powered-by </code><code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시키기. 기본 값은 활성화.</li></ul></section><section><h3 id="app.set">app.set(name, value)</h3><p><code>name</code>을 <code>value</code>로 설정하여 할당합니다.
 </p><pre class="js"><code>app.set('title', 'My Site');
 app.get('title');
@@ -276,8 +275,7 @@ HTTPS를 사용하거나 둘 다 제공하기 위해서는 위의 방법들을 �
 </p><pre class="js"><code>// GET /user/tj
 req.params.name
 // => "tj"
-</code></pre><p>When a regular expression is used for the route definition, 
-정규식이 라우트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
+</code></pre><p>정규식이 라우트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
 <code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
 이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 라우트에 적용됩니다.
 </p><pre class="js"><code>// GET /file/javascripts/jquery.js
