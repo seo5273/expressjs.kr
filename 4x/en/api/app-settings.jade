@@ -2,37 +2,37 @@ section
   h3(id='app-settings') 설정
 
   p.
-    아래 설정들은 Express가 어떻게 행동하는 지를 수정하기 위한 것입니다.
+    아래 설정들은 Express가 어떻게 행동할지 정합니다.
 
   ul
     li
       code env 
-      | 환경 모드(environment mode). 기본 값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"
+      | 환경 모드를 설정합니다. 기본값은 <code>process.env.NODE_ENV</code> (NODE_ENV 환경 변수) 혹은 "development"입니다.
     li
       code trust proxy 
-      | 역 프록시(reverse proxy) 지원을 활성화 시키기. 기본 값은 비활성화.
+      | 역 프록시(reverse proxy) 지원을 활성화 시킬지 결정합니다. 기본값은 비활성화입니다.
     li
       code jsonp callback name 
-      | <code>?callback=</code>의 기본 콜백 이름 바꾸기. 
+      | jsonp에 사용되는 콜백 이름을 변경합니다. 기본값은 "callback"입니다. (<code>?callback=</code>)
     li
       code json replacer 
-      | JASON의 대체 콜백. 기본 값은 null.
+      | JSON 대체 콜백입니다. 기본 값은 null 입니다.
     li
       code case sensitive routing 
-      | 대소문자 구분 활성화 시키기. 기본 값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급한다.
+      | 대소문자 구분을 활성화시킵니다. 기본값은 비활성화로, "/Foo"와 "/foo"를 같은 것으로 취급합니다.
     li
       code strict routing 
-      | 엄격한 라우팅(Strict routing)을 활성화 시키기. 기본적으로 라우터는 "/foo" and "/foo/"을 같은 것으로 취급힌다.
+      | 엄격한 라우팅(strict routing)을 활성화 시킵니다. 기본적으로 라우터는 "/foo" 와 "/foo/"를 같은 것으로 취급합니다.
     li
       code view cache 
-      | View template compilation caching을 활성화 시키기. 기본적으로 생산(production)에 활성화 되어있다.
+      | 뷰 템플릿 캐싱을 활성화 시킵니다. 기본적으로 production 모드에서는 활성화 되어있습니다.
     li
       code view engine 
-      | 기본 엔진 확장(engine extension).
+      | 기본 뷰 엔진을 변경합니다.
     li
       code views 
-      | View 디렉토리 경로. 기본 값은 "process.cwd() + '/views'"
+      | 뷰들이 저장되어 있는 디렉토리 경로입니다. 기본값은 "process.cwd() + '/views'"입니다.
     li
       code x-powered-by 
-      | <code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시키기. 기본 값은 활성화.
+      | <code>X-Powered-By: Express</code>의 HTTP 헤더를 활성화 시킵니다. 기본값은 활성화입니다.
     
