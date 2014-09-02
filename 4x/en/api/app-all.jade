@@ -2,30 +2,26 @@ section
   h3(id='app.all') app.all(path, [callback...], callback)
 
   p.
-    이 메소드는 <code>app.VERB()</code> 메소드와 같은 기능을 하지만, 모든 HTTP verb를 매칭 시킨다는 점이 다릅니다. 
+    이 메소드는 모든 HTTP verb에서 <code>app.VERB()</code>와 같은 기능을 합니다. 
 
   p.
-    이 메소드는 경로 prefix나 임의 매칭을 위한 "전역" 논리를 맵핑 할 때 특히 매우 유용합니다. 
+    이 메소드는 "전역"으로 사용되는 로직을 맵핑할 때 특히 유용합니다. 
     
-    예를 들어, 다음 라우트를 다른 모든 라우트 정의 위에 둔다면, 어떤 지점 부터의 모든 라우트 들은
-    인증을 필요로 하며 자동적으로 유저를 불러옵니다. 
-    
-    이러한 콜백들은 end point 같은 역할을 하지 않으며, 
-    <code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 라우트들을 계속하여 매칭시킨다는 것을 알아두세요.
+    예를 들어, 다음 라우트를 다른 모든 라우트 정의 위에 둔다면, 이 지점 이후부터 정의된 모든 라우트들은
+    인증을 필요로 하며 자동으로 유저 정보를 불러옵니다. 
 
   +js.
     app.all('*', requireAuthentication, loadUser);
 
   p.
-    혹은, 
+    또는 같은 기능을 아래와 같이 작성할 수도 있습니다.
 
   +js.
     app.all('*', requireAuthentication)
     app.all('*', loadUser);
 
   p.
-    또 다른 좋은 예제는 white-listed "전역" 기능입니다. 
-    여기의 예제는 앞의 것과 비슷하지만 오직 "/api"의 prefix된 경로만을 통제 합니다. 
+    아래 예제는 앞의 것과 비슷하지만 오직 "/api"가 접두어로 오는 경로에만 적용됩니다. 
 
   +js.
     app.all('/api/*', requireAuthentication);

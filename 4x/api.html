@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Express - API 레퍼런스</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express</a><span class="description"><a href="http://nodejs.org">node</a>를 위한<br>웹 애플리케이션<br>프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html" class="active">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
+<!DOCTYPE html><html><head><title>Express - API 레퍼런스</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express kr</a><span class="description"><a href="http://nodejs.org">node</a>를 위한<br>웹 애플리케이션<br>프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html" class="active">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -101,15 +101,11 @@ app.use(express.static(__dirname + '/uploads'));</code></pre></section><section>
 </p><pre class="js"><code>var engines = require('consolidate');
 app.engine('haml', engines.haml);
 app.engine('html', engines.hogan);
-// 어때요, 참 쉽죠?</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>로직(logic)을 라우트 파라미터로 맵핑합니다.
-예를 들어, <code>:user</code>가 라우트 경로에 있을 때, 
-자동적으로 <code>req.user</code>을 자동적으로 제공하기 위해서 유저 로딩 로직(user loading logic)을
-라우트로 맵핑하거나, 파라미터의 입력값의 유효성을 검사 할 수 있습니다. 
-</p><p>아래는 <code>callback</code>가 얼마나 미들웨어랑 비슷한 지를 보여줍니다.
-그러므로 아래는 비동기 오퍼레이션(async operations)을 지원하고 파라미터의 부가적인 값(여기서는 <code>id</code>)들을 
-제공하는 것을 보여줍니다.  
-User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를 할당합니다. 그렇지 않으면 에러를 <code>next(err)</code>로 넘깁니다. 
-
+// 어때요, 참 쉽죠?</code></pre></section><section><h3 id="app.param">app.param([name], callback)</h3><p>파라미터에 특정 로직을 반영합니다.
+예를 들어, <code>:user</code>가 경로에 있을 때 <code>req.user</code>에 자동으로 유저 정보를 저장하거나, 파라미터 입력값의 유효성을 검사하는 등의 일을 수행할 수 있습니다. 
+</p><p>아래는 <code>callback</code>이 얼마나 미들웨어와 비슷한지 보여줍니다.
+비동기 작업을 지원하고, 파라미터의 값을 <code>id</code>로 제공하는 모습을 보여줍니다. 예를들어, <code>:user</code>에 hanul이 넘어오면, id의 값은 "hanul"이 됩니다.
+유저 정보를 불러오고, <code>req.user</code>에 할당합니다. 오류가 발생하면 오류를 <code>next(err)</code>와 같이 넘깁니다. 
 </p><pre class="js"><code>app.param('user', function(req, res, next, id){
   User.find(id, function(err, user){
     if (err) {
@@ -123,10 +119,10 @@ User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를
   });
 });
 </code></pre><p>다른 방법으론, <code>callback</code>만 넘기는 방법이 있는데, 이 경우에는 <code>app.param()</code> API를
-변경 할 수 있습니다.
+변경할 수 있습니다.
 예를 들어, <a href="http://github.com/visionmedia/express-params">express-params</a>는
-아래 주어진 정규식으로 파라미터를 제한 할 수 있는 콜백을 정의 해 줍니다.
-</p><p>아래 예제는 두 번째 argument가 정규식인지 확인하고, "user" param 예제 같은 역할의 콜백을 반환해주는 것을 보여주는 응용 예제 입니다.
+아래 주어진 정규식으로 파라미터를 제한하는 콜백을 정의합니다.
+</p><p>아래 예제는 두 번째 argument인 fn이 정규식인지 확인하고, 값이 정규식을 통과했을 경우에만 req.params[name]에 값을 반영한 뒤 다음으로 넘어갑니다.
 </p><pre class="js"><code>app.param(function(name, fn){
   if (fn instanceof RegExp) {
     return function(req, res, next, val){
@@ -140,7 +136,7 @@ User을 불러오는 것이 시도가 실행 되었고, <code>req.user</code>를
     }
   }
 });
-</code></pre><p>이 메소드는 파라미터들의 유효성 검사나 캡쳐 그룹(capture groups)을 제공하기 위해 파싱 할 때 효과적으로 쓰입니다.
+</code></pre><p>이는 파라미터들의 유효성 검사 등을 할 때 효과적으로 쓰입니다.
 </p><pre class="js"><code>app.param('id', /^\d+$/);
 
 app.get('/user/:id', function(req, res){
@@ -152,33 +148,25 @@ app.param('range', /^(\w+)\.\.(\w+)?$/);
 app.get('/range/:range', function(req, res){
   var range = req.params.range;
   res.send('from ' + range[1] + ' to ' + range[2]);
-});</code></pre></section><section><h3 id="app.VERB">app.VERB(path, [callback...], callback)</h3><p><code>app.VERB()</code> 메소드는 Express 안의 <code>app.post()</code>과 같은
-HTTP verb 중 하나인 <strong>VERB</strong>의 라우팅 기능을 제공합니다. 
-똑같이 취급되는 여러 콜백들이 주어지고, 미들웨어 같은 역할을 합니다.
-남은 라우트 콜백들을 우회하기 위하여 
-한 예외를 제외하고는 이 콜백들은 <code>next('route')</code>를 호출합니다. 
-with the route matched.
-이 방법은 사전 조건을 수행하기 위해여 라우트에 쓰일 수 있으며, 매치되는 라우트에 계속 진행 할 이유가 없어 질 때에
-이후 라우트들에 통제권을 넘깁니다. 
-</p><p>아래는 가능한 가장 단순한 라우트 정의를 보여줍니다.
-Express는 path 문자열을 정규식으로 변환 시켜주며, 내부적으로 새로 들어오는 요청을 매치시키기 위하여 사용됩니다. 
-쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
-예를 들어 "GET /"는 "GET /?name=tobi"처럼 다음 라우트를 매칭시킵니다.    
+});</code></pre></section><section><h3 id="app.VERB">app.VERB(path, [callback...], callback)</h3><p><code>app.post()</code>와 같은 <code>app.VERB()</code> 메소드들은 앱의 각 <strong>VERB</strong>들에 대한 라우팅 기능을 제공합니다.
+</p><p>아래는 가능한 가장 단순한 정의를 보여줍니다.
+Express는 경로를 정규식으로 변환하며 이를 통해 요청을 정의된 라우터와 매치시킵니다.
+참고로 쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
+예를 들어 "GET /"와 "GET /?name=tobi" 둘 다 이하 예제에서 라우트를 매칭시킵니다.    
 </p><pre class="js"><code>app.get('/', function(req, res){
   res.send('hello world');
 });
-</code></pre><p>예를 들어 아래 "GET /commits/71dbb9c..4c084f9" 뿐만 아니라 "GET /commits/71dbb9c"가 매칭하는 것 처럼
-특별한 통제가 필요할 경우 정규식 또한 유용하게 사용 될 수 있습니다.
+</code></pre><p>경로로는 정규식 또한 사용할 수 있습니다.
 </p><pre class="js"><code>app.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
   var from = req.params[0];
   var to = req.params[1] || 'HEAD';
   res.send('commit range ' + from + '..' + to);
 });
-</code></pre><p>여러 콜백을 넘기고, 리소스를 불러오는 미들웨어를 다시 사용 하는 데에 유용하며, 유효성 검사 등을 수행합니다.
+</code></pre><p>여러 콜백들을 넘길 수 있으며, 이를 통해 유효성 검사 등을 먼저 수행하는것과 같은 구성이 가능합니다.
 </p><pre class="js"><code>app.get('/user/:id', user.load, function(){
   // ... 
 })
-</code></pre><p>라우트 하나에 여러 공동 미들웨어가 있다면, <code>all</code>를 이용하여 라우트 API를 사용 할 수 있습니다.
+</code></pre><p>라우트 하나에 공통으로 사용되는 여러가지 미들웨어가 있다면, <code>all</code>를 이용하여 이를 수행할 수 있습니다.
 </p><pre class="js"><code>var middleware = [loadForum, loadThread];
 
 app.route('/forum/:fid/thread/:tid')
@@ -186,22 +174,19 @@ app.route('/forum/:fid/thread/:tid')
 .all(loadThread)
 .get(function() { //... });
 .post(function() { //... });
-</code></pre><p>GET and POST 요청을 위해 두 미들웨어가 수행됩니다. </p></section><section><h3 id="app.all">app.all(path, [callback...], callback)</h3><p>이 메소드는 <code>app.VERB()</code> 메소드와 같은 기능을 하지만, 모든 HTTP verb를 매칭 시킨다는 점이 다릅니다. 
-</p><p>이 메소드는 경로 prefix나 임의 매칭을 위한 "전역" 논리를 맵핑 할 때 특히 매우 유용합니다. 
+</code></pre><p>위 예제는 GET이나 POST 요청이 오면 loadForum와 loadThread 미들웨어가 함께 실행되는 예제입니다. </p></section><section><h3 id="app.all">app.all(path, [callback...], callback)</h3><p>이 메소드는 모든 HTTP verb에서 <code>app.VERB()</code>와 같은 기능을 합니다. 
+</p><p>이 메소드는 "전역"으로 사용되는 로직을 맵핑할 때 특히 유용합니다. 
 
-예를 들어, 다음 라우트를 다른 모든 라우트 정의 위에 둔다면, 어떤 지점 부터의 모든 라우트 들은
-인증을 필요로 하며 자동적으로 유저를 불러옵니다. 
-
-이러한 콜백들은 end point 같은 역할을 하지 않으며, 
-<code>loadUser</code>가 task를 수행하고, <code>next()</code>가 다음의 라우트들을 계속하여 매칭시킨다는 것을 알아두세요.
+예를 들어, 다음 라우트를 다른 모든 라우트 정의 위에 둔다면, 이 지점 이후부터 정의된 모든 라우트들은
+인증을 필요로 하며 자동으로 유저 정보를 불러옵니다. 
 </p><pre class="js"><code>app.all('*', requireAuthentication, loadUser);
-</code></pre><p>혹은, 
+</code></pre><p>또는 같은 기능을 아래와 같이 작성할 수도 있습니다.
 </p><pre class="js"><code>app.all('*', requireAuthentication)
 app.all('*', loadUser);
-</code></pre><p>또 다른 좋은 예제는 white-listed "전역" 기능입니다. 
-여기의 예제는 앞의 것과 비슷하지만 오직 "/api"의 prefix된 경로만을 통제 합니다. 
-</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>선택적 미들웨어와 HTTP verb를 다루기 위한 싱글 라우트 인스턴스를 반환합니다.
-중복되는 라우트 이름과 오타에서 나오는 에러들을 막기 위해 <code>app.route()</code>를 사용한 접근 방법이 추천됩니다.
+</code></pre><p>아래 예제는 앞의 것과 비슷하지만 오직 "/api"가 접두어로 오는 경로에만 적용됩니다. 
+</p><pre class="js"><code>app.all('/api/*', requireAuthentication);</code></pre></section><section><h3 id="app.route">app.route(path)</h3><p>라우트 인스턴스를 반환합니다.
+여기에 메소드 체인 형식으로 여러가지 미들웨어를 달 수 있습니다.
+이는 같은 이름으로 중복해서 정의하는 라우트들이 있을 때 유용하게 사용됩니다.
 </p><pre class="js"><code>var app = express();
 
 app.route('/events')
@@ -215,24 +200,19 @@ app.route('/events')
 .post(function(req, res, next) {
   // maybe add a new event...
 })
-</code></pre></section><section><h3 id="app.locals">app.locals</h3><p>애플리케이션 안에 만들어진 모든 템플릿에 애플리케이션의 지역 변수를 제공합니다. 
-애플리케이션 레벨의 데이터나 템플릿의 helper 함수를 제공 할 때 특히 유용합니다.
+</code></pre></section><section><h3 id="app.locals">app.locals</h3><p>애플리케이션에 만들어진 모든 템플릿에 지역변수를 제공합니다. 
+애플리케이션 레벨의 데이터나 템플릿에 helper 함수를 제공할 때 특히 유용합니다.
 </p><pre class="js"><code>app.locals.title = 'My App';
 app.locals.strftime = require('strftime');
 app.locals.email = 'me@myapp.com';
-</code></pre><p><code>app.locals</code> 오브젝트는 자바스크립트 <code>Object</code>입니다. 
-여기에 부여 된 속성은 애플리케이션 안의 지역 변수로서 노출됩니다.
-</p><pre class="js"><code>app.locals.title
+
+app.locals.title
 // => 'My App'
 
 app.locals.email
-// => 'me@myapp.com'
-</code></pre><p>기본적으로 Express는 오직 싱글 애플리케이션 레벨의 지역 변수인 <code>settings</code>만 노출시킵니다.  
-</p><pre class="js"><code>app.set('title', 'My App');
-// use settings.title in a view</code></pre></section><section><h3 id="app.render">app.render(view, [options], callback)</h3><p>. 
-<code>view</code>과 생성된 문자열에 결과를 나타내는 콜백을 생성합니다.
-이 것은 <code>res.render()</code>을 애플리케이션 레벨에서 사용하는 방법이며, 
-기본적으로 같은 역할을 합니다. </p><pre class="js"><code>app.render('email', function(err, html){
+// => 'me@myapp.com'</code></pre></section><section><h3 id="app.render">app.render(view, [options], callback)</h3><p><code>view</code>를 html로 생성한 문자열을 가져오는 콜백을 정의합니다.
+이 것은 <code>res.render()</code>의 애플리케이션 레벨 변형이며, 같은 방법으로 동작합니다.
+</p><pre class="js"><code>app.render('email', function(err, html){
   // ...
 });
 
@@ -244,10 +224,9 @@ app.render('email', { name: 'Tobi' }, function(err, html){
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 app.listen(3000);
-</code></pre><p><code>express()</code>에 의해 반환되는 <code>app</code>은 
-요청을 처리하기 위한 콜백으로서, 노드의 http 서버로 넘기기 위해 디자인 된 자바스크립트의 <code>Function</code>이며,
-이는 당신의 HTTP와 HTTPS 버전의 앱 둘다 같은 코드베이스를 쉽게 제공하게 도와주며, 이 앱은 그 들로 부터 상속하지 않는
-단순한 콜백입니다.
+</code></pre><p>사실 <code>express()</code>에 의해 반환되는 <code>app</code>은 콜백입니다.
+노드의 http 서버로 넘기기 위해 디자인된 자바스크립트의 <code>function</code>이며,
+이는 아래와 같이 HTTP와 HTTPS 프로토콜을 제공하는 두 서버에서 같은 역할을 수행할 수 있도록 정의할 수 있게 합니다.
 </p><pre class="js"><code>var express = require('express');
 var https = require('https');
 var http = require('http');
@@ -255,8 +234,8 @@ var app = express();
 
 http.createServer(app).listen(80);
 https.createServer(options, app).listen(443);
-</code></pre><p><code>app.listen()</code> 메소드는 단순히 편리하게 정의된 메소드이며,
-HTTPS를 사용하거나 둘 다 제공하기 위해서는 위의 방법들을 사용하세요.
+</code></pre><p><code>app.listen()</code>은 단순이 편의성을 위헤 제공되는 메소드이며,
+HTTPS를 사용하거나 HTTP, HTTPS 둘 다 사용하기 위해서는 위의 방법을 사용하세요.
 </p><pre class="js"><code>app.listen = function(){
   var server = http.createServer(this);
   return server.listen.apply(server, arguments);

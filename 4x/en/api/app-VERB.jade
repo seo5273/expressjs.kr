@@ -2,20 +2,13 @@ section
   h3(id='app.VERB') app.VERB(path, [callback...], callback)
 
   p.
-    <code>app.VERB()</code> 메소드는 Express 안의 <code>app.post()</code>과 같은
-    HTTP verb 중 하나인 <strong>VERB</strong>의 라우팅 기능을 제공합니다. 
-    똑같이 취급되는 여러 콜백들이 주어지고, 미들웨어 같은 역할을 합니다.
-    남은 라우트 콜백들을 우회하기 위하여 
-    한 예외를 제외하고는 이 콜백들은 <code>next('route')</code>를 호출합니다. 
-    with the route matched.
-    이 방법은 사전 조건을 수행하기 위해여 라우트에 쓰일 수 있으며, 매치되는 라우트에 계속 진행 할 이유가 없어 질 때에
-    이후 라우트들에 통제권을 넘깁니다. 
+    <code>app.post()</code>와 같은 <code>app.VERB()</code> 메소드들은 앱의 각 <strong>VERB</strong>들에 대한 라우팅 기능을 제공합니다.
 
   p.
-    아래는 가능한 가장 단순한 라우트 정의를 보여줍니다.
-    Express는 path 문자열을 정규식으로 변환 시켜주며, 내부적으로 새로 들어오는 요청을 매치시키기 위하여 사용됩니다. 
-    쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
-    예를 들어 "GET /"는 "GET /?name=tobi"처럼 다음 라우트를 매칭시킵니다.    
+    아래는 가능한 가장 단순한 정의를 보여줍니다.
+    Express는 경로를 정규식으로 변환하며 이를 통해 요청을 정의된 라우터와 매치시킵니다.
+    참고로 쿼리 문자열은 이러한 매치를 수행하는 데 고려되지 <em>않습니다.</em>
+    예를 들어 "GET /"와 "GET /?name=tobi" 둘 다 이하 예제에서 라우트를 매칭시킵니다.    
 
   +js.
     app.get('/', function(req, res){
@@ -23,8 +16,7 @@ section
     });
 
   p.
-    예를 들어 아래 "GET /commits/71dbb9c..4c084f9" 뿐만 아니라 "GET /commits/71dbb9c"가 매칭하는 것 처럼
-    특별한 통제가 필요할 경우 정규식 또한 유용하게 사용 될 수 있습니다.
+    경로로는 정규식 또한 사용할 수 있습니다.
 
   +js.
     app.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
@@ -34,7 +26,7 @@ section
     });
 
   p.
-    여러 콜백을 넘기고, 리소스를 불러오는 미들웨어를 다시 사용 하는 데에 유용하며, 유효성 검사 등을 수행합니다.
+    여러 콜백들을 넘길 수 있으며, 이를 통해 유효성 검사 등을 먼저 수행하는것과 같은 구성이 가능합니다.
 
   +js.
     app.get('/user/:id', user.load, function(){
@@ -42,7 +34,7 @@ section
     })
 
   p.
-    라우트 하나에 여러 공동 미들웨어가 있다면, <code>all</code>를 이용하여 라우트 API를 사용 할 수 있습니다.
+    라우트 하나에 공통으로 사용되는 여러가지 미들웨어가 있다면, <code>all</code>를 이용하여 이를 수행할 수 있습니다.
 
   +js.
     var middleware = [loadForum, loadThread];
@@ -54,4 +46,4 @@ section
     .post(function() { //... });
 
   p.
-    GET and POST 요청을 위해 두 미들웨어가 수행됩니다. 
+    위 예제는 GET이나 POST 요청이 오면 loadForum와 loadThread 미들웨어가 함께 실행되는 예제입니다. 
