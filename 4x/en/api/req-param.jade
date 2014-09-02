@@ -2,28 +2,25 @@ section
   h3(id='req.param') req.param(name)
 
   p.
-    param <code>name</code>의 값이 존재 하는 경우 반환합니다.
+    파라미터에 <code>name</code>의 값이 존재하는 경우 값을 반환합니다.
 
   +js.
-    // ?name=tobi
+    // ?name=hanul
     req.param('name')
-    // => "tobi"
+    // => "hanul"
 
-    // POST name=tobi
+    // POST name=hanul
     req.param('name')
-    // => "tobi"
+    // => "hanul"
     
-    // /user/tobi for /user/:name 
+    // /user/hanul for /user/:name 
     req.param('name')
-    // => "tobi"
+    // => "hanul"
   
-  p Lookup이 다음과 같은 순서로 수행됩니다.
+  p 이는 다음과 같은 순서대로 살펴봅니다.
   
   ul
     li <code>req.params</code>
     li <code>req.body</code>
     li <code>req.query</code>
-  
-  p.
-    각각 오브젝트의 입력을 분명히게 받는 것이 아니라면, 
-    <code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. 
+ 

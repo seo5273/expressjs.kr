@@ -2,10 +2,8 @@ section
   h3(id='req.ips') req.ips
   
   p.
-    "trust proxy"가 `true`일 때, "X-Forwarded-For" ip 주소 리스트를 파싱하고,
-    배열을 반환합니다.
-    그렇지 않은 경우에는 빈 배열이 반환됩니다.
+    "trust proxy"가 `true`일때는, "X-Forwarded-For" IP 주소 목록를 해석하여 배열을 반환합니다.
+    그렇지 않은 경우에는 빈 배열을 반환합니다.
     
     예를 들어, 값이 "client, proxy1, proxy2"라면,
-    <code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 멀리 있는 down-stream입니다.
-
+    <code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 먼 down-stream입니다.

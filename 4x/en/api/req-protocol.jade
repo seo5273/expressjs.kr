@@ -2,9 +2,9 @@ section
   h3(id='req.protocol') req.protocol
   
   p.
-    TLS로 요청 될 때, "http"나 "https" 프로토콜 문자열을 반환합니다.
-    "trust proxy" 속성이 활성화 되어 있을 때, "X-Forwarded-Proto" 헤더 필드도 신뢰합니다.
-    http를 공급하는 역 프록시(reverse proxy) 뒤에서 수행하면, 이 속성은 활성화 됩니다.
+    프로토콜이 "http"인지 "https"인지 확인하여 반환합니다.
+    "trust proxy" 속성이 활성화 되어있을 때는, "X-Forwarded-Proto" 헤더값도 신뢰합니다.
+    http를 제공하는 reverse proxy 뒤에서 실행하면, 이 속성은 활성화 됩니다.
   
   +js.
     req.protocol

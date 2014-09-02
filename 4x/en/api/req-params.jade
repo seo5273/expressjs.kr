@@ -2,19 +2,19 @@ section
   h3(id='req.params') req.params
 
   p.
-    이 속성은 "parameters" 라우트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
-    예를 들어, <code>/user/:name</code>를 가질 때, "name" 속성은 <code>req.params.name</code>로서 사용 가능합니다.
-    이 속성의 기본 값은 <code>{}</code>입니다.
+    파라미터 경로에 맵핑되는 값들을 포함하는 객체입니다.
+    예를 들어, <code>/user/:name</code>가 설정되어 있을때, "name"의 값은 <code>req.params.name</code>로 사용 가능합니다.
+    기본값은 빈 객체인 <code>{}</code>입니다.
     
   +js.
-    // GET /user/tj
+    // GET /user/hanul
     req.params.name
-    // => "tj"
+    // => "hanul"
 
   p.
-    정규식이 라우트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
-    <code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
-    이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 라우트에 적용됩니다.
+    정규표현식이 사용되는 경우에는, <code>req.params[N]</code>를 사용할 수 있습니다.
+    <code>N</code>은 배열의 n번째를 의미합니다.
+    이는 이름이 정의되지 않은 와일드카드 매치나 `/file/*`과 같은 문자열 라우트에 사용될 수 있습니다.
 
   +js.
     // GET /file/javascripts/jquery.js

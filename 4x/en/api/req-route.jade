@@ -2,7 +2,7 @@ section
   h3(id='req.route') req.route
 
   p.
-    라우트 원본 경로 문자열, 생성된 regexp 등의 여러 속성을 포함하는 현재 매칭 된 <code>Route</code>입니다.
+    원본 path, 생성된 regexp, 파라미터 등 여러가지를 포함하는 객체입니다.
 
   +js.
     app.get('/user/:id?', function(req, res){
@@ -10,7 +10,7 @@ section
     });
 
   p.
-    이전 예제는 다음과 같이 출력합니다.
+    위 예제는 다음과 같이 출력합니다.
 
   +js.
     { path: '/user/:id?',

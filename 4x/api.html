@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Express - API 레퍼런스</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express kr</a><span class="description"><a href="http://nodejs.org">node</a>를 위한<br>웹 애플리케이션<br>프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html" class="active">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharset">req.acceptsCharset()</a></li><li><a href="#req.acceptsLanguage">req.acceptsLanguage()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.host">req.host</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
+<!DOCTYPE html><html><head><title>Express - API 레퍼런스</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="/app.js"></script><script src="/retina.js"></script></head><body class="inner"><div class="bar"></div><section id="content"><header><section id="logo"><a href="/" class="express">express kr</a><span class="description"><a href="http://nodejs.org">node</a>를 위한<br>웹 애플리케이션<br>프레임워크</span></section><nav class="clearfix"><a href="/">홈</a><a href="/4x/api.html" class="active">API 레퍼런스</a><a href="/guide.html">가이드</a><a href="/applications.html">애플리케이션</a><a href="/community.html">커뮤니티</a><a href="/faq.html">FAQ</a><a href="http://expressjs.com/3x/api.html">3.x 문서</a></nav></header><ul id="menu"><li id="app-api"><a href="#express">Application</a><ul id="app-menu"><li><a href="#express">express()</a></li><li><a href="#app-settings">application settings</a></li><li><a href="#app.set">app.set()</a></li><li><a href="#app.get">app.get()</a></li><li><a href="#app.enable">app.enable()</a></li><li><a href="#app.disable">app.disable()</a></li><li><a href="#app.enabled">app.enabled()</a></li><li><a href="#app.disabled">app.disabled()</a></li><li><a href="#app.use">app.use()</a></li><li><a href="#app.engine">app.engine()</a></li><li><a href="#app.param">app.param()</a></li><li><a href="#app.VERB">application routing</a></li><li><a href="#app.all">app.all()</a></li><li><a href="#app.route">app.route()</a></li><li><a href="#app.locals">app.locals</a></li><li><a href="#app.render">app.render()</a></li><li><a href="#app.listen">app.listen()</a></li></ul></li><li id="req-api"><a href="#req.params">Request</a><ul id="req-menu"><li><a href="#req.params">req.params</a></li><li><a href="#req.query">req.query</a></li><li><a href="#req.param">req.param()</a></li><li><a href="#req.route">req.route</a></li><li><a href="#req.cookies">req.cookies</a></li><li><a href="#req.signedCookies">req.signedCookies</a></li><li><a href="#req.get">req.get()</a></li><li><a href="#req.accepts">req.accepts()</a></li><li><a href="#req.acceptsCharsets">req.acceptsCharsets()</a></li><li><a href="#req.acceptsLanguages">req.acceptsLanguages()</a></li><li><a href="#req.acceptsEncodings">req.acceptsEncodings()</a></li><li><a href="#req.is">req.is()</a></li><li><a href="#req.ip">req.ip</a></li><li><a href="#req.ips">req.ips</a></li><li><a href="#req.path">req.path</a></li><li><a href="#req.hostname">req.hostname</a></li><li><a href="#req.fresh">req.fresh</a></li><li><a href="#req.stale">req.stale</a></li><li><a href="#req.xhr">req.xhr</a></li><li><a href="#req.protocol">req.protocol</a></li><li><a href="#req.secure">req.secure</a></li><li><a href="#req.subdomains">req.subdomains</a></li><li><a href="#req.originalUrl">req.originalUrl</a></li></ul></li><li id="res-api"><a href="#res.status">Response</a><ul id="res-menu"><li><a href="#res.status">res.status()</a></li><li><a href="#res.set">res.set()</a></li><li><a href="#res.get">res.get()</a></li><li><a href="#res.cookie">res.cookie()</a></li><li><a href="#res.clearCookie">res.clearCookie()</a></li><li><a href="#res.redirect">res.redirect()</a></li><li><a href="#res.location">res.location()</a></li><li><a href="#res.send">res.send()</a></li><li><a href="#res.json">res.json()</a></li><li><a href="#res.jsonp">res.jsonp()</a></li><li><a href="#res.type">res.type()</a></li><li><a href="#res.format">res.format()</a></li><li><a href="#res.attachment">res.attachment()</a></li><li><a href="#res.sendfile">res.sendfile()</a></li><li><a href="#res.download">res.download()</a></li><li><a href="#res.links">res.links()</a></li><li><a href="#res.locals">res.locals</a></li><li><a href="#res.render">res.render()</a></li></ul></li><li id="router-api"><a href="#router">Router</a><ul id="router-menu"><li><a href="#router">Router()</a></li><li><a href="#router.use">router.use()</a></li><li><a href="#router.param">router.param()</a></li><li><a href="#router.route">router.route()</a></li><li><a href="#router.VERB">router.VERB()</a></li></ul></li><li id="middleware-api"><a href="#middleware">Middleware</a><ul id="middleware-menu"><li><a href="#basicAuth">basicAuth()</a></li><li><a href="#bodyParser">bodyParser()</a></li><li><a href="#compress">compress()</a></li><li><a href="#cookieParser">cookieParser()</a></li><li><a href="#cookieSession">cookieSession()</a></li><li><a href="#csrf">csrf()</a></li><li><a href="#directory">directory()</a></li></ul></li></ul><div id="right"><section><h3 id="express">express()</h3><p>express 애플리케이션을 생성합니다.
 </p><pre class="js"><code>var express = require('express');
 var app = express();
 
@@ -239,18 +239,18 @@ HTTPS를 사용하거나 HTTP, HTTPS 둘 다 사용하기 위해서는 위의 �
 </p><pre class="js"><code>app.listen = function(){
   var server = http.createServer(this);
   return server.listen.apply(server, arguments);
-};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>이 속성은 "parameters" 라우트에 맵핑되는 속성들을 포함하는 오브젝트 입니다.
-예를 들어, <code>/user/:name</code>를 가질 때, "name" 속성은 <code>req.params.name</code>로서 사용 가능합니다.
-이 속성의 기본 값은 <code>{}</code>입니다.
-</p><pre class="js"><code>// GET /user/tj
+};</code></pre></section><h2>Request</h2><a name="request"></a><section><h3 id="req.params">req.params</h3><p>파라미터 경로에 맵핑되는 값들을 포함하는 객체입니다.
+예를 들어, <code>/user/:name</code>가 설정되어 있을때, "name"의 값은 <code>req.params.name</code>로 사용 가능합니다.
+기본값은 빈 객체인 <code>{}</code>입니다.
+</p><pre class="js"><code>// GET /user/hanul
 req.params.name
-// => "tj"
-</code></pre><p>정규식이 라우트 정의를 위해 사용 될 때, <code>req.params[N]</code>를 사용한 배열에 캡쳐 그룹(capture groups)이 제공되고,
-<code>N</code>은 캡쳐 그룹의 n번째를 의미합니다.
-이 규칙은 이름이 정의되지 않은 와일드 카드 매치와 `/file/*`과 같은 문자열 라우트에 적용됩니다.
+// => "hanul"
+</code></pre><p>정규표현식이 사용되는 경우에는, <code>req.params[N]</code>를 사용할 수 있습니다.
+<code>N</code>은 배열의 n번째를 의미합니다.
+이는 이름이 정의되지 않은 와일드카드 매치나 `/file/*`과 같은 문자열 라우트에 사용될 수 있습니다.
 </p><pre class="js"><code>// GET /file/javascripts/jquery.js
 req.params[0]
-// => "javascripts/jquery.js"</code></pre></section><section><h3 id="req.query">req.query</h3><p>이 속성은 파싱 된 쿼리 문자열을 포함하고 있는 오브젝트이며, 기본 값은 <code>{}</code>입니다.
+// => "javascripts/jquery.js"</code></pre></section><section><h3 id="req.query">req.query</h3><p>쿼리 문자열들을 포함하고 있는 객체이며, 기본값은 빈 객체인 <code>{}</code>입니다.
 </p><pre class="js"><code>// GET /search?q=tobi+ferret
 req.query.q
 // => "tobi ferret"
@@ -263,46 +263,42 @@ req.query.shoe.color
 // => "blue"
 
 req.query.shoe.type
-// => "converse"</code></pre></section><section><h3 id="req.param">req.param(name)</h3><p>param <code>name</code>의 값이 존재 하는 경우 반환합니다.
-</p><pre class="js"><code>// ?name=tobi
+// => "converse"</code></pre></section><section><h3 id="req.param">req.param(name)</h3><p>파라미터에 <code>name</code>의 값이 존재하는 경우 값을 반환합니다.
+</p><pre class="js"><code>// ?name=hanul
 req.param('name')
-// => "tobi"
+// => "hanul"
 
-// POST name=tobi
+// POST name=hanul
 req.param('name')
-// => "tobi"
+// => "hanul"
 
-// /user/tobi for /user/:name 
+// /user/hanul for /user/:name 
 req.param('name')
-// => "tobi"
-</code></pre><p>Lookup이 다음과 같은 순서로 수행됩니다.</p><ul><li><code>req.params</code></li><li><code>req.body</code></li><li><code>req.query</code></li></ul><p>각각 오브젝트의 입력을 분명히게 받는 것이 아니라면, 
-<code>req.body</code>, <code>req.params</code>, <code>req.query</code>으로의 직접 접속은 명확성을 띄어야 합니다. </p></section><section><h3 id="req.route">req.route</h3><p>라우트 원본 경로 문자열, 생성된 regexp 등의 여러 속성을 포함하는 현재 매칭 된 <code>Route</code>입니다.
+// => "hanul"
+</code></pre><p>이는 다음과 같은 순서대로 살펴봅니다.</p><ul><li><code>req.params</code></li><li><code>req.body</code></li><li><code>req.query</code></li></ul></section><section><h3 id="req.route">req.route</h3><p>원본 path, 생성된 regexp, 파라미터 등 여러가지를 포함하는 객체입니다.
 </p><pre class="js"><code>app.get('/user/:id?', function(req, res){
   console.log(req.route);
 });
-</code></pre><p>이전 예제는 다음과 같이 출력합니다.
+</code></pre><p>위 예제는 다음과 같이 출력합니다.
 </p><pre class="js"><code>{ path: '/user/:id?',
   keys: [ { name: 'id', optional: true } ],
   regexp: /^\/user(?:\/([^\/]+?))?\/?$/i,
   params: [ id: '12' ] }</code></pre></section><section><h3 id="req.cookies">req.cookies</h3><p><code>cookieParser()</code> 미들웨어가 사용 될 때,
-이 오브젝트의 기본 값은 <code>{}</code>입니다. 그렇지 않을 경우는 user-agent에서 보낸 쿠키를 포함합니다.
-</p><pre class="js"><code>// Cookie: name=tj
+이 객체의 기본값은 <code>{}</code>입니다. 그렇지 않을 경우에는 user-agent에서 보낸 쿠키 정보를 포함합니다.
+</p><pre class="js"><code>// Cookie: name=hanul
 req.cookies.name
-// => "tj"
+// => "hanul"
 </code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a>을 참고하세요.</p></section><section><h3 id="req.signedCookies">req.signedCookies</h3><p><code>cookieParser()</code> 미들웨어가 사용 될 때,
-이 오브젝트의 기본 값은 <code>{}</code>입니다. 그렇지 않을 경우는 user-agent에서 보낸 signed 쿠키를 포함하고,
-unsigned 쿠키는 사용 가능한 상태로 만들어줍니다.
+이 객체의 기본값은 <code>{}</code>입니다. 그렇지 않을 경우에는 user-agent에서 보낸 암호화된 쿠키 정보를 포함합니다.
 
-Signed 쿠키는 개발자의 목적을 보여주기 위해 다른 오브젝트에 포함되며, 
-그렇지 않을 경우, 악의적인 공격은 스푸핑 하기 쉬운 `req.cookie` 값에 위치됩니다.
-쿠키에 sign 하는 것은 "숨기거나" 암호화 시키는 것을 의미하는 것이 아닌, 
-단지 함부로 변경 하는 것을 방지하기 위함이라는 것을 알아두세요. 
-</p><pre class="js"><code>// Cookie: user=tobi.CP7AWaXDfAKIRfH49dQzKJx7sKzzSoPq7/AcBBRVwlI3
+쿠키를 암호화 하는 것은 쿠키를 "숨기거나" 암호화 시키는 것을 의미하는 것이 아니라,
+단지 쉽게 변경하는 것을 방지하기 위함입니다.
+</p><pre class="js"><code>// Cookie: user=hanul.CP7AWaXDfAKIRfH49dQzKJx7sKzzSoPq7/AcBBRVwlI3
 req.signedCookies.user
-// => "tobi"
+// => "hanul"
 </code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/cookie-parser">cookie-parser</a>을 참고하세요.</p></section><section><h3 id="req.get">req.get(field)</h3><p> 
-대소문자를 구분하지 않는 response 헤더 <code>field</code>를 불러옵니다.
-<em>Referrer</em>과 <em>Referer</em> 필드는 교체 사용이 가능합니다.</p><pre class="js"><code>req.get('Content-Type');
+대소문자를 구분하지 않는 request 헤더값을 불러옵니다.
+<em>Referrer</em>과 <em>Referer</em>은 서로 이름이 틀리더라도 사용이 가능합니다.</p><pre class="js"><code>req.get('Content-Type');
 // => "text/plain"
 
 req.get('content-type');
@@ -310,11 +306,10 @@ req.get('content-type');
 
 req.get('Something');
 // => undefined
-</code></pre><p><code>req.header(field)</code>라고도 쓰입니다.</p></section><section><h3 id="req.accepts">req.accepts(types)</h3><p>주어진 <code>types</code>가 받아 들일 수 있는지 검사하고, true일 경우 가장 좋은(best) 매치를 반환합니다.
-그렇지 않을 경우 <code>undefined</code>를 반환하고, 이 경우에는 406 "Not Acceptable"라고 응답해야 합니다.
-</p><p>반환되는 값이 있을 경우 리스트나 배열이 <em>가장 좋은(best)</em> 매치를 받을 때, 
-<code>type</code> 값은 "application/json"이나 같은 하나의 mime 타입 문자열,
-such as "json" 같은 확장자 이름, 콤마(,)로 범위가 지정된 리스트나 배열 일 수 있습니다.
+</code></pre><p><code>req.header(field)</code>로도 사용할 수 있습니다.</p></section><section><h3 id="req.accepts">req.accepts(types)</h3><p>주어진 <code>타입</code>이 허락되어 있는지 검사하고, 허락된 경우에는 가장 알맞는 타입을 반환합니다.
+그렇지 않을 경우 <code>undefined</code>를 반환합니다. (이 경우에는 406 "Not Acceptable"이라고 응답해야 합니다.)
+</p><p><code>req.accepts()</code>에 입력되는 <code>타입</code>은 "application/json"과 같은 하나의 mime 타입 문자열이나,
+"json"과 같은 확장자 이름, 혹은 배열일 수 있습니다.
 </p><pre class="js"><code>// Accept: text/html
 req.accepts('html');
 // => "html"
@@ -338,9 +333,10 @@ req.accepts('png');
 req.accepts(['html', 'json']);
 req.accepts('html, json');
 // => "json"
-</code></pre><p>더 많은 정보나 기타 사항은  <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsCharset">req.acceptsCharset(charset)</h3><p><code>charset</code>을 받아 들일 수 있는지 검사합니다.
-</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsLanguage">req.acceptsLanguage(lang)</h3><p><code>lang</code>를 받아 들일 수 있는지 검사합니다.
-</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.is">req.is(type)</h3><p>들어오는 요청이 "Content-Type" 헤더 필드를 포함하고 있는지 검사하고, 주어진 mime <code>type</code>을 매칭시킵니다.
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsCharsets">req.acceptsCharsets(charset, ...)</h3><p>입력된 <code>charset</code>이 허락되었는지 확인합니다.
+</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsLanguages">req.acceptsLanguages(lang, ...)</h3><p>입력된 <code>lang</code>이 허락되었는지 확인합니다.
+</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.acceptsEncodings">req.acceptsEncodings(encoding, ...)</h3><p>입력된 <code>encoding</code>이 허락되었는지 확인합니다.
+</p><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/accepts">accepts</a>를 참고하세요.</p></section><section><h3 id="req.is">req.is(type)</h3><p>요청이 입력된 "Content-Type" 헤더값을 포함하고 있는지 확인합니다.
 </p><pre class="js"><code>// With Content-Type: text/html; charset=utf-8
 req.is('html');
 req.is('text/html');
@@ -355,41 +351,36 @@ req.is('application/*');
 
 req.is('html');
 // => false
-</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/type-is">type-is</a>를 참고하세요.</p></section><section><h3 id="req.ip">req.ip</h3><p>remote 주소를 반환하거나, "trust pxoty"가 활성화 되어 있을 떄 upstream 주소를 반환합니다.
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/expressjs/type-is">type-is</a>를 참고하세요.</p></section><section><h3 id="req.ip">req.ip</h3><p>IP 주소를 반환합니다. ("trust proxy"가 활성화 되어 있을 경우에는 upstream 주소를 반환합니다.)
 
 </p><pre class="js"><code>req.ip
-// => "127.0.0.1"</code></pre></section><section><h3 id="req.ips">req.ips</h3><p>"trust proxy"가 `true`일 때, "X-Forwarded-For" ip 주소 리스트를 파싱하고,
-배열을 반환합니다.
-그렇지 않은 경우에는 빈 배열이 반환됩니다.
+// => "127.0.0.1"</code></pre></section><section><h3 id="req.ips">req.ips</h3><p>"trust proxy"가 `true`일때는, "X-Forwarded-For" IP 주소 목록를 해석하여 배열을 반환합니다.
+그렇지 않은 경우에는 빈 배열을 반환합니다.
 
 예를 들어, 값이 "client, proxy1, proxy2"라면,
-<code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 멀리 있는 down-stream입니다.
-</p></section><section><h3 id="req.path">req.path</h3><p>URL 경로 이름 요청을 반환합니다.
+<code>["client", "proxy1", "proxy2"]</code>라는 배열이 반환되며, "proxy2"가 가장 먼 down-stream입니다.</p></section><section><h3 id="req.path">req.path</h3><p>URL pathname을 반환합니다.
 </p><pre class="js"><code>// example.com/users?sort=desc
 req.path
-// => "/users"</code></pre></section><section><h3 id="req.host">req.host</h3><p>"Host"의 헤더 필드(void of portno)로 부터 호스트 이름을 반환합니다.
+// => "/users"</code></pre></section><section><h3 id="req.hostname">req.hostname</h3><p>"Host"의 헤더값로 부터 호스트를 반환합니다.
 </p><pre class="js"><code>// Host: "example.com:3000"
 req.host
-// => "example.com"</code></pre></section><section><h3 id="req.fresh">req.fresh</h3><p>요청이 최신(fresh)인지 검사합니다. 최근 변경 된 것이나, ETag가 아직도 매칭되는지 등을 통틀어 리소스가 '최신(fresh)이다'라고 표현합니다.
+// => "example.com"</code></pre></section><section><h3 id="req.fresh">req.fresh</h3><p>요청이 "fresh"인지 확인합니다. (Last-Modified 나 ETag가 여전히 같은지 확인합니다.)
 </p><pre class="js"><code>req.fresh
 // => true
-</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/visionmedia/node-fresh">fresh</a>를 참고하세요.</p></section><section><h3 id="req.stale">req.stale</h3><p>요청이 오래 되었는지(stale) 검사합니다. 최근 변경 된 것이나, ETag가 매칭 되지 않는 것 등을 통틀어 리소스가 '오래 되었다(stale)'라고 표현합니다.
+</code></pre><p>더 많은 정보나 기타 사항은 <a href="https://github.com/visionmedia/node-fresh">fresh</a>를 참고하세요.</p></section><section><h3 id="req.stale">req.stale</h3><p>요청이 "stale"인지 확인합니다. (Last-Modified 나 ETag가 다른지 확인합니다.)
 
 </p><pre class="js"><code>req.stale
-// => true</code></pre></section><section><h3 id="req.xhr">req.xhr</h3><p>요청이 "X-Requested-With" 헤더 필드가 "XMLHttpRequest" (jQuery 등)로 설정되어 나왔는지 검사합니다. 
+// => true</code></pre></section><section><h3 id="req.xhr">req.xhr</h3><p>요청의 "X-Requested-With" 헤더값이 "XMLHttpRequest"(jQuery 등에서 사용하는)인지 확인합니다. 
 </p><pre class="js"><code>req.xhr
-// => true</code></pre></section><section><h3 id="req.protocol">req.protocol</h3><p>TLS로 요청 될 때, "http"나 "https" 프로토콜 문자열을 반환합니다.
-"trust proxy" 속성이 활성화 되어 있을 때, "X-Forwarded-Proto" 헤더 필드도 신뢰합니다.
-http를 공급하는 역 프록시(reverse proxy) 뒤에서 수행하면, 이 속성은 활성화 됩니다.
+// => true</code></pre></section><section><h3 id="req.protocol">req.protocol</h3><p>프로토콜이 "http"인지 "https"인지 확인하여 반환합니다.
+"trust proxy" 속성이 활성화 되어있을 때는, "X-Forwarded-Proto" 헤더값도 신뢰합니다.
+http를 제공하는 reverse proxy 뒤에서 실행하면, 이 속성은 활성화 됩니다.
 </p><pre class="js"><code>req.protocol
-// => "http"</code></pre></section><section><h3 id="req.secure">req.secure</h3><p>TLS 연결이 설정 되어 있는 지 확인합니다. 이는 아래를 위한 간략한 방법입니다.
-</p><pre class="js"><code>'https' == req.protocol;</code></pre></section><section><h3 id="req.subdomains">req.subdomains</h3><p>서브 도메인을 배열 형태로 반환합니다..
+// => "http"</code></pre></section><section><h3 id="req.secure">req.secure</h3><p>TLS로 요청되었는지 확인합니다. 이는 아래 코드의 단순한 표현입니다.
+</p><pre class="js"><code>'https' == req.protocol;</code></pre></section><section><h3 id="req.subdomains">req.subdomains</h3><p>서브 도메인을 배열로 반환합니다.
 </p><pre class="js"><code>// Host: "tobi.ferrets.example.com"
 req.subdomains
-// => ["ferrets", "tobi"]</code></pre></section><section><h3 id="req.originalUrl">req.originalUrl</h3><p>이 속성은 <code>req.url</code>와 매우 흡사하지만, 원본 요청 url을 포함하고
-내부적인 라우팅 목적을 위해 <code>req.url</code>을 자유롭게 rewrite 할 수 있도록 해줍니다. 
-예를 들어, <a href="#app.use">app.use()</a>의 "mounting" 기능은 
-마운트 포인트를 strip 할 수 있도록 <code>req.url</code>을 rewrite 합니다.
+// => ["ferrets", "tobi"]</code></pre></section><section><h3 id="req.originalUrl">req.originalUrl</h3><p><code>req.url</code>과 매우 흡사하지만, 내부적인 목적을 위해 <code>req.url</code>을 재작성 할 수 있도록 해줍니다.
 </p><pre class="js"><code>// GET /search?q=something
 req.originalUrl
 // => "/search?q=something"</code></pre></section><h2>Response</h2><a name="response"></a><section><h3 id="res.status">res.status(code)</h3><p>체인화 할 수 있는 (Chainable) 노드의 <code>res.statusCode=</code>의 alias입니다. 
@@ -403,7 +394,7 @@ res.set({
   'ETag': '12345'
 })
 </code></pre><p><code>res.header(field, [value])</code>라고도 알려져 있습니다.</p></section><section><h3 id="res.get">res.get(field)</h3><p> 
-대소문자를 구분하지 않는 response 헤더 <code>field</code>를 불러옵니다.</p><pre class="js"><code>res.get('Content-Type');
+대소문자를 구분하지 않는 response 헤더값을 불러옵니다.</p><pre class="js"><code>res.get('Content-Type');
 // => "text/plain"</code></pre></section><section><h3 id="res.cookie">res.cookie(name, value, [options])</h3><p>쿠키의 <code>name</code>을 <code>value</code> 설정하며,
 이는 문자열이나 JSON으로 변환 된 오브젝트 입니다.
 The <code>path</code> 옵션의 기본 값은 "/"입니다.
@@ -829,10 +820,8 @@ Express는 경로 문자열을 정규식으로 변환해주며, 내부적으로 
   var to = req.params[1] || 'HEAD';
   res.send('commit range ' + from + '..' + to);
 });</code></pre></section><h2>Middleware</h2><a name="middleware"></a><p> 
-4.x부터, Express는 Connect에 종속적이지 않습니다.
-이전에 포함 된 모든 미들웨어는 이제는 분리된 repo입니다.
-<a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>를 참고해 주세요.
-이제 포함된 미들웨어는 <code>express.static()</code>뿐 입니다.</p></div></section><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+4.x부터, Express는 Connect에 종속되지 않습니다.
+이전에 포함되었던 모든 미들웨어는 이제 분리되었습니다.</p><p><a href="https://github.com/senchalabs/connect#middleware">the list of middleware</a>를 참고해 주세요.</p></div></section><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
