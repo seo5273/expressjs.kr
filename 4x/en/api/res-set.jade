@@ -1,16 +1,17 @@
 section
   h3(id='res.set') res.set(field, [value])
   p 
-    | 헤더 <code>field</code>를 <code>value</code>로 설정합니다.
-    | 오브젝트를 여러 필드를 한꺼번에 설정하기 위해 오브젝트를 넘깁니다. 
+    | response 헤더에 <code>field</code>의 값으로 <code>value</code>를 설정합니다.
+    | 한번에 여러 field를 설정하기 위해 객체를 넘길수도 있습니다.
 
   +js.
     res.set('Content-Type', 'text/plain');
 
+    // 한번에 여러 field를 설정하는 경우
     res.set({
       'Content-Type': 'text/plain',
       'Content-Length': '123',
       'ETag': '12345'
     })
 
-  p <code>res.header(field, [value])</code>라고도 알려져 있습니다.
+  p <code>res.header(field, [value])</code>로도 사용할 수 있습니다.

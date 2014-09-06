@@ -2,10 +2,9 @@ section
   h3(id='res.attachment') res.attachment([filename])
   
   p.
-    Content-Disposition 헤더 필드를 "attachment"로 설정합니다.
-    만일 <code>filename</code>가 주어 지면, Content-Type은 자동적으로 extname에 근거 하여
-    <code>res.type()</code>을 통해 설정 되며, Content-Disposition의 
-    "filename="가 설정 됩니다.
+    Content-Disposition 헤더값을 "attachment"로 설정합니다.
+    만일 <code>filename</code>이 주어 지면, Content-Type은 자동적으로 filename의 확장자를 바탕으로
+    <code>res.type()</code>을 통해 설정되며, Content-Disposition의 "filename="이 설정됩니다.
 
   +js.
     res.attachment();

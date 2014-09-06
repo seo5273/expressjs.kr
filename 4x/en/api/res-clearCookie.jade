@@ -1,8 +1,8 @@
 section
   h3(id='res.clearCookie') res.clearCookie(name, [options])
   p.
-    쿠키 <code>name</code>를 클리어 해 줍니다. 
-    경로 옵션의 기본 값은 "/"입니다.
+    쿠키 <code>name</code>의 값을 제거합니다.
+    path의 기본값은 "/"입니다.
 
   +js.
     res.cookie('name', 'tobi', { path: '/admin' });

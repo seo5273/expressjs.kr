@@ -1,7 +1,7 @@
 section
   h3(id='res.location') res.location
   p.
-    위치(location) 헤더를 설정합니다.
+    location 헤더를 설정합니다.
 
   +js.
     res.location('/foo/bar');
@@ -11,12 +11,11 @@ section
     res.location('back');
 
   p.
-    <code>res.redirect()</code>와 같이, 같은 종류의 <code>urls</code>를 사용 할 수 있습니다.
+    <code>res.redirect()</code>와 비슷하게 <code>urls</code>를 설정할 수 있습니다.
     
   p.
-    For example, 
-    예를 들어, 애플리케이션이 <code>/blog</code>에 마운트 되어 있으면
-    아래는 <code>location</code> 헤더를 <code>/blog/admin</code>로 설정 해 줍니다.
+    예를 들어, 현재 <code>/blog</code>에 위치해 있으면
+    아래 코드는 <code>location</code> 헤더를 <code>/blog/admin</code>로 설정해 줍니다.
     
   +js.
     res.location('admin')

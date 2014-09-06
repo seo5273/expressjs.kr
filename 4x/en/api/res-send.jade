@@ -1,57 +1,35 @@
 section
-  h3(id='res.send') res.send([body|status], [body])
+  h3(id='res.send') res.send([body])
   
   p.
-    Response를 보냅니다.
+    응답을 보냅니다.
 
   +js.
     res.send(new Buffer('whoop'));
     res.send({ some: 'json' });
-    res.send('<p>some html</p>');
-    res.send(404, 'Sorry, we cannot find that!');
-    res.send(500, { error: 'something blew up' });
-    res.send(200);
+    res.send('some html');
+    res.status(404).send('Sorry, we cannot find that!');
+    res.status(500).send({ error: 'something blew up' });
 
   p.
-    이 메소드는 
-    미리 정의 되고, 오토메틱 <em>HEAD</em>과 HTTP cache freshness 지원을 제공하고 있지 않는 한
-    자동적으로 Content-Length를 할당하는 것과 같은 단순 non-streaming response의
-    유용한 task를 수행하는 데에 사용됩니다.
+    이는 단순한 응답을 보낼 때 유용하게 사용됩니다.
 
   p.
-    When a <code>Buffer</code> is given
-    <code>Buffer</code>가 주어 질 때, Content-Type은
-    아래와 같이 미리 정의 되지 않는 한,
-    "application/octet-stream"로 설정됩니다. 
-
+    <code>Buffer</code>를 보낼때는, Content-Type가 미리 정의되지 않으면 자동으로 "application/octet-stream"로 설정됩니다. 아래 예제는 미리 Content-Type을 정하기 때문에 Content-Type이 "text/html"로 설정됩니다.
 
   +js.
     res.set('Content-Type', 'text/html');
     res.send(new Buffer('<p>some html</p>'));
 
   p.
-    <code>String</code>가 주어 질 때, Content-Type은
-    기본적으로 "text/html"로 설정됩니다.
+    문자열을 보내면, Content-Type은 기본적으로 "text/html"로 설정됩니다.
 
   +js.
     res.send('<p>some html</p>');
 
   p.
-    <code>Array</code>나 <code>Object</code>가 주어 질 때,
-    Express는 JSON representation에 응답합니다.
+    객체나 배열을 보내면 Express는 JSON 양식으로 응답합니다.
 
   +js.
     res.send({ user: 'tobi' })
     res.send([1,2,3])
-
-  p.
-    마지막으로 <code>Number</code>가 미리 언급 된 body없이 주어 질 때,
-    response body 문자열이 할당 됩니다.
-    예를 들어, 200은 "OK"라고 응답(respond)하며,
-    404는 "Not Found" 등으로 나타납니다.
-
-
-  +js.
-    res.send(200)
-    res.send(404)
-    res.send(500)

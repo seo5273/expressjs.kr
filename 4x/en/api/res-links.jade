@@ -2,7 +2,7 @@ section
   h3(id='res.links') res.links(links)
   
   p.
-    "Link" response 헤더 필드를 채우기 위해, 주어진 <code>links</code>에 join합니다.
+    "Link" 응답 헤더값을 설정합니다.
 
   +js.
     res.links({
@@ -10,7 +10,7 @@ section
       last: 'http://api.example.com/users?page=5'
     });
 
-  p 는 아래의 결과를 만듭니다:
+  p 위 예제는 아래와 같은 결과를 만듭니다.
 
   pre
     code.

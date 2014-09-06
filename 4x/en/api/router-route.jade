@@ -2,14 +2,9 @@ section
   h3(id='router.route') router.route(path)
 
   p.
-    HTTP verg와 optional 미들웨어를 다루는 데 사용 될 수 있는 싱글 라우트의 인스턴스를 반환합니다.
-    <code>router.route()</code>를 사용 하는 것은 중복되는 라우트 이름과 오타에서 나오는 에러를 방지하지 위한
-    접근 법으로 권장됩니다.
-    
-
-  p.
-    이전의 <code>router.param()</code>를 만드는 예제로부터,
-    어떻게 <code>router.route()</code>가 여러 HTTP verb handler를 쉽게 명시 해 줄 수 있게 도와주는지 볼 수 있습니다.
+    라우트 인스턴스를 반환합니다.
+    여기에 메소드 체인 형식으로 여러가지 미들웨어를 달 수 있습니다.
+    이는 같은 이름으로 중복해서 정의하는 라우트들이 있을 때 유용하게 사용됩니다.
 
   +js.
     var router = express.Router();
@@ -18,7 +13,7 @@ section
       // sample user, would actually fetch from DB, etc...
       req.user = {
         id: id,
-        name: 'TJ'
+        name: 'Hanul'
       };
       next();
     });
@@ -43,6 +38,3 @@ section
     .delete(function(req, res, next) {
       next(new Error('not implemented'));
     })
-
-  p.
-    이 방법은 싱글 '/users/:user_id' 경로를 재사용하며, 여러 HTTP verb를 위한 핸들러를 더해줍니다.

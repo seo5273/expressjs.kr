@@ -2,7 +2,7 @@ section
   h3(id='res.status') res.status(code)
   
   p.
-    체인화 할 수 있는 (Chainable) 노드의 <code>res.statusCode=</code>의 alias입니다. 
+    <code>res.statusCode=</code>와 같은 기능을 하는 메소드입니다. 상태 코드를 반환할 수 있고, 또 다른 메소드를 연결할 수 있도록 method chain 형식을 띠고 있습니다.
 
   +js.
     res.status(404).sendfile('path/to/404.png');

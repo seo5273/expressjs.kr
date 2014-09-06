@@ -1,8 +1,8 @@
 section
   h3(id='res.redirect') res.redirect([status], url)
   p.
-    선택적 <code>status</code>코드와 주어진 <code>url</code>로 우회합니다.
-    기본 값은 302 "Found" 입니다.
+    설정한 <code>url</code>로 redirect합니다.
+    추가로 <code>status</code>코드를 지정할 수 있습니다. 기본값은 302 "Found" 입니다.
 
   +js.
     res.redirect('/foo/bar');
@@ -11,42 +11,38 @@ section
     res.redirect('../login');
 
   p.
-    Express는 여러 우회 방법을 지원합니다. 
-    완전히 qualified 된 URI가 다른 사이트로 우회 하려면,
+    Express는 여러 형태의 redirect를 지원합니다. 다른 사이트로 redirect하려면 완전한 도메인을 입력하면 됩니다.
 
   +js.
     res.redirect('http://google.com');
 
   p.
-    두 번째 방법은 경로이름과 관계된 우회 방법입니다.
-    예를 들면 <code>http://example.com/admin/post/new</code>에 있고
-    그 우회로가 <code>/admin</code>라면, <code>http://example.com/admin</code>로 접근 시켜 줍니다.
+    상대경로를 입력하면, 현재 도메인에서 해당 경로로 이동합니다.
+    예를 들어 당신이 현재 <code>http://example.com/admin/post/new</code>에 있고
+    아래와 같이 <code>/admin</code>로 redirect를 설정하면, <code>http://example.com/admin</code>로 이동합니다.
     
   +js.
     res.redirect('/admin');
 
   p.
-    그 다음 방법은 애플리케이션의 <code>mount</code> 포인트를 사용한 방법입니다.
-    예를 들어, 만약 <code>/blog</code>에 마운트 된 블로그 애플리케이션이 있다면, 이상적으로
-    이것은 어디에서 마운트 되었는지의 정보를 가지고 있지 않으며,
-    이는 <code>/admin/post/new</code>의 우회로가 단순히 <code>http://example.com/admin/post/new</code>라는 우회를
-    넘겨주게 되며, 이는 <code>http://example.com/blog/admin/post/new</code>로 접근 시켜 줍니다.
+    맨 앞에 "/"를 붙히지 않으면 현재 경로에서 상대적인 경로를 찾아 이동합니다.
+    예를 들어, 현재 <code>/blog</code>에 위치하고 있다면, <code>admin/post/new</code>를 입력할 경우 <code>http://example.com/blog/admin/post/new</code>로 이동합니다.
 
 
   +js.
     res.redirect('admin/post/new');
-
+  
   p.
-    경로 이름으로 우회하는 방법 또한 가능합니다.
-    만약 <code>http://example.com/admin/post/new</code>에 있다면 그 우회로는 
-    <code>http//example.com/admin/post</code>로 접근 시켜 줍니다.
+    마찬가지로 한단계 상위의 경로에 접근하기 위해서는 아래와 같이 설정하면 됩니다.
+    만약 현재 <code>http://example.com/admin/post/new</code>에 있다면 <code>http//example.com/admin/post</code>로 이동합니다.
 
   +js.
     res.redirect('..');
 
   p. 
-    마지막 특별한 방법은 <code>back</code> 우회법인데, Referer (혹은 Referrer)로 다시 우회 시켜주는 방법이며,
-    값이 지정 되어 있지 않을 때, 기본 값은 <code>/</code>입니다.
+    마지막으로 특별한 설정인 <code>back</code>입니다.
+    Referer (혹은 Referrer)로 다시 이동하며,
+    Referer가 지정되어 있지 않을 때는 <code>/</code>로 이동합니다.
  
   +js.
     res.redirect('back');

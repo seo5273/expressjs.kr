@@ -2,8 +2,8 @@ section
   h3(id='error-handling') 오류 처리
 
   p.
-    오류 처리 미들웨어는 다른 보통 미들웨어와 마찬가지로 정의되지만, 
-    특히 오류 처리 미들웨어는 4개의 argument <code>(err, req, res, next)</code>로 정의되어야 합니다.
+    오류 처리 미들웨어는 다른 미들웨어와 같은 방법으로 정의되지만, 
+    특히 오류 처리 미들웨어에 대해서는 4개의 argument <code>(err, req, res, next)</code>로 정의되어야 합니다.
 
   +js.
     app.use(function(err, req, res, next){
@@ -12,8 +12,7 @@ section
     });
 
   p.
-    필수 오류 처리 미들웨어가 전형적으로 가장 마지막에 정의되는 것은 아니지만, 아래 다른 <code>app.use()</code>들은
-    여기서 보이는 것과 같이 호출합니다.
+    오류 처리 미들웨어는 보통 아래와 같이 <code>app.use()</code>마지막에 선언합니다.
 
   +js.
     var bodyParser = require('body-parser');
@@ -27,13 +26,12 @@ section
     });
 
   p.
-    미들웨어 안에서의 응답(Response)은 완전히 임의적입니다.
-    HTML 에러 페이지, 간단한 메세지, JSON 문자열이나 기타 원하는 방법으로 응답하세요.
+    미들웨어 안에서의 응답 양식은 원하는대로 작성하시면 됩니다!
+    HTML 에러 페이지, 간단한 메세지, JSON 문자열이나 기타 원하는 방법으로 작성하시면 됩니다.
      
   p.  
-    조직체나 높은 레벨의 프레임워크 목적을 위해서는 보통 미들웨어를 정의하는 것과 같이
-    이러한 여러 미들웨어를 정의합니다. 
-    예를 들면, XHR을 통해 만들어진 요청(requests)을 위한 오류 핸들러를 정의 할 때 (그리고 요청을 제외 할 때에), 이래처럼 하세요. 
+    일반적으로 애플리케이션을 제작할 때는 여러가지 미들웨어를 사용하게 됩니다.
+    예를 들면, XHR을 통해 만들어진 요청(requests)을 위한 오류 핸들러를 정의할 때, 아래처럼 합니다. 
 
   +js.
     var bodyParser = require('body-parser');
@@ -47,7 +45,7 @@ section
     app.use(errorHandler);
 
   p.
-    더 포괄적(generic) <code>logErrors</code>가 에러 정보를 stderr, loggly, 혹은 비슷한 서비스들에게 요청을 보내는 부분입니다.
+    logErrors는 다음과 같이 정의될 수 있습니다.
 
   +js.
     function logErrors(err, req, res, next) {
@@ -56,7 +54,7 @@ section
     }
 
   p.
-    <code>clientErrorHandler</code>가 다음과 같이 정의되는 부분입니다. 에러가 명확히 다음으로 넘어간다는 것을 알아두세요.
+    <code>clientErrorHandler</code>는 다음과 같이 정의될 수 있습니다.
 
   +js.
     function clientErrorHandler(err, req, res, next) {
@@ -68,7 +66,7 @@ section
     }
 
   p.
-    아래의 <code>errorHandler</code> "catch-all" 실행은(implementation) 다음과 같이 정의됩니다.
+    <code>errorHandler</code>는 다음과 같이 정의될 수 있습니다.
 
   +js.
     function errorHandler(err, req, res, next) {

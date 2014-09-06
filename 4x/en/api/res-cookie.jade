@@ -1,25 +1,25 @@
 section
   h3(id='res.cookie') res.cookie(name, value, [options])
   p.
-    쿠키의 <code>name</code>을 <code>value</code> 설정하며,
-    이는 문자열이나 JSON으로 변환 된 오브젝트 입니다.
-    The <code>path</code> 옵션의 기본 값은 "/"입니다.
+    쿠키에 <code>name</code>의 값을 <code>value</code>로 설정하며,
+    이는 문자열이나 JSON으로 변환 된 객체입니다.
+    <code>path</code>의 기본값은 "/"입니다.
 
   +js.
     res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
     res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
 
   p.
-    <code>maxAge</code> 옵션은 "expires" 설정을 위한 것이며, 현재 시간을 밀리초로 설정 해 줍니다., 
-    아래 예제는 이전 예제와 같습니다.
+    <code>maxAge</code> 옵션은 쿠키의 만료시간 설정을 위한 것이며, 현재 시간을 밀리초 단위로 설정해 줍니다. 
+    아래 예제는 위 예제와 같습니다.
 
 
   +js.
     res.cookie('rememberme', '1', { maxAge: 900000, httpOnly: true })
 
   p.
-    오브젝트는 JSON처럼 시리즈화(serialized) 되어 넘겨지며, 이것은 <code>bodyParser()</code> 미들웨어에 의해
-    자동적으로 파싱됩니다. 
+    객체는 JSON으로 직렬화되어 저장되며, 이는 <code>bodyParser()</code> 미들웨어에 의해
+    자동으로 처리됩니다.
     
 
   +js.
@@ -27,14 +27,11 @@ section
     res.cookie('cart', { items: [1,2,3] }, { maxAge: 900000 });
 
   p.
-    Signed 쿠키는 또한 이 메소드를 통해 지원됩니다.
-    단순히 <code>signed</code> 옵션을 넘기세요.
-    주어진 <code>res.cookie()</code>가 값을 sign 하기 위해
-    <code>cookieParser(secret)</code>로 넘겨진 비밀(secret)을 사용 할 것입니다.
-
+    보안 쿠키 또한 이 메소드를 통해 지원됩니다.
+    단순히 <code>signed</code> 옵션을 설정하기만 하면 됩니다.
 
   +js.
     res.cookie('name', 'tobi', { signed: true });
 
   p.
-    이후, <a href="#req.signedCookies">req.signedCookie</a> 오브젝트를 통해 이 값에 접근 할 수 있습니다.
+    이후, <a href="#req.signedCookies">req.signedCookie</a> 객체를 통해 이 값에 접근할 수 있습니다.

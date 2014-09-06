@@ -1,36 +1,46 @@
 section
   h3(id='res.sendfile') res.sendfile(path, [options], [fn])
 
-  p 주어진 <code>path</code>의 파일을 전송합니다.
+  p 주어진 <code>경로</code>의 파일을 전송합니다.
   
 
   p.
  
-    파일 이름의 확장자에 근거 하여 자동적으로 Content-Type response 헤더 필드를 기본 값으로 합니다.
-    파일 전송이 완료 되거나 에러 발생 시,  <code>fn(err)</code> 콜백이 호출됩니다.
+    파일명의 확장자를 바탕으로 자동적으로 Content-Type 응답 헤더를 지정합니다.
+    파일 전송이 완료되거나 오류가 발생할 경우, <code>fn(err)</code>가 호출됩니다.
 
   p 옵션:
 
   ul
-    li <code>maxAge</code> 밀리초 형태, 기본 값은 0
-    li <code>root</code> 관계 된 파일 이름을 위한 라우트 디렉토리
-
-  p.
-    이 메소드는 아래 예제에 보여 지는 것처럼, 파일을 서빙(serving)하기 위한 fine-grained 지원을 제공합니다.
+    li <code>maxAge</code> Cache-Control 헤더의 max-age를 설정합니다. 밀리초 형태로, 기본값은 0입니다.
+    li <code>root</code> 상대 경로를 위한 루트 폴더 경로입니다.
+    li <code>headers</code> HTTP 헤더 정보를 갖고있는 객체입니다.
+    li <code>dotfiles</code> dotfile들을 제공할지 여부를 결정합니다. 가능한 값으로는 "allow", "deny", "ignore"가 있습니다. 기본값은 "ignore"입니다.
 
   +js.
-    app.get('/user/:uid/photos/:file', function(req, res){
-      var uid = req.params.uid
-        , file = req.params.file;
+    app.get('/file/:name', function (req, res, next) {
 
-      req.user.mayViewFilesFrom(uid, function(yes){
-        if (yes) {
-          res.sendfile('/uploads/' + uid + '/' + file);
-        } else {
-          res.send(403, 'Sorry! you cant see that.');
+      var options = {
+        root: __dirname + '/public/',
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+      };
+  
+      var fileName = req.params.name;
+      res.sendFile(fileName, options, function (err) {
+        if (err) {
+          console.log(err);
+          res.status(err.status).end();
+        }
+        else {
+          console.log('Sent:', fileName);
         }
       });
-    });
+      
+    })
 
   p.
-    더 많은 문서를 보거나, 문제가 있을 경우에는 <a href="https://github.com/visionmedia/send">send</a>을 참고하세요.
+    더 자세한 정보는 <a href="https://github.com/visionmedia/send">send</a>를 참고하세요.

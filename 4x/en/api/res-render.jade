@@ -1,10 +1,9 @@
 section
   h3(id='res.render') res.render(view, [locals], callback)
 
-  p. 
-    <code>view</code>과 render된 문자열과 응답하는 콜백을 render합니다. 
-    <code>next(err)</code>가 내부적으로 호출되면 에러가 발생합니다.
-    콜백이 제공 되면, 가능한 에러와 render된 문자열 둘 다 넘겨지며, 자동 처리된 응답은 수행 되지 않습니다.
+  p.
+    <code>뷰</code>를 렌더링하고 렌더링 된 HTML 문자열을 callback에 전달합니다.
+    오류가 발생하면 내부적으로 <code>next(err)</code>가 실행되고 callback에 전달합니다.
 
   +js.
     res.render('index', function(err, html){

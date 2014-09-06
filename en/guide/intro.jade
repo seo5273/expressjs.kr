@@ -3,17 +3,14 @@ section
 
   p.
     노드를 설치하고 (<a href="http://nodejs.org/download">다운로드</a>),
-    컴퓨터에 디렉토리를 만든 후, 첫 애플리케이션을 생성합니다.
+    아래 명령어로 컴퓨터에 폴더를 만든 후, 첫 애플리케이션을 생성합니다.
 
   +js.
     $ mkdir hello-world
 
   p.
-    이는 같은 디렉토리 안에 애플리케이션 "package"를 정의를 할 것이며, 이 "package"들은 다른 노드 package들과 다르지 않습니다.
-    이 디렉토리 안에는 package.json 파일과 종속적으로 정의된 express가 필요하며, 최신 버전을 알기 위해서는
-    <code>npm info express version</code>을 사용할 수 있습니다.    
-    예측 할 수 없는 상황이나 버그 등을 방지하기 위해, "3.x" 이하 버젼을 쓰는 대신 이러한 방법으로 사용 하는 것이 바람직합니다. 
-
+    당신이 애플리케이션 "package"를 정의하게될 폴더는, 다른 노드 package들과 다르지 않습니다.
+    이 폴더 안에는 express에 종속성을 가지는 package.json파일이 필요합니다.
 
   +js.
     {
@@ -22,60 +19,73 @@ section
       "version": "0.0.1",
       "private": true,
       "dependencies": {
-        "express": "3.x"
+        "express": "4.x"
       }
     }
 
   p.
-    이제 이 디렉토리 안에 package.json파일이 있으므로, 의존성 파일들을 설치하기 위해서 
-    <code>npm(1)</code>을 사용 할 수 있습니다.
+    이제 폴더 안에 package.json파일이 있으므로, 의존성 파일들을 설치하기 위해서 
+    아래와 같이 <code>npm</code>을 사용 할 수 있습니다.
 
   +js.
     $ npm install
 
   p.
-    npm이 끝나면, ./node_modules 디렉토리에 로컬라이징 된 Express 3.x 의존성이 생성이 됩니다.
-    아래 Express 트리와 의존성들을 보여주는 아래의 스니펫(snippet, 작은 정보들)에서 
-    보여지는 것 같이 나오는 지 확인해 보세요.
+    npm을 이용한 설치가 끝나면, ./node_modules 폴더에 express가 생성되어 있습니다.
+    <code>npm ls</code>를 통해 아래와 같이 나오는지 확인해보세요 ^^
+
   +js.
     $ npm ls
     hello-world@0.0.1 /private/tmp
-    └─┬ express@3.0.0beta7
-      ├── commander@0.6.1
-      ├─┬ connect@2.3.9
-      │ ├── bytes@0.1.0
-      │ ├── cookie@0.0.4
-      │ ├── crc@0.2.0
-      │ ├── formidable@1.0.11
-      │ └── qs@0.4.2
-      ├── cookie@0.0.3
-      ├── debug@0.7.0
-      ├── fresh@0.1.0
-      ├── methods@0.0.1
-      ├── mkdirp@0.3.3
-      ├── range-parser@0.0.4
-      ├─┬ response-send@0.0.1
-      │ └── crc@0.2.0
-      └─┬ send@0.0.3
-        └── mime@1.2.6
+    └─┬ express@4.8.8
+      ├─┬ accepts@1.0.7
+      │ ├── mime-types@1.0.2
+      │ └── negotiator@0.4.7
+      ├── buffer-crc32@0.2.3
+      ├── cookie@0.1.2
+      ├── cookie-signature@1.0.4
+      ├─┬ debug@1.0.4
+      │ └── ms@0.6.2
+      ├── depd@0.4.4
+      ├── escape-html@1.0.1
+      ├── finalhandler@0.1.0
+      ├── fresh@0.2.2
+      ├── media-typer@0.2.0
+      ├── merge-descriptors@0.0.2
+      ├── methods@1.1.0
+      ├── parseurl@1.3.0
+      ├── path-to-regexp@0.1.3
+      ├─┬ proxy-addr@1.0.1
+      │ └── ipaddr.js@0.1.2
+      ├── qs@2.2.2
+      ├── range-parser@1.0.0
+      ├─┬ send@0.8.5
+      │ ├── destroy@1.0.3
+      │ ├── mime@1.2.11
+      │ ├── ms@0.6.2
+      │ └─┬ on-finished@2.1.0
+      │   └── ee-first@1.0.5
+      ├── serve-static@1.5.4
+      ├─┬ type-is@1.3.2
+      │ └── mime-types@1.0.2
+      ├── utils-merge@1.0.0
+      └── vary@0.1.0
 
   p.
-    이제 애플케이션 자체를 생성해 봅시다! app.js나 server.js 중 원하거나 express가 요구되는 파일을 생성하세요.
-    그리고 <code>express()</code>를 사용하여 새 애플리케이션을 생성하세요.
-
+    이제 애플케이션을 만들어 봅시다! 우선 app.js나 server.js와 같이 원하는 파일명으로 파일을 만드세요.
+    그리고 <code>express()</code>를 사용하여 새 애플리케이션을 생성하세요!
 
   +js.
     var express = require('express');
     var app = express();
 
   p.
-    새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통한 라우트를 정의 할 수 있습니다. 이 경우 "GET /"로 "Hello World" 문자열을 나타 낼 수 있습니다.
-    <code>req</code>와 <code>res</code>은 노드가 제공하는 정확히 같은 Object이며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
+    새 애플리케이션 인스턴스로 이제 <code>app.VERB()</code>를 통해 라우트를 정의할 수 있습니다.
+    <code>req</code>나 <code>res</code>은 노드가 제공하는 객체이며, 이제 <code>res.pipe()</code>, <code>req.on('data', callback)</code>나
     기타 여러가지 것들을 호출 할 수 있습니다.
 
   p.
-    Express는 <code>res.send()</code> 등과 같은 높은 레벨 메소드를 제공합니다. 
-    또한 Content-Length를 더해줍니다. 
+    Express는 <code>res.send()</code>와 같은 메소드들을 제공합니다. 
 
   +js.
     app.get('/hello.txt', function(req, res){
@@ -84,7 +94,7 @@ section
 
   p.
     이제, 연결을 bind하고 listen 하기 위하여, node의 <a href="http://nodejs.org/api/net.html#net_server_listen_port_host_backlog_listeninglistener">net.Server#listen()</a>
-    와 같은 같은 arguments를 받아들이는 <code>app.listen()</code> 메소드를 호출합니다. 
+    와 같은 같은 arguments를 가지는 <code>app.listen()</code> 메소드를 호출합니다. 
 
 
   +js.

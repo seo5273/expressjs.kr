@@ -2,12 +2,11 @@ section
   h3(id='res.locals') res.locals
 
   p.
-    Response 지역변수는 요청으로 확장 되며, 
-    요청(request)/응답(response) cycle 동안 view(s) rendered에 사용 가능 합니다.
+    이 객체는 요청(request)/응답(response) cycle 및 뷰 렌더링 등에 사용 가능합니다.
     그렇지 않으면, 이 API는 <a href="#app.locals">app.locals</a>와 동일합니다.
     
   p.
-    이 오브젝트는 요청 경로 이름, 인증 된 유저, 유저 설정 등의 요청 레벨의 정보를 노출 할 때 유용합니다. 
+    이 오브젝트는 요청 경로, 인증된 유저, 유저 설정 등의 reqeust 레벨의 정보를 전달할 때 유용합니다. 
 
   +js.
     app.use(function(req, res, next){
